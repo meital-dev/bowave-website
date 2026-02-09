@@ -148,6 +148,28 @@
         .mock-dot{width:5px;height:5px;border-radius:50%;display:inline-block}
         .mock-legend{display:flex;gap:1rem;justify-content:center;margin-top:.75rem;padding-top:.5rem;border-top:1px solid #f0f0f0}
         .mock-legend-item{display:flex;align-items:center;gap:.3rem;font-size:.5rem;color:#888}
+        /* Bar chart mockup */
+        .mock-bar-chart{display:flex;align-items:flex-end;justify-content:space-around;height:110px;position:relative;padding:0 .5rem}
+        .mock-bar-group{display:flex;flex-direction:column;align-items:center;gap:.2rem;position:relative;z-index:2;flex:1}
+        .mock-bar{width:70%;min-width:18px;border-radius:3px 3px 0 0;position:relative}
+        .mock-bar.negative{border-radius:0 0 3px 3px}
+        .mock-bar-val{font-size:.45rem;font-family:'JetBrains Mono',monospace;color:#555;text-align:center;font-weight:600;white-space:nowrap}
+        .mock-bar-zero{position:absolute;bottom:50%;left:0;right:0;border-top:1px solid #ddd;z-index:1}
+        /* Business model mockup */
+        .mock-bm-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.6rem}
+        .mock-bm-card{border-radius:8px;padding:.6rem .5rem;text-align:center}
+        .mock-bm-card.bm-white{background:#fff;border:1px solid #e5e7eb}
+        .mock-bm-card.bm-dark{background:linear-gradient(135deg,#1e2a3a 0%,#2d3a4a 100%)}
+        .mock-bm-card.bm-green{background:linear-gradient(135deg,#E8F5E9 0%,#C8E6C9 100%);border:1px solid #A5D6A7}
+        .mock-bm-val{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:700;margin-bottom:.1rem}
+        .mock-bm-val.gold{color:#D4A843}
+        .mock-bm-val.white{color:#fff}
+        .mock-bm-val.green{color:#2E7D32}
+        .mock-bm-lbl{font-size:.48rem;letter-spacing:.04em;text-transform:uppercase;font-weight:400}
+        .mock-bm-lbl.grey{color:#888}
+        .mock-bm-lbl.light{color:rgba(255,255,255,.6)}
+        .mock-bm-lbl.dark{color:#555}
+        .mock-bm-sub{font-size:.4rem;color:rgba(255,255,255,.4);margin-top:.15rem}
         .work-card-body{padding:1.75rem 2.5rem 2.25rem;background:var(--off-white)}
         .work-card-body p{font-size:.9rem;line-height:1.85;color:var(--text-body);font-weight:300}
 
@@ -364,28 +386,39 @@
         <div class="work-card reveal">
             <div class="work-card-top"><span class="work-tag">B2B · Construction-Tech</span><h3>Tech B2B Startup</h3></div>
             <div class="work-mockup-light">
-                <div class="mock-title-bar"><h4>Customer Growth</h4><span class="mock-title-sub">Q1–Q8 (New / Churned / Ending)</span></div>
-                <div class="mock-kpi-row">
-                    <div class="mock-kpi-card kpi-green"><div class="mock-kpi-val">92</div><div class="mock-kpi-lbl">New Customers</div></div>
-                    <div class="mock-kpi-card kpi-yellow"><div class="mock-kpi-val">-7</div><div class="mock-kpi-lbl">Total Churned</div></div>
-                    <div class="mock-kpi-card kpi-blue"><div class="mock-kpi-val">85</div><div class="mock-kpi-lbl">Ending Customers</div></div>
-                    <div class="mock-kpi-card kpi-purple"><div class="mock-kpi-val">2.3%</div><div class="mock-kpi-lbl">Quarterly Churn</div></div>
-                </div>
-                <div class="mock-chart-area">
-                    <svg viewBox="0 0 320 100" preserveAspectRatio="none">
-                        <polyline fill="none" stroke="#1565C0" stroke-width="2" stroke-linejoin="round" points="20,95 60,78 100,68 140,55 180,47 220,38 260,28 300,18"/>
-                        <circle cx="20" cy="95" r="3" fill="#1565C0"/><circle cx="60" cy="78" r="3" fill="#1565C0"/><circle cx="100" cy="68" r="3" fill="#1565C0"/><circle cx="140" cy="55" r="3" fill="#1565C0"/><circle cx="180" cy="47" r="3" fill="#1565C0"/><circle cx="220" cy="38" r="3" fill="#1565C0"/><circle cx="260" cy="28" r="3" fill="#1565C0"/><circle cx="300" cy="18" r="3" fill="#1565C0"/>
-                        <polyline fill="none" stroke="#2E7D32" stroke-width="1.5" stroke-linejoin="round" points="20,90 60,78 100,82 140,75 180,80 220,80 260,80 300,72"/>
-                        <circle cx="20" cy="90" r="2.5" fill="#2E7D32"/><circle cx="60" cy="78" r="2.5" fill="#2E7D32"/><circle cx="100" cy="82" r="2.5" fill="#2E7D32"/><circle cx="140" cy="75" r="2.5" fill="#2E7D32"/><circle cx="180" cy="80" r="2.5" fill="#2E7D32"/><circle cx="220" cy="80" r="2.5" fill="#2E7D32"/><circle cx="260" cy="80" r="2.5" fill="#2E7D32"/><circle cx="300" cy="72" r="2.5" fill="#2E7D32"/>
-                        <polyline fill="none" stroke="#D94052" stroke-width="1.5" stroke-linejoin="round" points="20,95 60,95 100,95 140,94 180,93 220,93 260,93 300,92"/>
-                        <circle cx="140" cy="94" r="2" fill="#D94052"/><circle cx="180" cy="93" r="2" fill="#D94052"/><circle cx="220" cy="93" r="2" fill="#D94052"/><circle cx="260" cy="93" r="2" fill="#D94052"/><circle cx="300" cy="92" r="2" fill="#D94052"/>
+                <div class="mock-title-bar"><h4>Cash Flow & Profitability</h4><span class="mock-title-sub">Operating P/L (Bars) + Cash Balance (Line)</span></div>
+                <div style="position:relative;height:140px;padding:0 .25rem">
+                    <!-- Cash balance curve -->
+                    <svg viewBox="0 0 320 140" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none">
+                        <polyline fill="none" stroke="#D4A843" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="6,3" points="20,18 60,35 100,50 140,62 180,70 220,65 260,52 300,36"/>
+                        <circle cx="20" cy="18" r="3" fill="#D4A843"/><circle cx="60" cy="35" r="3" fill="#D4A843"/><circle cx="100" cy="50" r="3" fill="#D4A843"/><circle cx="140" cy="62" r="3" fill="#D4A843"/><circle cx="180" cy="70" r="3" fill="#D4A843"/><circle cx="220" cy="65" r="3" fill="#D4A843"/><circle cx="260" cy="52" r="3" fill="#D4A843"/><circle cx="300" cy="36" r="3" fill="#D4A843"/>
+                        <!-- Cash balance labels -->
+                        <text x="20" y="13" font-size="6" fill="#D4A843" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="600">$680K</text>
+                        <text x="100" y="45" font-size="6" fill="#D4A843" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="600">$412K</text>
+                        <text x="180" y="65" font-size="6" fill="#D4A843" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="600">$195K</text>
+                        <text x="260" y="47" font-size="6" fill="#D4A843" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="600">$310K</text>
+                        <text x="300" y="31" font-size="6" fill="#D4A843" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="600">$445K</text>
                     </svg>
+                    <!-- Bars -->
+                    <div style="display:flex;align-items:center;height:100%;position:relative;z-index:1">
+                        <div style="position:absolute;top:50%;left:0;right:0;border-top:1.5px solid #ddd"></div>
+                        <div style="display:flex;justify-content:space-around;width:100%;height:100%;align-items:center">
+                            <div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="font-size:.4rem;color:#D94052;font-family:JetBrains Mono,monospace;font-weight:600">-$195K</div><div style="width:22px;height:38px;background:#D94052;border-radius:0 0 3px 3px;opacity:.85"></div></div>
+                            <div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="font-size:.4rem;color:#D94052;font-family:JetBrains Mono,monospace;font-weight:600">-$230K</div><div style="width:22px;height:44px;background:#D94052;border-radius:0 0 3px 3px;opacity:.85"></div></div>
+                            <div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="font-size:.4rem;color:#D94052;font-family:JetBrains Mono,monospace;font-weight:600">-$148K</div><div style="width:22px;height:30px;background:#D94052;border-radius:0 0 3px 3px;opacity:.85"></div></div>
+                            <div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="font-size:.4rem;color:#D94052;font-family:JetBrains Mono,monospace;font-weight:600">-$72K</div><div style="width:22px;height:18px;background:#D94052;border-radius:0 0 3px 3px;opacity:.85"></div></div>
+                            <div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="font-size:.4rem;color:#D94052;font-family:JetBrains Mono,monospace;font-weight:600">-$31K</div><div style="width:22px;height:10px;background:#D94052;border-radius:0 0 3px 3px;opacity:.85"></div></div>
+                            <div style="display:flex;flex-direction:column-reverse;align-items:center;gap:2px"><div style="font-size:.4rem;color:#2E7D32;font-family:JetBrains Mono,monospace;font-weight:600">$18K</div><div style="width:22px;height:8px;background:#43A047;border-radius:3px 3px 0 0;opacity:.85"></div></div>
+                            <div style="display:flex;flex-direction:column-reverse;align-items:center;gap:2px"><div style="font-size:.4rem;color:#2E7D32;font-family:JetBrains Mono,monospace;font-weight:600">$75K</div><div style="width:22px;height:20px;background:#43A047;border-radius:3px 3px 0 0;opacity:.85"></div></div>
+                            <div style="display:flex;flex-direction:column-reverse;align-items:center;gap:2px"><div style="font-size:.4rem;color:#2E7D32;font-family:JetBrains Mono,monospace;font-weight:600">$158K</div><div style="width:22px;height:32px;background:#43A047;border-radius:3px 3px 0 0;opacity:.85"></div></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mock-chart-labels"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span><span>Q5</span><span>Q6</span><span>Q7</span><span>Q8</span></div>
+                <div class="mock-chart-labels"><span>Q1 '26</span><span>Q2 '26</span><span>Q3 '26</span><span>Q4 '26</span><span>Q1 '27</span><span>Q2 '27</span><span>Q3 '27</span><span>Q4 '27</span></div>
                 <div class="mock-legend">
-                    <div class="mock-legend-item"><span class="mock-dot" style="background:#2E7D32"></span> New</div>
-                    <div class="mock-legend-item"><span class="mock-dot" style="background:#D94052"></span> Churned</div>
-                    <div class="mock-legend-item"><span class="mock-dot" style="background:#1565C0"></span> Ending</div>
+                    <div class="mock-legend-item"><span class="mock-dot" style="background:#D94052"></span> Operating Loss</div>
+                    <div class="mock-legend-item"><span class="mock-dot" style="background:#43A047"></span> Operating Profit</div>
+                    <div class="mock-legend-item"><span class="mock-dot" style="background:#D4A843"></span> Cash Balance</div>
                 </div>
             </div>
             <div class="work-card-body"><p>Built a full business plan and financial model for a construction-tech B2B platform preparing for a $3M Seed round. Delivered an AI-powered planning tool with formula-based Excel exports, Google Sheets integration, and a fully dynamic pitch deck generated via Apps Script — updated automatically from a single data source.</p></div>
@@ -393,26 +426,27 @@
         <div class="work-card reveal">
             <div class="work-card-top"><span class="work-tag">B2C · Consumer App</span><h3>B2C App Startup</h3></div>
             <div class="work-mockup-light">
-                <div class="mock-title-bar"><h4>Unit Economics</h4><span class="mock-title-sub">Monthly Cohort Analysis</span></div>
-                <div class="mock-kpi-row">
-                    <div class="mock-kpi-card kpi-green"><div class="mock-kpi-val">$22</div><div class="mock-kpi-lbl">ARPU</div></div>
-                    <div class="mock-kpi-card kpi-blue"><div class="mock-kpi-val">3.4x</div><div class="mock-kpi-lbl">LTV / CAC</div></div>
-                    <div class="mock-kpi-card kpi-purple"><div class="mock-kpi-val">150K</div><div class="mock-kpi-lbl">Users Y1</div></div>
-                    <div class="mock-kpi-card kpi-yellow"><div class="mock-kpi-val">$1.2M</div><div class="mock-kpi-lbl">ARR Target</div></div>
+                <div class="mock-title-bar"><h4>Business Model</h4><span class="mock-title-sub">Phase 1 (Q1 2026 – Q4 2027)</span></div>
+                <!-- Revenue drivers row -->
+                <div class="mock-bm-row">
+                    <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">$2,800</div><div class="mock-bm-lbl grey">Avg Order Value</div></div>
+                    <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">18%</div><div class="mock-bm-lbl grey">Take Rate</div></div>
+                    <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">$504</div><div class="mock-bm-lbl grey">Take Rate Revenue</div></div>
+                    <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">$12</div><div class="mock-bm-lbl grey">SaaS Per User</div></div>
                 </div>
-                <div class="mock-chart-area">
-                    <svg viewBox="0 0 320 100" preserveAspectRatio="none">
-                        <linearGradient id="revFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5B5FC7" stop-opacity="0.15"/><stop offset="100%" stop-color="#5B5FC7" stop-opacity="0"/></linearGradient>
-                        <polygon fill="url(#revFill)" points="20,92 60,88 100,82 140,72 180,58 220,42 260,28 300,15 300,100 20,100"/>
-                        <polyline fill="none" stroke="#5B5FC7" stroke-width="2" stroke-linejoin="round" points="20,92 60,88 100,82 140,72 180,58 220,42 260,28 300,15"/>
-                        <circle cx="20" cy="92" r="3" fill="#5B5FC7"/><circle cx="100" cy="82" r="3" fill="#5B5FC7"/><circle cx="180" cy="58" r="3" fill="#5B5FC7"/><circle cx="260" cy="28" r="3" fill="#5B5FC7"/><circle cx="300" cy="15" r="3" fill="#5B5FC7"/>
-                        <polyline fill="none" stroke="#2E7D32" stroke-width="1.5" stroke-dasharray="5,3" stroke-linejoin="round" points="20,45 60,48 100,50 140,52 180,55 220,56 260,58 300,58"/>
-                    </svg>
+                <!-- Totals row -->
+                <div class="mock-bm-row">
+                    <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$11.4M</div><div class="mock-bm-lbl light">Total GMV</div><div class="mock-bm-sub">Gross Merchandise Value</div></div>
+                    <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$2.1M</div><div class="mock-bm-lbl light">Take Rate Revenue</div><div class="mock-bm-sub">On delivery value</div></div>
+                    <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$6K</div><div class="mock-bm-lbl light">Logistics Revenue</div><div class="mock-bm-sub">5% of logistics costs</div></div>
+                    <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$245K</div><div class="mock-bm-lbl light">SaaS Revenue</div><div class="mock-bm-sub">Recurring subscriptions</div></div>
                 </div>
-                <div class="mock-chart-labels"><span>M1</span><span>M3</span><span>M6</span><span>M9</span><span>M12</span><span>M15</span><span>M18</span><span>M24</span></div>
-                <div class="mock-legend">
-                    <div class="mock-legend-item"><span class="mock-dot" style="background:#5B5FC7"></span> Revenue</div>
-                    <div class="mock-legend-item"><span class="mock-dot" style="background:#2E7D32"></span> CAC</div>
+                <!-- Summary row -->
+                <div class="mock-bm-row" style="grid-template-columns:repeat(4,1fr)">
+                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">$2.4M</div><div class="mock-bm-lbl dark">Total Revenue</div></div>
+                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">$11.4M</div><div class="mock-bm-lbl dark">Total GMV</div></div>
+                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">3,860</div><div class="mock-bm-lbl dark">Total Orders</div></div>
+                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">65</div><div class="mock-bm-lbl dark">Total Customers</div></div>
                 </div>
             </div>
             <div class="work-card-body"><p>Developed a comprehensive financial model and fundraising strategy for a consumer dating app entering its first institutional round. Covered user growth projections, monetization modeling, unit economics, and investor-ready materials.</p></div>
@@ -452,7 +486,7 @@
             <p class="section-label">Contact</p><h2 class="section-title">Let's Talk</h2>
             <p class="contact-text">Have a project in mind? Need a financial second opinion? Or just want to explore how we can work together? Reach out — we'd love to hear about what you're building.</p>
             <div class="contact-info">
-                <a href="mailto:meital@bowave.finance"><span class="contact-info-icon">✉</span> meital@bowave.finance</a>
+                <a href="/cdn-cgi/l/email-protection#4429212d30252804262b332532216a222d2a252a2721"><span class="contact-info-icon">✉</span> <span class="__cf_email__" data-cfemail="6508000c11040925070a120413004b030c0b040b0600">[email&#160;protected]</span></a>
                 <a href="tel:+972523399338"><span class="contact-info-icon">☎</span> +972-52-339-9338</a>
                 <a href="https://www.linkedin.com/in/meital-levi-b612378b/" target="_blank"><span class="contact-info-icon">in</span> LinkedIn Profile</a>
             </div>
@@ -471,7 +505,7 @@
 
 <footer><p>&copy; 2025 BoWave Finance Consulting. All rights reserved.</p><img src="logo.png" alt="BoWave"></footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const navbar=document.getElementById('navbar');
 window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>80));
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
@@ -483,7 +517,4 @@ const counters=document.querySelectorAll('.stat-number[data-target]');
 const cObs=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){const el=entry.target,t=parseInt(el.dataset.target);let c=0;const inc=t/40;const timer=setInterval(()=>{c+=inc;if(c>=t){el.textContent=t+'+';clearInterval(timer)}else el.textContent=Math.ceil(c)+'+'},40);cObs.unobserve(el)}})},{threshold:.5});
 counters.forEach(el=>cObs.observe(el));
 function handleSubmit(e){e.preventDefault();const d=new FormData(e.target);const s=encodeURIComponent('New inquiry from '+d.get('name')+(d.get('company')?' at '+d.get('company'):''));const b=encodeURIComponent('Name: '+d.get('name')+'\nCompany: '+d.get('company')+'\nEmail: '+d.get('email')+'\n\nMessage:\n'+d.get('message'));window.location.href='mailto:meital@bowave.finance?subject='+s+'&body='+b;e.target.reset()}
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
-</script>
-</body>
-</html>
+document.qu
