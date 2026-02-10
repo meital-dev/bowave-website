@@ -24,8 +24,8 @@
         /* NAV */
         nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.25rem 3rem;display:flex;align-items:center;justify-content:space-between;transition:all .4s cubic-bezier(.16,1,.3,1)}
         nav.scrolled{background:rgba(250,251,252,.92);backdrop-filter:blur(20px);padding:.75rem 3rem;box-shadow:0 1px 20px rgba(30,42,58,.07)}
-        .nav-logo img{height:44px;transition:height .4s ease}
-        nav.scrolled .nav-logo img{height:36px}
+        .nav-logo img{height:75px;transition:height .4s ease}
+        nav.scrolled .nav-logo img{height:55px}
         .nav-links{display:flex;gap:2.5rem;list-style:none}
         .nav-links a{color:var(--text-body);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;transition:color .3s ease;position:relative}
         .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--green);transition:width .3s ease}
@@ -42,13 +42,16 @@
         .hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(26,127,90,.06) 0%,transparent 70%);top:15%;right:5%;animation:float 8s ease-in-out infinite}
         .hero-glow-2{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(91,95,199,.05) 0%,transparent 70%);bottom:20%;left:8%;animation:float 10s ease-in-out infinite reverse}
         @keyframes float{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-30px) scale(1.05)}}
-        .hero-content{position:relative;z-index:2;text-align:center;max-width:900px;padding:0 2rem}
-        .hero-topline{font-size:.82rem;font-weight:500;letter-spacing:.15em;color:var(--purple);margin-bottom:2rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s .3s forwards}
-        .hero-topline span{margin:0 .5rem;opacity:.3;color:var(--grey)}
-        .hero-tagline{font-family:'Libre Baskerville',serif;font-size:clamp(2.8rem,6.5vw,5rem);color:var(--text-dark);line-height:1.15;margin-bottom:1rem;opacity:0;transform:translateY(30px);animation:fadeUp .8s .5s forwards}
-        .hero-punch{font-family:'Libre Baskerville',serif;font-size:clamp(1.2rem,2.5vw,1.7rem);color:var(--green);font-style:italic;margin-bottom:2.5rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s .7s forwards}
-        .hero-sub{font-size:1.02rem;line-height:2;color:var(--grey);font-weight:300;margin-bottom:3rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s .9s forwards}
-        .hero-cta{display:inline-block;padding:1rem 3rem;background:var(--green);color:#fff;text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;border-radius:4px;transition:all .4s cubic-bezier(.16,1,.3,1);opacity:0;transform:translateY(20px);animation:fadeUp .8s 1.1s forwards;position:relative;overflow:hidden}
+        .hero-content{position:relative;z-index:2;text-align:center;max-width:1400px;width:90%;padding:0 2rem}
+        .hero-topline{font-size:1.1rem;font-weight:500;letter-spacing:.25em;color:var(--purple);margin-bottom:2rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s .3s forwards;display:flex;justify-content:center;gap:2.5rem;width:100%}
+        .hero-topline span{margin:0;opacity:.3;color:var(--grey)}
+        .hero-topline .ht-item{opacity:1;color:var(--purple)}
+        .hero-topline .ht-dot{opacity:.3;color:var(--grey);font-size:1.3rem}
+        .hero-tagline{font-family:'Libre Baskerville',serif;font-size:clamp(3.2rem,7.5vw,5.8rem);color:var(--text-dark);line-height:1.15;margin-bottom:.75rem;opacity:0;transform:translateY(30px);animation:fadeUp .8s .5s forwards}
+        .hero-subtitle{font-family:'Libre Baskerville',serif;font-size:clamp(1.3rem,2.5vw,1.8rem);color:var(--grey);font-style:italic;margin-bottom:1rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s .65s forwards;font-weight:300}
+        .hero-punch{font-family:'Libre Baskerville',serif;font-size:clamp(1.4rem,3vw,2rem);color:var(--green);font-style:italic;margin-bottom:2.5rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s .8s forwards}
+        .hero-sub{font-size:1.12rem;line-height:2;color:var(--grey);font-weight:300;margin-bottom:3rem;opacity:0;transform:translateY(20px);animation:fadeUp .8s 1s forwards}
+        .hero-cta{display:inline-block;padding:1.15rem 3.5rem;background:var(--green);color:#fff;text-decoration:none;font-weight:600;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;border:none;cursor:pointer;border-radius:4px;transition:all .4s cubic-bezier(.16,1,.3,1);opacity:0;transform:translateY(20px);animation:fadeUp .8s 1.2s forwards;position:relative;overflow:hidden}
         .hero-cta::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transition:left .5s ease}
         .hero-cta:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 10px 30px rgba(26,127,90,.25)}
         .hero-cta:hover::before{left:100%}
@@ -64,6 +67,7 @@
         .section-title{font-family:'Libre Baskerville',serif;font-size:clamp(1.9rem,3.5vw,2.8rem);color:var(--text-dark);margin-bottom:1rem;line-height:1.25}
         .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
         .reveal.active{opacity:1;transform:translateY(0)}
+        .reveal.no-anim{opacity:1;transform:translateY(0);transition:none}
 
         /* SERVICES — 3 cards */
         .services{background:var(--white)}
@@ -170,6 +174,41 @@
         .mock-bm-lbl.light{color:rgba(255,255,255,.6)}
         .mock-bm-lbl.dark{color:#555}
         .mock-bm-sub{font-size:.4rem;color:rgba(255,255,255,.4);margin-top:.15rem}
+        /* Additional mockup sections */
+        .mock-section-divider{border-top:2px solid var(--border);margin:0}
+        .mock-deal-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin-bottom:.8rem}
+        .mock-deal-card{border-radius:8px;padding:.75rem .5rem;text-align:center}
+        .mock-deal-card.deal-primary{background:linear-gradient(135deg,var(--dark) 0%,var(--dark-mid) 100%)}
+        .mock-deal-card.deal-accent{background:linear-gradient(135deg,var(--green-pale) 0%,#d4edda 100%);border:1px solid #a5d6a7}
+        .mock-deal-val{font-family:'JetBrains Mono',monospace;font-size:1.1rem;font-weight:700;margin-bottom:.15rem}
+        .mock-deal-lbl{font-size:.5rem;letter-spacing:.05em;text-transform:uppercase;font-weight:400}
+        .mock-deal-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
+        .mock-deal-metric{text-align:center;padding:.5rem .3rem;background:#f8f9fa;border-radius:6px;border:1px solid #eee}
+        .mock-deal-metric-val{font-family:'JetBrains Mono',monospace;font-size:.75rem;font-weight:600;color:var(--text-dark)}
+        .mock-deal-metric-lbl{font-size:.45rem;color:#888;text-transform:uppercase;letter-spacing:.04em;margin-top:.1rem}
+        .mock-users-row{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:.7rem}
+        .mock-users-card{border-radius:8px;padding:.65rem .5rem;text-align:center}
+        .mock-users-card.users-dark{background:linear-gradient(135deg,var(--purple),var(--purple-light));color:#fff}
+        .mock-users-card.users-light{background:var(--purple-pale);border:1px solid rgba(91,95,199,.2)}
+        .mock-users-val{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:700;margin-bottom:.1rem}
+        .mock-users-lbl{font-size:.48rem;letter-spacing:.04em;text-transform:uppercase;font-weight:400}
+        .mock-pricing-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem}
+        .mock-pricing-card{border-radius:6px;padding:.5rem .4rem;text-align:center;border:1px solid #e5e7eb;background:#fff}
+        .mock-pricing-val{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:600;color:var(--purple)}
+        .mock-pricing-lbl{font-size:.45rem;color:#888;text-transform:uppercase;letter-spacing:.03em;margin-top:.1rem}
+        .mock-funds-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.6rem}
+        .mock-fund-card{border-radius:8px;padding:.6rem .4rem;text-align:center;position:relative;overflow:hidden}
+        .mock-fund-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px}
+        .mock-fund-card.fund-cogs{background:#FFF3E0;border:1px solid #FFE0B2}.mock-fund-card.fund-cogs::after{background:var(--orange)}
+        .mock-fund-card.fund-rd{background:#E3F2FD;border:1px solid #BBDEFB}.mock-fund-card.fund-rd::after{background:var(--blue)}
+        .mock-fund-card.fund-sm{background:var(--purple-pale);border:1px solid rgba(91,95,199,.2)}.mock-fund-card.fund-sm::after{background:var(--purple)}
+        .mock-fund-card.fund-ga{background:var(--green-pale);border:1px solid rgba(26,127,90,.2)}.mock-fund-card.fund-ga::after{background:var(--green)}
+        .mock-fund-val{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:700;color:var(--text-dark);margin-bottom:.1rem}
+        .mock-fund-lbl{font-size:.45rem;color:#888;text-transform:uppercase;letter-spacing:.04em}
+        .mock-fund-pct{font-family:'JetBrains Mono',monospace;font-size:.5rem;color:#aaa;margin-top:.15rem}
+        .mock-fund-total{text-align:center;padding:.5rem;background:var(--dark);border-radius:6px}
+        .mock-fund-total-val{font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700;color:#fff}
+        .mock-fund-total-lbl{font-size:.45rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.05em;margin-top:.1rem}
         .work-card-body{padding:1.75rem 2.5rem 2.25rem;background:var(--off-white)}
         .work-card-body p{font-size:.9rem;line-height:1.85;color:var(--text-body);font-weight:300}
 
@@ -256,7 +295,7 @@
         }
         @media(max-width:580px){
             .how-grid,.ai-tools-grid{grid-template-columns:1fr}
-            .hero-topline{font-size:.7rem}section{padding:4rem 1.25rem}
+            .hero-topline{font-size:.75rem;gap:1rem;flex-wrap:wrap}section{padding:4rem 1.25rem}
             .stats-row{flex-direction:column;gap:2rem}
         }
     </style>
@@ -287,10 +326,11 @@
         </svg>
     </div>
     <div class="hero-content">
-        <p class="hero-topline">Business plan <span>&middot;</span> Financial model <span>&middot;</span> FP&amp;A partner <span>&middot;</span> Fundraising strategy</p>
-        <h1 class="hero-tagline">You're in the<br>Right Place.</h1>
+        <p class="hero-topline"><span class="ht-item">Business plan</span><span class="ht-dot">&middot;</span><span class="ht-item">Financial model</span><span class="ht-dot">&middot;</span><span class="ht-item">FP&amp;A partner</span><span class="ht-dot">&middot;</span><span class="ht-item">Fundraising strategy</span></p>
+        <h1 class="hero-tagline">Smart Finance<br>Starts Here.</h1>
+        <p class="hero-subtitle">You're in the Right Place.</p>
         <p class="hero-punch">Foundations For Growth.</p>
-        <p class="hero-sub">A finance partner who speaks business.<br>Fractional FP&amp;A &middot; Business plans from scratch &middot; Walk through your numbers.<br>19 years of hands-on experience &middot; Built for tech companies that move fast.</p>
+        <p class="hero-sub">A finance partner who speaks business.<br>So you can move fast — and make smart decisions.</p>
         <a href="#contact" class="hero-cta">Let's Talk</a>
     </div>
     <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
@@ -326,7 +366,7 @@
             <img src="meital.png" alt="Meital Levi" class="team-photo">
             <h3 class="team-name">Meital Levi</h3>
             <p class="team-role">FP&amp;A Expert</p>
-            <p class="team-bio">With over 15 years of experience in strategic finance, I partner with high-tech companies to build the financial infrastructure they need to scale. From early-stage startups preparing for fundraising to established SaaS companies optimizing their operations, I provide hands-on FP&amp;A leadership, financial modeling, and strategic planning that drives real business results.</p>
+            <p class="team-bio">I bring transparency to your numbers. Financial modeling, strategic planning, and translating data into decisions that drive growth.</p>
         </div>
         <div class="team-card reveal">
             <img src="rona.png" alt="Rona Ben-Kalifa" class="team-photo">
@@ -421,27 +461,21 @@
                     <div class="mock-legend-item"><span class="mock-dot" style="background:#D4A843"></span> Cash Balance</div>
                 </div>
             </div>
-            <div class="work-card-body"><p>Built a full business plan and financial model for a construction-tech B2B platform preparing for a $3M Seed round. Delivered an AI-powered planning tool with formula-based Excel exports, Google Sheets integration, and a fully dynamic pitch deck generated via Apps Script — updated automatically from a single data source.</p></div>
-        </div>
-        <div class="work-card reveal">
-            <div class="work-card-top"><span class="work-tag">B2C · Consumer App</span><h3>B2C App Startup</h3></div>
-            <div class="work-mockup-light">
+            <!-- Business Model -->
+            <div class="work-mockup-light mock-section-divider">
                 <div class="mock-title-bar"><h4>Business Model</h4><span class="mock-title-sub">Phase 1 (Q1 2026 – Q4 2027)</span></div>
-                <!-- Revenue drivers row -->
                 <div class="mock-bm-row">
                     <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">$2,800</div><div class="mock-bm-lbl grey">Avg Order Value</div></div>
                     <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">18%</div><div class="mock-bm-lbl grey">Take Rate</div></div>
                     <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">$504</div><div class="mock-bm-lbl grey">Take Rate Revenue</div></div>
                     <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">$12</div><div class="mock-bm-lbl grey">SaaS Per User</div></div>
                 </div>
-                <!-- Totals row -->
                 <div class="mock-bm-row">
                     <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$11.4M</div><div class="mock-bm-lbl light">Total GMV</div><div class="mock-bm-sub">Gross Merchandise Value</div></div>
                     <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$2.1M</div><div class="mock-bm-lbl light">Take Rate Revenue</div><div class="mock-bm-sub">On delivery value</div></div>
                     <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$6K</div><div class="mock-bm-lbl light">Logistics Revenue</div><div class="mock-bm-sub">5% of logistics costs</div></div>
                     <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$245K</div><div class="mock-bm-lbl light">SaaS Revenue</div><div class="mock-bm-sub">Recurring subscriptions</div></div>
                 </div>
-                <!-- Summary row -->
                 <div class="mock-bm-row" style="grid-template-columns:repeat(4,1fr)">
                     <div class="mock-bm-card bm-green"><div class="mock-bm-val green">$2.4M</div><div class="mock-bm-lbl dark">Total Revenue</div></div>
                     <div class="mock-bm-card bm-green"><div class="mock-bm-val green">$11.4M</div><div class="mock-bm-lbl dark">Total GMV</div></div>
@@ -449,7 +483,54 @@
                     <div class="mock-bm-card bm-green"><div class="mock-bm-val green">65</div><div class="mock-bm-lbl dark">Total Customers</div></div>
                 </div>
             </div>
-            <div class="work-card-body"><p>Developed a comprehensive financial model and fundraising strategy for a consumer dating app entering its first institutional round. Covered user growth projections, monetization modeling, unit economics, and investor-ready materials.</p></div>
+            <div class="work-card-body"><p>Built a full business plan and financial model for a construction-tech B2B platform preparing for a $3M Seed round. Delivered an AI-powered planning tool with formula-based Excel exports, Google Sheets integration, and a fully dynamic pitch deck generated via Apps Script — updated automatically from a single data source.</p></div>
+        </div>
+        <div class="work-card reveal">
+            <div class="work-card-top"><span class="work-tag">B2C · Consumer App</span><h3>B2C App Startup</h3></div>
+            <!-- Users & Revenue -->
+            <div class="work-mockup-light">
+                <div class="mock-title-bar"><h4>Users &amp; Revenue</h4><span class="mock-title-sub">12-Month Growth Plan</span></div>
+                <div class="mock-users-row">
+                    <div class="mock-users-card users-dark"><div class="mock-users-val" style="color:#fff">5,000</div><div class="mock-users-lbl" style="color:rgba(255,255,255,.7)">Pilot Users (Free)</div></div>
+                    <div class="mock-users-card users-dark"><div class="mock-users-val" style="color:#fff">12,500</div><div class="mock-users-lbl" style="color:rgba(255,255,255,.7)">End of Year 1 (Paying)</div></div>
+                </div>
+                <div class="mock-pricing-row">
+                    <div class="mock-pricing-card"><div class="mock-pricing-val">$29/mo</div><div class="mock-pricing-lbl">Basic · 70%</div></div>
+                    <div class="mock-pricing-card"><div class="mock-pricing-val">$49/mo</div><div class="mock-pricing-lbl">Premium · 30%</div></div>
+                    <div class="mock-pricing-card"><div class="mock-pricing-val">$185</div><div class="mock-pricing-lbl">LTV · 6mo</div></div>
+                </div>
+                <div class="mock-bm-row" style="grid-template-columns:repeat(3,1fr);margin-top:.6rem">
+                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">$580K</div><div class="mock-bm-lbl dark">Year 1 Revenue</div></div>
+                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">$35</div><div class="mock-bm-lbl dark">ARPU / Month</div></div>
+                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">15%</div><div class="mock-bm-lbl dark">Monthly Churn</div></div>
+                </div>
+            </div>
+            <!-- The Deal -->
+            <div class="work-mockup-light mock-section-divider">
+                <div class="mock-title-bar"><h4>The Deal</h4><span class="mock-title-sub">Pre-Seed SAFE Terms</span></div>
+                <div class="mock-deal-grid">
+                    <div class="mock-deal-card deal-primary"><div class="mock-deal-val" style="color:var(--green-hover)">$500K</div><div class="mock-deal-lbl" style="color:rgba(255,255,255,.6)">Investment</div></div>
+                    <div class="mock-deal-card deal-primary"><div class="mock-deal-val" style="color:#fff">$8M</div><div class="mock-deal-lbl" style="color:rgba(255,255,255,.6)">Valuation Cap</div></div>
+                    <div class="mock-deal-card deal-accent"><div class="mock-deal-val" style="color:var(--green-dark)">6.25%</div><div class="mock-deal-lbl" style="color:#555">Ownership at Cap</div></div>
+                </div>
+                <div class="mock-deal-metrics">
+                    <div class="mock-deal-metric"><div class="mock-deal-metric-val">Month 14</div><div class="mock-deal-metric-lbl">Breakeven</div></div>
+                    <div class="mock-deal-metric"><div class="mock-deal-metric-val">$580K</div><div class="mock-deal-metric-lbl">Year 1 Revenue</div></div>
+                    <div class="mock-deal-metric"><div class="mock-deal-metric-val">($410K)</div><div class="mock-deal-metric-lbl">Net Result</div></div>
+                </div>
+            </div>
+            <!-- Use of Funds -->
+            <div class="work-mockup-light mock-section-divider">
+                <div class="mock-title-bar"><h4>Use of Funds</h4><span class="mock-title-sub">Year 1 Allocation</span></div>
+                <div class="mock-funds-row">
+                    <div class="mock-fund-card fund-cogs"><div class="mock-fund-val">$125K</div><div class="mock-fund-lbl">COGS</div><div class="mock-fund-pct">16%</div></div>
+                    <div class="mock-fund-card fund-rd"><div class="mock-fund-val">$285K</div><div class="mock-fund-lbl">R&amp;D</div><div class="mock-fund-pct">36%</div></div>
+                    <div class="mock-fund-card fund-sm"><div class="mock-fund-val">$195K</div><div class="mock-fund-lbl">S&amp;M</div><div class="mock-fund-pct">25%</div></div>
+                    <div class="mock-fund-card fund-ga"><div class="mock-fund-val">$185K</div><div class="mock-fund-lbl">G&amp;A</div><div class="mock-fund-pct">23%</div></div>
+                </div>
+                <div class="mock-fund-total"><div class="mock-fund-total-val">$790K</div><div class="mock-fund-total-lbl">Total Year 1 Costs</div></div>
+            </div>
+            <div class="work-card-body"><p>Developed a comprehensive financial model and fundraising strategy for a consumer app entering its first institutional round. Covered user growth projections, monetization modeling, unit economics, SAFE investment terms, and investor-ready materials including a dynamic pitch deck.</p></div>
         </div>
     </div>
 </section>
@@ -458,10 +539,10 @@
 <section class="ai-powered" id="ai">
     <div class="ai-header reveal"><p class="section-label">How We Build</p><h2 class="section-title">AI-Powered Financial Planning</h2><p class="ai-subtitle">Modern tools. Faster delivery. Better results.</p></div>
     <div class="ai-tools-grid">
-        <div class="ai-tool-card reveal"><div class="ai-tool-icon ai">🤖</div><h4>Lovable &amp; Base44</h4><p>AI app builders for interactive financial models and planning tools</p></div>
-        <div class="ai-tool-card reveal"><div class="ai-tool-icon code">⌨️</div><h4>Claude Code &amp; Terminal</h4><p>AI-assisted development, automation, and rapid prototyping</p></div>
-        <div class="ai-tool-card reveal"><div class="ai-tool-icon sheets">📊</div><h4>Google Sheets &amp; Apps Script</h4><p>Dynamic dashboards and auto-generated pitch decks</p></div>
-        <div class="ai-tool-card reveal"><div class="ai-tool-icon excel">📈</div><h4>Excel &amp; Financial Modeling</h4><p>Formula-based models with full export and integration capability</p></div>
+        <div class="ai-tool-card reveal"><div class="ai-tool-icon ai"><svg width="24" height="24" fill="none" stroke="#5B5FC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2l1.09 3.26L16.36 6.5l-3.27 1.09L12 10.85l-1.09-3.26L7.64 6.5l3.27-1.09L12 2z"/><path d="M5 15l.66 1.97L7.63 17.63l-1.97.66L5 20.26l-.66-1.97L2.37 17.63l1.97-.66L5 15z"/><path d="M19 12l.66 1.97 1.97.66-1.97.66L19 17.26l-.66-1.97-1.97-.66 1.97-.66L19 12z"/></svg></div><h4>Lovable &amp; Base44</h4><p>AI app builders for interactive financial models and planning tools</p></div>
+        <div class="ai-tool-card reveal"><div class="ai-tool-icon code"><svg width="24" height="24" fill="none" stroke="#1A7F5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div><h4>Claude Code &amp; Terminal</h4><p>AI-assisted development, automation, and rapid prototyping</p></div>
+        <div class="ai-tool-card reveal"><div class="ai-tool-icon sheets"><svg width="24" height="24" fill="none" stroke="#34A853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg></div><h4>Google Sheets &amp; Apps Script</h4><p>Dynamic dashboards and auto-generated pitch decks</p></div>
+        <div class="ai-tool-card reveal"><div class="ai-tool-icon excel"><svg width="24" height="24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 3h18v18H3z" rx="2"/><path d="M8 7v10M12 7v10M16 7v10"/><path d="M3 12h18"/></svg></div><h4>Excel &amp; Financial Modeling</h4><p>Formula-based models with full export and integration capability</p></div>
     </div>
     <div class="ai-flow reveal">
         <p class="ai-flow-title">From Idea to Investor-Ready — The Workflow</p>
@@ -486,14 +567,17 @@
             <p class="section-label">Contact</p><h2 class="section-title">Let's Talk</h2>
             <p class="contact-text">Have a project in mind? Need a financial second opinion? Or just want to explore how we can work together? Reach out — we'd love to hear about what you're building.</p>
             <div class="contact-info">
-                <a href="/cdn-cgi/l/email-protection#4429212d30252804262b332532216a222d2a252a2721"><span class="contact-info-icon">✉</span> <span class="__cf_email__" data-cfemail="6508000c11040925070a120413004b030c0b040b0600">[email&#160;protected]</span></a>
+                <a href="mailto:info@bowave.finance"><span class="contact-info-icon">✉</span> info@bowave.finance</a>
                 <a href="tel:+972523399338"><span class="contact-info-icon">☎</span> +972-52-339-9338</a>
                 <a href="https://www.linkedin.com/in/meital-levi-b612378b/" target="_blank"><span class="contact-info-icon">in</span> LinkedIn Profile</a>
             </div>
-            <a href="#" class="calendly-link">📅 &nbsp;Book a Call</a>
+            <a href="https://calendly.com/meital-bowave" target="_blank" class="calendly-link">📅 &nbsp;Book a Call</a>
         </div>
         <div class="contact-right reveal">
-            <form class="contact-form" onsubmit="handleSubmit(event)">
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="2a50c349-d918-48b4-89bb-b5934c05cbb3">
+                <input type="hidden" name="subject" value="New inquiry from BoWave website">
+                <input type="hidden" name="redirect" value="https://web3forms.com/success">
                 <div class="form-row"><div class="form-group"><input type="text" name="name" placeholder="Name" required></div><div class="form-group"><input type="text" name="company" placeholder="Company"></div></div>
                 <div class="form-group"><input type="email" name="email" placeholder="Email" required></div>
                 <div class="form-group"><textarea name="message" placeholder="Tell me about your project..."></textarea></div>
@@ -505,16 +589,29 @@
 
 <footer><p>&copy; 2025 BoWave Finance Consulting. All rights reserved.</p><img src="logo.png" alt="BoWave"></footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 const navbar=document.getElementById('navbar');
 window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',window.scrollY>80));
 function toggleMenu(){document.getElementById('navLinks').classList.toggle('open')}
 function closeMenu(){document.getElementById('navLinks').classList.remove('open')}
+
+/* Reveal animations with fallback */
 const reveals=document.querySelectorAll('.reveal');
-const rObs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('active'),i*80);rObs.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-reveals.forEach(el=>rObs.observe(el));
+if('IntersectionObserver' in window){
+    const rObs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('active'),i*80);rObs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -20px 0px'});
+    reveals.forEach(el=>rObs.observe(el));
+    /* Safety fallback: if after 2 seconds any reveal is still hidden, force show */
+    setTimeout(()=>{reveals.forEach(el=>{if(!el.classList.contains('active'))el.classList.add('active')})},2000);
+} else {
+    /* No IntersectionObserver support — show everything immediately */
+    reveals.forEach(el=>el.classList.add('no-anim'));
+}
+
 const counters=document.querySelectorAll('.stat-number[data-target]');
 const cObs=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry.isIntersecting){const el=entry.target,t=parseInt(el.dataset.target);let c=0;const inc=t/40;const timer=setInterval(()=>{c+=inc;if(c>=t){el.textContent=t+'+';clearInterval(timer)}else el.textContent=Math.ceil(c)+'+'},40);cObs.unobserve(el)}})},{threshold:.5});
 counters.forEach(el=>cObs.observe(el));
-function handleSubmit(e){e.preventDefault();const d=new FormData(e.target);const s=encodeURIComponent('New inquiry from '+d.get('name')+(d.get('company')?' at '+d.get('company'):''));const b=encodeURIComponent('Name: '+d.get('name')+'\nCompany: '+d.get('company')+'\nEmail: '+d.get('email')+'\n\nMessage:\n'+d.get('message'));window.location.href='mailto:meital@bowave.finance?subject='+s+'&body='+b;e.target.reset()}
-document.qu
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
+</script>
+</body>
+</html>
