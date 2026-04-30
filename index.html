@@ -7,7 +7,7 @@
     <meta name="description" content="Fractional FP&A leadership, business planning, and AP management for startups and growing tech companies.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --green:#1A7F5A;--green-hover:#22A06B;--green-pale:#E6F4ED;--green-dark:#146245;
@@ -277,8 +277,22 @@
         footer p{font-size:.76rem;color:rgba(255,255,255,.3);font-weight:300}
         footer img{height:28px;filter:brightness(0) invert(1);opacity:.3}
 
+        /* LANGUAGE TOGGLE */
+        .lang-toggle{background:transparent;border:1px solid var(--border);border-radius:4px;padding:.4rem .75rem;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.05em;color:var(--text-body);cursor:pointer;transition:all .3s ease;margin-left:1.5rem;min-width:42px;text-align:center}
+        .lang-toggle:hover{border-color:var(--green);color:var(--green)}
+        nav.scrolled .lang-toggle{background:rgba(255,255,255,.5)}
+        html[dir="rtl"] body{direction:rtl;text-align:right}
+        html[dir="rtl"] .lang-toggle{margin-left:0;margin-right:1.5rem}
+        html[dir="rtl"] .principle-card{border-left:none;border-right:4px solid var(--green)}
+        html[dir="rtl"] .service-card::before{left:auto;right:0;border-radius:0 0 0 4px}
+        html[dir="rtl"] .form-submit{align-self:flex-end}
+        html[dir="rtl"] .mock-title-sub{margin-left:0;margin-right:auto}
+        html[dir="rtl"] body{font-family:'Heebo','Outfit',sans-serif}
+        html[dir="rtl"] .hero-tagline,html[dir="rtl"] .hero-subtitle,html[dir="rtl"] .hero-punch,html[dir="rtl"] .section-title,html[dir="rtl"] .ai-flow-title,html[dir="rtl"] .principle-card h4,html[dir="rtl"] .how-card h3,html[dir="rtl"] .work-card h3,html[dir="rtl"] .ai-tool-card h4,html[dir="rtl"] .team-name,html[dir="rtl"] .stat-number{font-family:'Heebo','Libre Baskerville',serif;font-weight:600}
+
         @media(max-width:968px){
             section{padding:5rem 2rem}nav{padding:1rem 1.5rem}nav.scrolled{padding:.75rem 1.5rem}
+            .lang-toggle{margin-left:.75rem;margin-right:0}html[dir="rtl"] .lang-toggle{margin-left:0;margin-right:.75rem}
             .nav-links{display:none;position:fixed;inset:0;background:rgba(30,42,58,.98);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
             .nav-links.open{display:flex}.nav-links a{font-size:1.2rem;color:rgba(255,255,255,.8)}.nav-mobile-toggle{display:flex}
             .services-grid{grid-template-columns:1fr}
@@ -312,6 +326,7 @@
         <li><a href="#work" onclick="closeMenu()">Case Studies</a></li>
         <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
     </ul>
+    <button class="lang-toggle" id="langToggle" onclick="toggleLang()" aria-label="Toggle language">עב</button>
     <div class="nav-mobile-toggle" id="mobileToggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
 </nav>
 
@@ -613,6 +628,242 @@ const cObs=new IntersectionObserver((entries)=>{entries.forEach(entry=>{if(entry
 counters.forEach(el=>cObs.observe(el));
 
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){e.preventDefault();const t=document.querySelector(this.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'})})});
+
+/* ────────────── LANGUAGE TOGGLE: EN ↔ HE ────────────── */
+const I18N = {
+  en: {
+    'title': 'BoWave Finance Consulting | Strategic FP&A for Tech Companies',
+    'nav a[href="#services"]': 'Services',
+    'nav a[href="#team"]': 'Team',
+    'nav a[href="#about"]': 'About',
+    'nav a[href="#how"]': 'How We Work',
+    'nav a[href="#work"]': 'Case Studies',
+    'nav a[href="#contact"]': 'Contact',
+    '.hero-topline .ht-item': ['Business plan', 'Financial model', 'FP&A partner', 'Fundraising strategy'],
+    '.hero-tagline': 'Smart Finance<br>Starts Here.',
+    '.hero-subtitle': "You're in the Right Place.",
+    '.hero-punch': 'Foundations For Growth.',
+    '.hero-sub': 'A finance partner who speaks business.<br>So you can move fast, and make smart decisions.',
+    '.hero-cta': "Let's Talk",
+    '.hero-scroll span': 'Scroll',
+    '.services .section-title': 'Your Strategic Finance Partner',
+    '.service-card:nth-of-type(1) h3': 'FP&A & Strategic Finance',
+    '.service-card:nth-of-type(1) p': 'Scaling fast is exciting, until the numbers stop making sense. I step in as your fractional FP&A partner to bring structure, visibility, and control to your finances. Budgeting, rolling forecasts, board decks, KPI frameworks, revenue analysis, sales & revenue optimization, track revenue opportunities, cost optimization. Everything your leadership team needs to make smart decisions, fast.',
+    '.service-card:nth-of-type(2) h3': 'Business Plans & Pitch Decks',
+    '.service-card:nth-of-type(2) p': 'Raising your first or second round? I build your financial story from scratch: a solid business plan, a defensible financial model, and a pitch deck that speaks the language investors expect. From assumptions to projections, I make sure your numbers tell a compelling and credible story.',
+    '.service-card:nth-of-type(3) h3': 'Accounts Payable Management',
+    '.service-card:nth-of-type(3) p': 'AP master, financial systems expert, +15 years experienced AP manager in high-tech SaaS companies, dynamic fast growing.',
+    '.team .section-label': 'The Team',
+    '.team .section-title': 'Who We Are',
+    '.team-card:nth-of-type(1) .team-name': 'Meital Levi',
+    '.team-card:nth-of-type(1) .team-role': 'FP&A Expert',
+    '.team-card:nth-of-type(1) .team-bio': 'I bring transparency to your numbers. Financial modeling, strategic planning, and translating data into decisions that drive growth.',
+    '.team-card:nth-of-type(2) .team-name': 'Rona Ben-Kalifa',
+    '.team-card:nth-of-type(2) .team-role': 'AP Expert',
+    '.team-card:nth-of-type(2) .team-bio': 'AP master, financial systems expert, +15 years experienced AP manager in high-tech SaaS companies, dynamic fast growing.',
+    '.about .section-label': 'About Us',
+    '.about .section-title': 'Finance That Moves as Fast as You Do',
+    '.about-intro': 'At BoWave, we believe finance should drive growth, not slow it down. We combine deep FP&A expertise with modern tools and hands-on partnership to give startups and growing companies the financial clarity they need to move fast and make smart decisions.',
+    '.principle-card:nth-of-type(1) h4': 'Do More With Less',
+    '.principle-card:nth-of-type(1) p': "We don't believe in throwing hours at a problem. We believe in working smart, using AI tools, automation, and modern workflows to deliver better results in less time.",
+    '.principle-card:nth-of-type(2) h4': 'Never on Autopilot',
+    '.principle-card:nth-of-type(2) p': 'No copy-paste months. No "same report, different date." Every cycle is a chance to rethink, restructure, and improve. If something can be done better, we\'ll find a way.',
+    '.principle-card:nth-of-type(3) h4': 'Side by Side With Leadership',
+    '.principle-card:nth-of-type(3) p': 'We work side by side with CEOs, VPs, and budget owners, translating numbers into decisions, connecting finance to the business, and making sure every stakeholder sees the full picture.',
+    '.principle-card:nth-of-type(4) h4': 'Always Evolving',
+    '.principle-card:nth-of-type(4) p': "New tools, new methods, new thinking. We're constantly looking for what's next, whether it's an AI tool that cuts modeling time in half or a new way to present data to a board.",
+    '.how-we-work .section-label': 'How We Work',
+    '.how-we-work .section-title': 'Flexible by Design',
+    '.how-card:nth-of-type(1) h3': 'Advisory Hours',
+    '.how-card:nth-of-type(1) p': 'Get expert guidance before committing to a full engagement. Ideal for specific questions, quick reviews, or a second pair of eyes on your numbers.',
+    '.how-card:nth-of-type(2) h3': 'Project-Based',
+    '.how-card:nth-of-type(2) p': 'A defined scope with clear deliverables: business plans, financial models, pitch decks, or fundraising strategy. Start to finish.',
+    '.how-card:nth-of-type(3) h3': 'Retainer / Hour Bank',
+    '.how-card:nth-of-type(3) p': 'Ongoing FP&A support on a monthly basis. A dedicated finance partner without the overhead of a full-time hire.',
+    '.how-card:nth-of-type(4) h3': 'Custom Fit',
+    '.how-card:nth-of-type(4) p': "Every company is different. We tailor the engagement to match your stage, your needs, and your budget. Let's figure it out together.",
+    '.track-record .section-label': 'Track Record',
+    '.track-record .section-title': 'Proven at Every Stage',
+    '.stat-item:nth-of-type(1) .stat-label': 'Years in Finance',
+    '.stat-item:nth-of-type(2) .stat-label': 'Tech Companies',
+    '.stat-item:nth-of-type(3) .stat-number.special': 'Seed → Acquisition',
+    '.stat-item:nth-of-type(3) .stat-label': 'Full Lifecycle',
+    '.track-text': 'Led FP&A at companies from seed stage through acquisition, including the Workday acquisition of HiredScore. Built finance functions from scratch, implemented ERP systems, and partnered with executives to drive growth at every stage.',
+    '.selected-work .section-label': 'Selected Work',
+    '.selected-work .section-title': 'Real Projects. Real Results.',
+    '.work-card:nth-of-type(1) .work-tag': 'B2B · Construction-Tech',
+    '.work-card:nth-of-type(1) .work-card-top h3': 'Tech B2B Startup',
+    '.work-card:nth-of-type(1) .work-card-body p': 'Built a full business plan and financial model for a construction-tech B2B platform preparing for a $3M Seed round. Delivered an AI-powered planning tool with formula-based Excel exports, Google Sheets integration, and a fully dynamic pitch deck generated via Apps Script, updated automatically from a single data source.',
+    '.work-card:nth-of-type(2) .work-tag': 'B2C · Consumer App',
+    '.work-card:nth-of-type(2) .work-card-top h3': 'B2C App Startup',
+    '.work-card:nth-of-type(2) .work-card-body p': 'Developed a comprehensive financial model and fundraising strategy for a consumer app entering its first institutional round. Covered user growth projections, monetization modeling, unit economics, SAFE investment terms, and investor-ready materials including a dynamic pitch deck.',
+    '.ai-powered .section-label': 'How We Build',
+    '.ai-powered .section-title': 'AI-Powered Financial Planning',
+    '.ai-subtitle': 'Modern tools. Faster delivery. Better results.',
+    '.ai-tool-card:nth-of-type(1) h4': 'AI App Builders',
+    '.ai-tool-card:nth-of-type(1) p': 'Custom interactive financial tools',
+    '.ai-tool-card:nth-of-type(2) h4': 'AI Coding Tools',
+    '.ai-tool-card:nth-of-type(2) p': 'Automation & rapid prototyping',
+    '.ai-tool-card:nth-of-type(3) h4': 'Live Dashboards',
+    '.ai-tool-card:nth-of-type(3) p': 'Auto-updated reports & decks',
+    '.ai-tool-card:nth-of-type(4) h4': 'Financial Modeling',
+    '.ai-tool-card:nth-of-type(4) p': 'Formula-based & fully integrated',
+    '.ai-flow-title': 'Professional Plans. Built Fast. Built Right.',
+    '.flow-step:nth-of-type(1) .flow-step-label': 'Strategic Planning',
+    '.flow-step:nth-of-type(1) .flow-step-sub': 'Market & business analysis',
+    '.flow-step:nth-of-type(3) .flow-step-label': 'Build',
+    '.flow-step:nth-of-type(3) .flow-step-sub': 'AI-powered modeling',
+    '.flow-step:nth-of-type(5) .flow-step-label': 'Live Adjustments',
+    '.flow-step:nth-of-type(5) .flow-step-sub': 'Adapts as you change',
+    '.flow-step:nth-of-type(7) .flow-step-label': 'Deliver',
+    '.flow-step:nth-of-type(7) .flow-step-sub': 'Ready for founders, owners, and investors',
+    '.contact .section-label': 'Contact',
+    '.contact .section-title': "Let's Talk",
+    '.contact-text': "Have a project in mind? Need a financial second opinion? Or just want to explore how we can work together? Reach out, we'd love to hear about what you're building.",
+    '.calendly-link': '📅 &nbsp;Book a Call',
+    '.form-submit': 'Send Message',
+    'footer p': '&copy; 2025 BoWave Finance Consulting. All rights reserved.'
+  },
+  he: {
+    'title': 'BoWave - ייעוץ פיננסי | FP&A אסטרטגי לחברות טכנולוגיה',
+    'nav a[href="#services"]': 'שירותים',
+    'nav a[href="#team"]': 'צוות',
+    'nav a[href="#about"]': 'אודות',
+    'nav a[href="#how"]': 'איך אנחנו עובדים',
+    'nav a[href="#work"]': 'מקרי בוחן',
+    'nav a[href="#contact"]': 'צור קשר',
+    '.hero-topline .ht-item': ['תוכנית עסקית', 'מודל פיננסי', 'שותף FP&A', 'אסטרטגיית גיוס'],
+    '.hero-tagline': 'פיננסים חכמים<br>מתחילים כאן.',
+    '.hero-subtitle': 'הגעתם למקום הנכון.',
+    '.hero-punch': 'יסודות לצמיחה.',
+    '.hero-sub': 'שותף פיננסי שמדבר עסקים.<br>כדי שתוכלו לזוז מהר ולקבל החלטות חכמות.',
+    '.hero-cta': 'בואו נדבר',
+    '.hero-scroll span': 'גלילה',
+    '.services .section-title': 'השותף הפיננסי האסטרטגי שלכם',
+    '.service-card:nth-of-type(1) h3': 'FP&A ופיננסים אסטרטגיים',
+    '.service-card:nth-of-type(1) p': 'צמיחה מהירה זה מרגש, עד שהמספרים מפסיקים להיות הגיוניים. אני נכנסת כשותפת FP&A במשרה חלקית כדי להביא מבנה, שקיפות ושליטה לפיננסים שלכם. תקצוב, תחזיות מתגלגלות, מצגות לדירקטוריון, מסגרות KPI, ניתוח הכנסות, אופטימיזציית מכירות והכנסות, מעקב הזדמנויות, אופטימיזציית עלויות. כל מה שצוות ההנהלה שלכם צריך כדי לקבל החלטות חכמות, מהר.',
+    '.service-card:nth-of-type(2) h3': 'תוכניות עסקיות ומצגות משקיעים',
+    '.service-card:nth-of-type(2) p': 'מגייסים סבב ראשון או שני? אני בונה את הסיפור הפיננסי שלכם מאפס: תוכנית עסקית מוצקה, מודל פיננסי מבוסס, ומצגת משקיעים בשפה שהמשקיעים מצפים לה. מהנחות יסוד ועד תחזיות, אני דואגת שהמספרים שלכם יספרו סיפור משכנע ואמין.',
+    '.service-card:nth-of-type(3) h3': 'ניהול ספקים (AP)',
+    '.service-card:nth-of-type(3) p': 'מומחית AP, מומחית מערכות פיננסיות, מעל 15 שנות ניסיון כמנהלת AP בחברות SaaS היי-טק דינמיות וצומחות במהירות.',
+    '.team .section-label': 'הצוות',
+    '.team .section-title': 'מי אנחנו',
+    '.team-card:nth-of-type(1) .team-name': 'מיטל לוי',
+    '.team-card:nth-of-type(1) .team-role': 'מומחית FP&A',
+    '.team-card:nth-of-type(1) .team-bio': 'אני מביאה שקיפות למספרים שלכם. מודלים פיננסיים, תכנון אסטרטגי ותרגום נתונים להחלטות שמניעות צמיחה.',
+    '.team-card:nth-of-type(2) .team-name': 'רונה בן-כליפא',
+    '.team-card:nth-of-type(2) .team-role': 'מומחית AP',
+    '.team-card:nth-of-type(2) .team-bio': 'מומחית AP, מומחית מערכות פיננסיות, מעל 15 שנות ניסיון כמנהלת AP בחברות SaaS היי-טק דינמיות וצומחות במהירות.',
+    '.about .section-label': 'אודותינו',
+    '.about .section-title': 'פיננסים שזזים מהר כמוכם',
+    '.about-intro': 'ב-BoWave אנחנו מאמינים שפיננסים צריכים להניע צמיחה, לא להאט אותה. אנחנו משלבים מומחיות עמוקה ב-FP&A עם כלים מודרניים ושותפות מעשית כדי להעניק לסטארטאפים ולחברות צומחות את הבהירות הפיננסית שהם צריכים כדי לזוז מהר ולקבל החלטות חכמות.',
+    '.principle-card:nth-of-type(1) h4': 'יותר עם פחות',
+    '.principle-card:nth-of-type(1) p': 'אנחנו לא מאמינים בלזרוק שעות על בעיה. אנחנו מאמינים בעבודה חכמה - שימוש בכלי AI, אוטומציה ותהליכי עבודה מודרניים כדי לספק תוצאות טובות יותר בפחות זמן.',
+    '.principle-card:nth-of-type(2) h4': 'לעולם לא על טייס אוטומטי',
+    '.principle-card:nth-of-type(2) p': 'אין חודשים של העתק-הדבק. אין "אותו דוח, תאריך אחר". כל מחזור הוא הזדמנות לחשוב מחדש, לבנות מחדש ולשפר. אם משהו יכול להיעשות טוב יותר - נמצא את הדרך.',
+    '.principle-card:nth-of-type(3) h4': 'צד בצד עם ההנהלה',
+    '.principle-card:nth-of-type(3) p': 'אנחנו עובדים צד בצד עם מנכ"לים, סמנכ"לים ובעלי תקציב, מתרגמים מספרים להחלטות, מחברים בין הפיננסים לעסק, ודואגים שכל בעל עניין יראה את התמונה המלאה.',
+    '.principle-card:nth-of-type(4) h4': 'תמיד מתפתחים',
+    '.principle-card:nth-of-type(4) p': 'כלים חדשים, שיטות חדשות, חשיבה חדשה. אנחנו תמיד מחפשים את הדבר הבא - בין אם זה כלי AI שחותך זמן מודלינג בחצי או דרך חדשה להציג נתונים לדירקטוריון.',
+    '.how-we-work .section-label': 'איך אנחנו עובדים',
+    '.how-we-work .section-title': 'גמישות בעיצוב',
+    '.how-card:nth-of-type(1) h3': 'שעות ייעוץ',
+    '.how-card:nth-of-type(1) p': 'קבלו ליווי מומחה לפני התחייבות לעבודה מלאה. אידיאלי לשאלות ספציפיות, סקירות מהירות או זוג עיניים נוסף על המספרים שלכם.',
+    '.how-card:nth-of-type(2) h3': 'על בסיס פרויקט',
+    '.how-card:nth-of-type(2) p': 'היקף מוגדר עם תוצרים ברורים: תוכניות עסקיות, מודלים פיננסיים, מצגות משקיעים או אסטרטגיית גיוס. מההתחלה ועד הסוף.',
+    '.how-card:nth-of-type(3) h3': 'ריטיינר / בנק שעות',
+    '.how-card:nth-of-type(3) p': 'תמיכת FP&A מתמשכת על בסיס חודשי. שותף פיננסי ייעודי בלי העלות של גיוס במשרה מלאה.',
+    '.how-card:nth-of-type(4) h3': 'התאמה אישית',
+    '.how-card:nth-of-type(4) p': 'כל חברה שונה. אנחנו מתאימים את ההתקשרות לשלב שלכם, לצרכים שלכם ולתקציב שלכם. בואו נבין את זה ביחד.',
+    '.track-record .section-label': 'ניסיון מוכח',
+    '.track-record .section-title': 'מוכח בכל שלב',
+    '.stat-item:nth-of-type(1) .stat-label': 'שנים בפיננסים',
+    '.stat-item:nth-of-type(2) .stat-label': 'חברות טכנולוגיה',
+    '.stat-item:nth-of-type(3) .stat-number.special': 'סיד → רכישה',
+    '.stat-item:nth-of-type(3) .stat-label': 'מחזור חיים מלא',
+    '.track-text': 'הובלתי FP&A בחברות מסיד ועד רכישה, כולל רכישת HiredScore על ידי Workday. בניתי פונקציות פיננסים מאפס, יישמתי מערכות ERP ושיתפתי פעולה עם מנהלים בכירים כדי להניע צמיחה בכל שלב.',
+    '.selected-work .section-label': 'עבודות נבחרות',
+    '.selected-work .section-title': 'פרויקטים אמיתיים. תוצאות אמיתיות.',
+    '.work-card:nth-of-type(1) .work-tag': 'B2B · קונסטרקשן-טק',
+    '.work-card:nth-of-type(1) .work-card-top h3': 'סטארטאפ B2B טכנולוגי',
+    '.work-card:nth-of-type(1) .work-card-body p': 'בניתי תוכנית עסקית מלאה ומודל פיננסי לפלטפורמת B2B בתחום הקונסטרקשן-טק שמתכוננת לסבב סיד בגובה 3M$. סיפקתי כלי תכנון מבוסס AI עם ייצוא Excel מבוסס נוסחאות, אינטגרציה עם Google Sheets, ומצגת משקיעים דינמית מלאה שנוצרת באמצעות Apps Script, מתעדכנת אוטומטית ממקור נתונים יחיד.',
+    '.work-card:nth-of-type(2) .work-tag': 'B2C · אפליקציית צרכן',
+    '.work-card:nth-of-type(2) .work-card-top h3': 'סטארטאפ אפליקציית B2C',
+    '.work-card:nth-of-type(2) .work-card-body p': 'פיתחתי מודל פיננסי מקיף ואסטרטגיית גיוס לאפליקציית צרכן הנכנסת לסבב המוסדי הראשון שלה. כיסוי תחזיות צמיחת משתמשים, מודלינג מונטיזציה, יחידות כלכלה, תנאי השקעת SAFE וחומרים מוכנים למשקיעים כולל מצגת משקיעים דינמית.',
+    '.ai-powered .section-label': 'איך אנחנו בונים',
+    '.ai-powered .section-title': 'תכנון פיננסי מבוסס AI',
+    '.ai-subtitle': 'כלים מודרניים. אספקה מהירה יותר. תוצאות טובות יותר.',
+    '.ai-tool-card:nth-of-type(1) h4': 'בוני אפליקציות AI',
+    '.ai-tool-card:nth-of-type(1) p': 'כלים פיננסיים אינטראקטיביים בהתאמה אישית',
+    '.ai-tool-card:nth-of-type(2) h4': 'כלי קידוד AI',
+    '.ai-tool-card:nth-of-type(2) p': 'אוטומציה ויצירת אבי-טיפוס מהירה',
+    '.ai-tool-card:nth-of-type(3) h4': 'דשבורדים חיים',
+    '.ai-tool-card:nth-of-type(3) p': 'דוחות ומצגות שמתעדכנים אוטומטית',
+    '.ai-tool-card:nth-of-type(4) h4': 'מודלינג פיננסי',
+    '.ai-tool-card:nth-of-type(4) p': 'מבוסס נוסחאות ומשולב במלואו',
+    '.ai-flow-title': 'תוכניות מקצועיות. נבנות מהר. נבנות נכון.',
+    '.flow-step:nth-of-type(1) .flow-step-label': 'תכנון אסטרטגי',
+    '.flow-step:nth-of-type(1) .flow-step-sub': 'ניתוח שוק ועסקים',
+    '.flow-step:nth-of-type(3) .flow-step-label': 'בנייה',
+    '.flow-step:nth-of-type(3) .flow-step-sub': 'מודלינג מבוסס AI',
+    '.flow-step:nth-of-type(5) .flow-step-label': 'התאמות חיות',
+    '.flow-step:nth-of-type(5) .flow-step-sub': 'מתאים את עצמו ככל שאתם משנים',
+    '.flow-step:nth-of-type(7) .flow-step-label': 'אספקה',
+    '.flow-step:nth-of-type(7) .flow-step-sub': 'מוכן למייסדים, בעלים ומשקיעים',
+    '.contact .section-label': 'צור קשר',
+    '.contact .section-title': 'בואו נדבר',
+    '.contact-text': 'יש לכם פרויקט בראש? צריכים חוות דעת פיננסית שנייה? או סתם רוצים לבחון איך אפשר לעבוד יחד? פנו אלינו, נשמח לשמוע על מה שאתם בונים.',
+    '.calendly-link': '📅 &nbsp;תאמו שיחה',
+    '.form-submit': 'שליחת הודעה',
+    'footer p': '&copy; 2025 BoWave - ייעוץ פיננסי. כל הזכויות שמורות.'
+  }
+};
+const I18N_PH = {
+  en: {
+    'input[name="name"]': 'Name',
+    'input[name="company"]': 'Company',
+    'input[name="email"]': 'Email',
+    'textarea[name="message"]': 'Tell me about your project...'
+  },
+  he: {
+    'input[name="name"]': 'שם',
+    'input[name="company"]': 'חברה',
+    'input[name="email"]': 'אימייל',
+    'textarea[name="message"]': 'ספרו לי על הפרויקט שלכם...'
+  }
+};
+function applyLang(lang) {
+  const dict = I18N[lang] || I18N.en;
+  Object.entries(dict).forEach(([sel, val]) => {
+    if (sel === 'title') { document.title = val; return; }
+    const els = document.querySelectorAll(sel);
+    els.forEach((el, i) => {
+      if (Array.isArray(val)) {
+        if (val[i] !== undefined) el.innerHTML = val[i];
+      } else {
+        el.innerHTML = val;
+      }
+    });
+  });
+  const ph = I18N_PH[lang] || I18N_PH.en;
+  Object.entries(ph).forEach(([sel, val]) => {
+    const el = document.querySelector(sel);
+    if (el) el.placeholder = val;
+  });
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
+  localStorage.setItem('bowave_lang', lang);
+  const btn = document.getElementById('langToggle');
+  if (btn) btn.textContent = lang === 'he' ? 'EN' : 'עב';
+}
+function toggleLang() {
+  const cur = document.documentElement.lang || 'en';
+  applyLang(cur === 'he' ? 'en' : 'he');
+}
+(function() {
+  const saved = localStorage.getItem('bowave_lang');
+  if (saved === 'he') applyLang('he');
+})();
 </script>
 </body>
 </html>
