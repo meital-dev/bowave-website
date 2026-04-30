@@ -281,14 +281,14 @@
         .lang-toggle{background:transparent;border:1px solid var(--border);border-radius:4px;padding:.4rem .75rem;font-family:'Outfit',sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.05em;color:var(--text-body);cursor:pointer;transition:all .3s ease;margin-left:1.5rem;min-width:42px;text-align:center}
         .lang-toggle:hover{border-color:var(--green);color:var(--green)}
         nav.scrolled .lang-toggle{background:rgba(255,255,255,.5)}
-        html[dir="rtl"] body{direction:rtl;text-align:right}
-        html[dir="rtl"] .lang-toggle{margin-left:0;margin-right:1.5rem}
+        /* RTL: keep nav (logo+toggle) in LTR positions, reverse only nav-links and grids */
+        html[dir="rtl"] nav{direction:ltr}
+        html[dir="rtl"] .nav-links{direction:rtl}
+        html[dir="rtl"] .services-grid,html[dir="rtl"] .principles-grid,html[dir="rtl"] .how-grid,html[dir="rtl"] .work-grid,html[dir="rtl"] .ai-tools-grid,html[dir="rtl"] .flow-steps,html[dir="rtl"] .stats-row,html[dir="rtl"] .team-grid,html[dir="rtl"] .contact-layout,html[dir="rtl"] .tools-strip{direction:rtl}
+        html[dir="rtl"] .flow-arrow{transform:scaleX(-1);display:inline-block}
         html[dir="rtl"] .principle-card{border-left:none;border-right:4px solid var(--green)}
         html[dir="rtl"] .service-card::before{left:auto;right:0;border-radius:0 0 0 4px}
         html[dir="rtl"] .form-submit{align-self:flex-end}
-        html[dir="rtl"] .mock-title-sub{margin-left:0;margin-right:auto}
-        html[dir="rtl"] body{font-family:'Heebo','Outfit',sans-serif}
-        html[dir="rtl"] .hero-tagline,html[dir="rtl"] .hero-subtitle,html[dir="rtl"] .hero-punch,html[dir="rtl"] .section-title,html[dir="rtl"] .ai-flow-title,html[dir="rtl"] .principle-card h4,html[dir="rtl"] .how-card h3,html[dir="rtl"] .work-card h3,html[dir="rtl"] .ai-tool-card h4,html[dir="rtl"] .team-name,html[dir="rtl"] .stat-number{font-family:'Heebo','Libre Baskerville',serif;font-weight:600}
 
         @media(max-width:968px){
             section{padding:5rem 2rem}nav{padding:1rem 1.5rem}nav.scrolled{padding:.75rem 1.5rem}
@@ -851,7 +851,7 @@ function applyLang(lang) {
     if (el) el.placeholder = val;
   });
   document.documentElement.lang = lang;
-  document.documentElement.dir = 'ltr';
+  document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
   localStorage.setItem('bowave_lang', lang);
   const btn = document.getElementById('langToggle');
   if (btn) btn.textContent = lang === 'he' ? 'EN' : 'עב';
