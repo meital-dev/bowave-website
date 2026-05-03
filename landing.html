@@ -6,6 +6,16 @@
 <title>BoWave - שותפי FP&A | תקציב, תחזיות, מודלים פיננסיים</title>
 <meta name="description" content="ייעוץ פיננסי לחברות טכנולוגיה: בניית תקציב, תחזיות מתגלגלות, מודלים פיננסיים ותוכניות עסקיות. שותפי FP&A מנוסים. תאמו שיחת ייעוץ.">
 <meta name="robots" content="noindex">
+
+<!-- Google tag (gtag.js) - GA-4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G77MVKWDYY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G77MVKWDYY');
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
@@ -185,5 +195,20 @@ a{color:inherit}
     <p>© 2025 BoWave - ייעוץ פיננסי | <a href="https://bowave.finance">bowave.finance</a></p>
 </footer>
 
+<script>
+// Track every Calendly click as a conversion event for Google Ads attribution
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href*="calendly.com"]').forEach(function(link) {
+    link.addEventListener('click', function() {
+      var section = link.closest('section');
+      var location = section ? section.className.replace('lp-', '') : 'unknown';
+      gtag('event', 'calendly_click', {
+        'event_category': 'conversion',
+        'event_label': location
+      });
+    });
+  });
+});
+</script>
 </body>
 </html>
