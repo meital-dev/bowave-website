@@ -36,9 +36,15 @@ a{color:inherit}
 .lp-hero-cta:hover{background:var(--green-dark);transform:translateY(-3px);box-shadow:0 12px 30px rgba(26,127,90,.3)}
 .lp-hero-microcopy{margin-top:1rem;font-size:.85rem;color:var(--grey)}
 
-.lp-trust{padding:3rem 5%;background:var(--white);text-align:center;border-bottom:1px solid var(--border)}
-.lp-trust-text{font-size:1.05rem;color:var(--text-body);max-width:820px;margin:0 auto;line-height:1.75}
+.lp-trust{padding:3.5rem 5%;background:var(--white);border-bottom:1px solid var(--border)}
+.lp-trust-inner{display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap;max-width:1100px;margin:0 auto}
+.lp-trust-photo{text-align:center;flex-shrink:0}
+.lp-trust-photo img{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid var(--green-pale)}
+.lp-trust-caption{margin-top:.85rem;font-size:.85rem;color:var(--text-body);line-height:1.5}
+.lp-trust-caption strong{color:var(--text-dark);font-weight:600;display:block;margin-bottom:.15rem}
+.lp-trust-text{font-size:1.05rem;color:var(--text-body);max-width:600px;line-height:1.75;flex:1;min-width:280px}
 .lp-trust-text strong{color:var(--green);font-weight:600}
+@media(max-width:680px){.lp-trust-inner{flex-direction:column;gap:1.5rem;text-align:center}.lp-trust-photo img{width:110px;height:110px}}
 
 .lp-personas{padding:5rem 5%;background:var(--off-white)}
 .lp-section-title{text-align:center;font-family:'Libre Baskerville',serif;font-size:clamp(1.7rem,3.5vw,2.4rem);color:var(--text-dark);margin-bottom:.75rem}
@@ -102,12 +108,18 @@ a{color:inherit}
 </section>
 
 <section class="lp-trust">
-    <p class="lp-trust-text"><strong>כ-20 שנות ניסיון ב-FP&amp;A בחברות טכנולוגיה.</strong> בניית תשתית פיננסית מאפס, ליווי גיוסים, מיזוגים ורכישות (כולל רכישת HiredScore על ידי Workday), אפיון והטמעת מערכות פיננסיות, ושילוב כלי AI מתקדמים בעבודה השוטפת.</p>
+    <div class="lp-trust-inner">
+        <div class="lp-trust-photo">
+            <img src="meital.png" alt="מיטל לוי">
+            <p class="lp-trust-caption"><strong>מיטל לוי</strong>מומחית FP&amp;A</p>
+        </div>
+        <p class="lp-trust-text"><strong>כ-20 שנות ניסיון ב-FP&amp;A בחברות טכנולוגיה.</strong> בניית תשתית פיננסית מאפס, ליווי גיוסים, מיזוגים ורכישות (כולל רכישת HiredScore על ידי Workday), אפיון והטמעת מערכות פיננסיות, ושילוב כלי AI מתקדמים בעבודה השוטפת.</p>
+    </div>
 </section>
 
 <section class="lp-personas">
     <h2 class="lp-section-title">מותאם לאן שאתם נמצאים היום</h2>
-    <p class="lp-section-sub">בחרו את הקטגוריה שמתאימה לכם. אנחנו עובדים עם חברות בכל שלב.</p>
+    <p class="lp-section-sub">בחרו את הקטגוריה שמתאימה לכם. אני עובדת עם חברות בכל שלב.</p>
 
     <div class="lp-cards">
         <div class="lp-card">
@@ -129,7 +141,7 @@ a{color:inherit}
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
             </div>
             <h3 class="lp-card-title">יזמים ומייסדים</h3>
-            <p class="lp-card-desc">בונים את היסודות הפיננסיים נכון מהיום הראשון, מתוכנית עסקית ועד מצגת משקיעים שמגייסת.</p>
+            <p class="lp-card-desc">אני בונה איתכם את היסודות הפיננסיים נכון מהיום הראשון, מתוכנית עסקית ועד מצגת משקיעים שמגייסת.</p>
             <ul class="lp-card-bullets">
                 <li>תוכנית עסקית ומודל פיננסי</li>
                 <li>תמחור ויחידות כלכלה</li>
@@ -141,21 +153,21 @@ a{color:inherit}
 </section>
 
 <section class="lp-why">
-    <h2 class="lp-section-title">למה BoWave?</h2>
+    <h2 class="lp-section-title">למה לעבוד איתי?</h2>
     <p class="lp-section-sub">פיננסים שעובדים בקצב שלכם, לא להפך.</p>
 
     <div class="lp-why-grid">
         <div class="lp-why-item">
             <h4>ניסיון אמיתי</h4>
-            <p>הובלנו FP&A בחברות מגיוס ראשוני ועד רכישה, כולל רכישת HiredScore על ידי Workday.</p>
+            <p>הובלתי FP&A בחברות מגיוס ראשוני ועד רכישה, כולל רכישת HiredScore על ידי Workday.</p>
         </div>
         <div class="lp-why-item">
-            <h4>שותפים, לא ספקים</h4>
-            <p>אנחנו עובדים צד בצד עם ההנהלה ומתרגמים מספרים להחלטות שמניעות צמיחה.</p>
+            <h4>שותפה, לא ספקית</h4>
+            <p>אני עובדת צד בצד עם ההנהלה ומתרגמת מספרים להחלטות שמניעות צמיחה.</p>
         </div>
         <div class="lp-why-item">
             <h4>גמישות אמיתית</h4>
-            <p>שעות ייעוץ, פרויקט, ריטיינר או התאמה אישית. אנחנו מתאימים את ההתקשרות לכם.</p>
+            <p>שעות ייעוץ, פרויקט, ריטיינר או התאמה אישית. אני מתאימה את ההתקשרות לצרכים שלכם.</p>
         </div>
         <div class="lp-why-item">
             <h4>מבוסס AI</h4>
