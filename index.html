@@ -290,12 +290,29 @@
         html[dir="rtl"] .service-card::before{left:auto;right:0;border-radius:0 0 0 4px}
         html[dir="rtl"] .form-submit{align-self:flex-end}
 
+        /* Solutions / Personas section (Google Ads landing target) */
+        .solutions{background:linear-gradient(180deg,var(--off-white) 0%,var(--white) 100%);padding:6rem 5%}
+        .solutions-header{text-align:center;margin-bottom:4rem;max-width:720px;margin-left:auto;margin-right:auto}
+        .solutions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1200px;margin:0 auto}
+        .solution-card{background:var(--white);padding:2.5rem 2rem;border:1px solid var(--border);border-radius:8px;display:flex;flex-direction:column;transition:all .5s cubic-bezier(.16,1,.3,1)}
+        .solution-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(30,42,58,.08);border-color:var(--green)}
+        .solution-icon{color:var(--green);margin-bottom:1.25rem;width:48px;height:48px;background:rgba(26,127,90,.08);border-radius:8px;display:flex;align-items:center;justify-content:center}
+        .solution-title{font-family:'Libre Baskerville',serif;font-size:1.25rem;color:var(--text-dark);margin-bottom:.75rem;line-height:1.35}
+        .solution-desc{font-size:.9rem;line-height:1.75;color:var(--text-body);font-weight:300;margin-bottom:1.25rem}
+        .solution-bullets{list-style:none;padding:0;margin:0 0 1.75rem 0;flex-grow:1}
+        .solution-bullets li{font-size:.85rem;color:var(--text-body);padding:.4rem 0;padding-left:1.5rem;position:relative;line-height:1.6}
+        .solution-bullets li::before{content:'✓';color:var(--green);font-weight:700;position:absolute;left:0;top:.4rem}
+        html[dir="rtl"] .solution-bullets li{padding-left:0;padding-right:1.5rem}
+        html[dir="rtl"] .solution-bullets li::before{left:auto;right:0}
+        .solution-cta{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.85rem 1.5rem;background:var(--green);color:#fff;text-decoration:none;font-size:.85rem;font-weight:500;letter-spacing:.05em;border-radius:4px;transition:all .3s ease;margin-top:auto;text-align:center}
+        .solution-cta:hover{background:var(--green-dark);transform:translateY(-2px);box-shadow:0 10px 25px rgba(26,127,90,.2);color:#fff}
+
         @media(max-width:968px){
             section{padding:5rem 2rem}nav{padding:1rem 1.5rem}nav.scrolled{padding:.75rem 1.5rem}
             .lang-toggle{margin-left:.75rem;margin-right:0}html[dir="rtl"] .lang-toggle{margin-left:0;margin-right:.75rem}
             .nav-links{display:none;position:fixed;inset:0;background:rgba(30,42,58,.98);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
             .nav-links.open{display:flex}.nav-links a{font-size:1.2rem;color:rgba(255,255,255,.8)}.nav-mobile-toggle{display:flex}
-            .services-grid{grid-template-columns:1fr}
+            .services-grid,.solutions-grid{grid-template-columns:1fr}
             .work-grid{grid-template-columns:1fr}
             .how-grid,.ai-tools-grid{grid-template-columns:repeat(2,1fr)}
             .contact-layout{grid-template-columns:1fr;gap:3rem}
@@ -319,6 +336,7 @@
 <nav id="navbar">
     <a href="#" class="nav-logo"><img src="logo.png" alt="BoWave Finance Consulting"></a>
     <ul class="nav-links" id="navLinks">
+        <li><a href="#solutions" onclick="closeMenu()">Solutions</a></li>
         <li><a href="#services" onclick="closeMenu()">Services</a></li>
         <li><a href="#team" onclick="closeMenu()">Team</a></li>
         <li><a href="#about" onclick="closeMenu()">About</a></li>
@@ -349,6 +367,52 @@
         <a href="#contact" class="hero-cta">Let's Talk</a>
     </div>
     <div class="hero-scroll"><div class="scroll-line"></div></div>
+</section>
+
+<!-- 1.5 SOLUTIONS / PERSONAS - Primary landing target for Google Ads -->
+<section class="solutions" id="solutions">
+    <div class="solutions-header reveal">
+        <p class="section-label">Solutions</p>
+        <h2 class="section-title">Built for Where You Are Today</h2>
+    </div>
+    <div class="solutions-grid">
+        <div class="solution-card reveal">
+            <div class="solution-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+            <h3 class="solution-title">CFOs &amp; Finance Teams</h3>
+            <p class="solution-desc">A budget that holds up to the board. Annual planning, rolling forecasts, board decks, and revenue analysis — we embed with your team for as long as you need.</p>
+            <ul class="solution-bullets">
+                <li>Annual budget from scratch</li>
+                <li>Rolling forecasts</li>
+                <li>Board-ready decks</li>
+                <li>Revenue &amp; cost analysis</li>
+            </ul>
+            <a href="https://calendly.com/meital-bowave" target="_blank" class="solution-cta">📅 Schedule a Call</a>
+        </div>
+        <div class="solution-card reveal">
+            <div class="solution-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <h3 class="solution-title">CEOs Without a CFO</h3>
+            <p class="solution-desc">Senior finance leadership without the full-time cost. Strategic partnership, monthly support, and full visibility into your numbers.</p>
+            <ul class="solution-bullets">
+                <li>Fractional CFO support</li>
+                <li>Monthly financial reviews</li>
+                <li>Strategic decision support</li>
+                <li>Board &amp; investor reporting</li>
+            </ul>
+            <a href="https://calendly.com/meital-bowave" target="_blank" class="solution-cta">📅 Let's Talk</a>
+        </div>
+        <div class="solution-card reveal">
+            <div class="solution-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+            <h3 class="solution-title">Early-Stage Founders</h3>
+            <p class="solution-desc">Build the financial foundation right from day one. Business plan, first financial model, pricing, and unit economics — ready for your first round.</p>
+            <ul class="solution-bullets">
+                <li>Business plan &amp; first model</li>
+                <li>Pricing &amp; unit economics</li>
+                <li>Pitch deck &amp; investor materials</li>
+                <li>Early-round preparation</li>
+            </ul>
+            <a href="https://calendly.com/meital-bowave" target="_blank" class="solution-cta">📅 Schedule a Call</a>
+        </div>
+    </div>
 </section>
 
 <!-- 2. SERVICES – 3 cards -->
@@ -633,12 +697,27 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click'
 const I18N = {
   en: {
     'title': 'BoWave Finance Consulting | Strategic FP&A for Tech Companies',
+    'nav a[href="#solutions"]': 'Solutions',
     'nav a[href="#services"]': 'Services',
     'nav a[href="#team"]': 'Team',
     'nav a[href="#about"]': 'About',
     'nav a[href="#how"]': 'How We Work',
     'nav a[href="#work"]': 'Case Studies',
     'nav a[href="#contact"]': 'Contact',
+    '.solutions .section-label': 'Solutions',
+    '.solutions .section-title': 'Built for Where You Are Today',
+    '.solution-card:nth-of-type(1) .solution-title': 'CFOs & Finance Teams',
+    '.solution-card:nth-of-type(1) .solution-desc': 'A budget that holds up to the board. Annual planning, rolling forecasts, board decks, and revenue analysis — we embed with your team for as long as you need.',
+    '.solution-card:nth-of-type(1) .solution-bullets li': ['Annual budget from scratch', 'Rolling forecasts', 'Board-ready decks', 'Revenue & cost analysis'],
+    '.solution-card:nth-of-type(1) .solution-cta': '📅 Schedule a Call',
+    '.solution-card:nth-of-type(2) .solution-title': 'CEOs Without a CFO',
+    '.solution-card:nth-of-type(2) .solution-desc': 'Senior finance leadership without the full-time cost. Strategic partnership, monthly support, and full visibility into your numbers.',
+    '.solution-card:nth-of-type(2) .solution-bullets li': ['Fractional CFO support', 'Monthly financial reviews', 'Strategic decision support', 'Board & investor reporting'],
+    '.solution-card:nth-of-type(2) .solution-cta': "📅 Let's Talk",
+    '.solution-card:nth-of-type(3) .solution-title': 'Early-Stage Founders',
+    '.solution-card:nth-of-type(3) .solution-desc': 'Build the financial foundation right from day one. Business plan, first financial model, pricing, and unit economics — ready for your first round.',
+    '.solution-card:nth-of-type(3) .solution-bullets li': ['Business plan & first model', 'Pricing & unit economics', 'Pitch deck & investor materials', 'Early-round preparation'],
+    '.solution-card:nth-of-type(3) .solution-cta': '📅 Schedule a Call',
     '.hero-topline .ht-item': ['Business plan', 'Financial model', 'FP&A partner', 'Fundraising strategy'],
     '.hero-tagline': 'Smart Finance<br>Starts Here.',
     '.hero-subtitle': "You're in the Right Place.",
@@ -725,12 +804,27 @@ const I18N = {
   },
   he: {
     'title': 'BoWave - ייעוץ פיננסי | FP&A אסטרטגי לחברות טכנולוגיה',
+    'nav a[href="#solutions"]': 'פתרונות',
     'nav a[href="#services"]': 'שירותים',
     'nav a[href="#team"]': 'צוות',
     'nav a[href="#about"]': 'אודות',
     'nav a[href="#how"]': 'איך אנחנו עובדים',
     'nav a[href="#work"]': 'עבודות נבחרות',
     'nav a[href="#contact"]': 'צרו קשר',
+    '.solutions .section-label': 'פתרונות',
+    '.solutions .section-title': 'מותאם לאן שאתם נמצאים היום',
+    '.solution-card:nth-of-type(1) .solution-title': 'סמנכ"לי כספים וצוותי פיננסים',
+    '.solution-card:nth-of-type(1) .solution-desc': 'תקציב שעומד מול הדירקטוריון. תקציב שנתי, תחזיות מתגלגלות, מצגות לדירקטוריון וניתוח הכנסות — אנחנו משתלבים בצוות שלכם לכל זמן שתצטרכו.',
+    '.solution-card:nth-of-type(1) .solution-bullets li': ['בניית תקציב שנתי מאפס', 'תחזיות מתגלגלות', 'מצגות מוכנות לדירקטוריון', 'ניתוח הכנסות ועלויות'],
+    '.solution-card:nth-of-type(1) .solution-cta': '📅 תאמו שיחה',
+    '.solution-card:nth-of-type(2) .solution-title': 'מנכ"לים בלי סמנכ"ל כספים',
+    '.solution-card:nth-of-type(2) .solution-desc': 'הובלה פיננסית בכירה בלי עלות של גיוס Full-time. שותפות אסטרטגית, ליווי חודשי וראייה כוללת של המספרים שלכם.',
+    '.solution-card:nth-of-type(2) .solution-bullets li': ['ליווי Fractional CFO', 'סקירה פיננסית חודשית', 'תמיכה בהחלטות אסטרטגיות', 'דיווחים לדירקטוריון ולמשקיעים'],
+    '.solution-card:nth-of-type(2) .solution-cta': '📅 בואו נדבר',
+    '.solution-card:nth-of-type(3) .solution-title': 'יזמים בתחילת הדרך',
+    '.solution-card:nth-of-type(3) .solution-desc': 'בונים את היסודות הפיננסיים נכון מהיום הראשון. תוכנית עסקית, מודל פיננסי ראשוני, תמחור ויחידות כלכלה — מוכנים לסבב הראשון.',
+    '.solution-card:nth-of-type(3) .solution-bullets li': ['תוכנית עסקית ומודל ראשוני', 'תמחור ויחידות כלכלה', 'מצגת משקיעים וחומרים', 'הכנה לגיוס ראשוני'],
+    '.solution-card:nth-of-type(3) .solution-cta': '📅 תאמו שיחה',
     '.hero-topline .ht-item': ['תוכנית עסקית', 'מודל פיננסי', 'שותף FP&A', 'אסטרטגיית גיוס'],
     '.hero-tagline': 'פיננסים חכמים<br>מתחילים כאן.',
     '.hero-subtitle': 'הגעתם למקום הנכון.',
