@@ -121,21 +121,20 @@
         /* LEADERSHIP BACKGROUND */
         .leadership-bg{background:var(--off-white);position:relative;overflow:hidden}
         .leadership-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 80% 20%,rgba(91,95,199,.05) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(26,127,90,.04) 0%,transparent 60%)}
-        .leadership-header{text-align:center;margin-bottom:3.5rem;position:relative}
-        .leadership-header .section-subtitle{font-size:1rem;color:var(--grey);font-weight:300;margin-top:.5rem;font-style:italic}
-        .leadership-card{max-width:1000px;margin:0 auto;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:#fff;transition:all .5s cubic-bezier(.16,1,.3,1);position:relative}
-        .leadership-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(30,42,58,.07)}
-        .leadership-card-top{background:linear-gradient(135deg,var(--dark) 0%,var(--dark-mid) 100%);padding:2.25rem 2.75rem 1.75rem}
-        .leadership-tag{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--green-hover);border:1px solid rgba(34,160,107,.4);padding:.3rem .8rem;border-radius:3px;margin-bottom:1rem}
-        .leadership-title{font-family:'Libre Baskerville',serif;font-size:1.55rem;color:#fff;margin-bottom:.4rem;line-height:1.3}
-        .leadership-acq{font-size:1rem;color:rgba(255,255,255,.55);font-style:italic;font-weight:400}
-        .leadership-role{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green-hover);margin:0}
-        .leadership-card-body{display:grid;grid-template-columns:1.05fr 1fr;gap:2.5rem;padding:2.25rem 2.75rem}
-        .leadership-desc p{font-size:.92rem;line-height:1.9;color:var(--text-body);font-weight:300}
-        .leadership-highlights{list-style:none;padding:0;margin:0}
-        .leadership-highlights li{position:relative;padding:.7rem 0 .7rem 1.5rem;font-size:.88rem;line-height:1.55;color:var(--text-dark);font-weight:400;border-bottom:1px solid var(--border)}
-        .leadership-highlights li:last-child{border-bottom:none}
-        .lh-dot{position:absolute;left:0;top:1.1rem;width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block}
+        .leadership-header{text-align:center;margin-bottom:3rem;position:relative}
+        .leadership-sub{font-size:1rem;color:var(--grey);font-weight:300;margin-top:.5rem;font-style:italic}
+        .leadership-cards{max-width:900px;margin:0 auto;display:flex;flex-direction:column;gap:1.1rem;position:relative}
+        .leadership-card{border:1px solid var(--border);border-left:4px solid var(--green);border-radius:8px;background:#fff;transition:all .4s cubic-bezier(.16,1,.3,1);overflow:hidden}
+        .leadership-card:hover{transform:translateX(3px);box-shadow:0 10px 30px rgba(30,42,58,.06)}
+        .leadership-card-top{padding:1.15rem 1.75rem .55rem;background:#fff;display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap}
+        .leadership-tag{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:600;letter-spacing:.04em;color:var(--green-dark);background:var(--green-pale);border:1px solid rgba(26,127,90,.2);padding:.2rem .7rem;border-radius:3px;white-space:nowrap;flex-shrink:0}
+        .leadership-title{font-family:'Libre Baskerville',serif;font-size:1.15rem;color:var(--text-dark);line-height:1.35;margin:0;flex:1 1 auto}
+        .leadership-acq{font-size:.82rem;color:var(--grey);font-style:italic;font-weight:400}
+        .leadership-role{font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin:0;width:100%;padding-top:.15rem}
+        .leadership-card-body{padding:.6rem 1.75rem 1.25rem;background:#fff}
+        .leadership-highlights{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:.25rem 1.75rem}
+        .leadership-highlights li{position:relative;padding:.4rem 0 .4rem 1.15rem;font-size:.83rem;line-height:1.5;color:var(--text-body);font-weight:300}
+        .lh-dot{position:absolute;left:0;top:.65rem;width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block}
 
         /* SELECTED WORK */
         .selected-work{background:var(--off-white)}
@@ -153,7 +152,7 @@
         .deck-slide-header::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.25)}
         .deck-slide-header.gh-green{background:linear-gradient(135deg,#1A7F5A 0%,#22A06B 100%)}
         .deck-slide-header.gh-coral{background:linear-gradient(135deg,#E8913A 0%,#D94052 100%)}
-        .deck-slide-header.gh-navy{background:linear-gradient(135deg,#1E2A3A 0%,#3B4A5F 100%)}
+        .deck-slide-header.gh-navy{background:linear-gradient(135deg,#475569 0%,#64748B 100%)}
         .deck-slide-body{padding:1.5rem 1.75rem;background:#fff;display:flex;flex-direction:column;gap:1rem}
         .deck-panel{background:#F5F6F8;border:1px solid #E8EAF0;border-radius:8px;padding:1rem 1.1rem}
         .deck-panel-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:.7rem;display:block}
@@ -175,9 +174,9 @@
         .deck-kpi-tile.hl-green{background:linear-gradient(135deg,#1A7F5A 0%,#22A06B 100%);border:none}
         .deck-kpi-tile.hl-green .k-lbl{color:rgba(255,255,255,.9)}
         .deck-kpi-tile.hl-green .k-val{color:#fff}
-        .deck-kpi-tile.hl-navy{background:linear-gradient(135deg,#1E2A3A 0%,#3B4A5F 100%);border:none}
-        .deck-kpi-tile.hl-navy .k-lbl{color:rgba(255,255,255,.75)}
-        .deck-kpi-tile.hl-navy .k-val{color:#22A06B}
+        .deck-kpi-tile.hl-navy{background:linear-gradient(135deg,#475569 0%,#64748B 100%);border:none}
+        .deck-kpi-tile.hl-navy .k-lbl{color:rgba(255,255,255,.85)}
+        .deck-kpi-tile.hl-navy .k-val{color:#fff}
 
         /* P&L mini-table */
         .deck-pl-table{width:100%;border-collapse:collapse;font-family:'Outfit',sans-serif}
@@ -207,9 +206,9 @@
         .deck-eq-box.hl-green{background:linear-gradient(135deg,#1A7F5A 0%,#22A06B 100%);border:none}
         .deck-eq-box.hl-green .k-lbl{color:rgba(255,255,255,.9)}
         .deck-eq-box.hl-green .k-val{color:#fff}
-        .deck-eq-box.hl-navy{background:linear-gradient(135deg,#1E2A3A 0%,#3B4A5F 100%);border:none}
-        .deck-eq-box.hl-navy .k-lbl{color:rgba(255,255,255,.75)}
-        .deck-eq-box.hl-navy .k-val{color:#22A06B}
+        .deck-eq-box.hl-navy{background:linear-gradient(135deg,#475569 0%,#64748B 100%);border:none}
+        .deck-eq-box.hl-navy .k-lbl{color:rgba(255,255,255,.85)}
+        .deck-eq-box.hl-navy .k-val{color:#fff}
         .deck-eq-op{color:#9CA3AF;font-weight:300;font-size:1rem;padding:0 .15rem}
 
         /* User growth bars */
@@ -415,8 +414,9 @@
         html[dir="rtl"] .principle-card{border-left:none;border-right:4px solid var(--green)}
         html[dir="rtl"] .service-card::before{left:auto;right:0;border-radius:0 0 0 4px}
         html[dir="rtl"] .form-submit{align-self:flex-end}
-        html[dir="rtl"] .leadership-highlights li{padding:.7rem 1.5rem .7rem 0}
+        html[dir="rtl"] .leadership-highlights li{padding:.4rem 1.15rem .4rem 0}
         html[dir="rtl"] .lh-dot{left:auto;right:0}
+        html[dir="rtl"] .leadership-card{border-left:1px solid var(--border);border-right:4px solid var(--green)}
 
         @media(max-width:968px){
             section{padding:5rem 2rem}nav{padding:1rem 1.5rem}nav.scrolled{padding:.75rem 1.5rem}
@@ -430,8 +430,10 @@
             .principles-grid{grid-template-columns:1fr}
             .team-grid{grid-template-columns:1fr;gap:3rem}
             .stats-row{gap:2.5rem;flex-wrap:wrap}
-            .leadership-card-body{grid-template-columns:1fr;gap:1.5rem;padding:1.75rem 1.75rem}
-            .leadership-card-top{padding:1.75rem 1.75rem 1.25rem}
+            .leadership-highlights{grid-template-columns:1fr;gap:0}
+            .leadership-card-body{padding:.5rem 1.25rem 1rem}
+            .leadership-card-top{padding:1rem 1.25rem .4rem;gap:.6rem}
+            .leadership-title{font-size:1.05rem}
             .deck-funds-grid{grid-template-columns:repeat(2,1fr)}
             .deck-kpi-row-4{grid-template-columns:repeat(2,1fr)}
             .deck-row-split{grid-template-columns:1fr}
@@ -581,25 +583,68 @@
 <section class="leadership-bg" id="leadership">
     <div class="leadership-header reveal">
         <p class="section-label">Leadership Background</p>
-        <h2 class="section-title">Where Meital Led FP&amp;A Before BoWave</h2>
+        <h2 class="section-title">15 Years of FP&amp;A Leadership</h2>
+        <p class="leadership-sub">From early-career finance through Workday acquisition.</p>
     </div>
-    <div class="leadership-card reveal">
-        <div class="leadership-card-top">
-            <span class="leadership-tag">2022–2025 · FP&amp;A Leadership</span>
-            <h3 class="leadership-title">HiredScore <span class="leadership-acq">(Acquired by Workday)</span></h3>
-            <p class="leadership-role">Director of FP&amp;A</p>
-        </div>
-        <div class="leadership-card-body">
-            <div class="leadership-desc">
-                <p>Director of FP&amp;A at a high-growth HR-tech SaaS company through its acquisition by Workday. Built the finance function from the ground up, managed the FP&amp;A workstream during due diligence, and partnered with the CEO and leadership team on board reporting, budget cycles, and GTM strategy.</p>
+    <div class="leadership-cards">
+        <div class="leadership-card reveal">
+            <div class="leadership-card-top">
+                <span class="leadership-tag">2022–2025</span>
+                <h3 class="leadership-title">HiredScore <span class="leadership-acq">· Acquired by Workday</span></h3>
+                <p class="leadership-role">Director of FP&amp;A · HR-Tech SaaS</p>
             </div>
-            <ul class="leadership-highlights">
-                <li><span class="lh-dot"></span>Built FP&amp;A function from scratch</li>
-                <li><span class="lh-dot"></span>Led sell-side financial workstream through Workday acquisition</li>
-                <li><span class="lh-dot"></span>Implemented Workday Adaptive + NetSuite</li>
-                <li><span class="lh-dot"></span>Restructured sales commissions and incentive design</li>
-                <li><span class="lh-dot"></span>Led cost optimization across departments</li>
-            </ul>
+            <div class="leadership-card-body">
+                <ul class="leadership-highlights">
+                    <li><span class="lh-dot"></span>Led Workday acquisition due diligence</li>
+                    <li><span class="lh-dot"></span>Built FP&amp;A from scratch · NetSuite + Workday Adaptive</li>
+                    <li><span class="lh-dot"></span>Restructured sales commissions &amp; incentive design</li>
+                    <li><span class="lh-dot"></span>Implemented Tipalti · SKU pricing by cost center</li>
+                </ul>
+            </div>
+        </div>
+        <div class="leadership-card reveal">
+            <div class="leadership-card-top">
+                <span class="leadership-tag">2020–2022</span>
+                <h3 class="leadership-title">LOGZ.io</h3>
+                <p class="leadership-role">FP&amp;A Manager · Cloud Observability SaaS</p>
+            </div>
+            <div class="leadership-card-body">
+                <ul class="leadership-highlights">
+                    <li><span class="lh-dot"></span>Built rolling forecast tool · P&amp;L, CF, BS</li>
+                    <li><span class="lh-dot"></span>Owned quarterly board deck &amp; monthly reporting</li>
+                    <li><span class="lh-dot"></span>Restructured departmental cost segments</li>
+                    <li><span class="lh-dot"></span>NetSuite + Salesforce reporting suite</li>
+                </ul>
+            </div>
+        </div>
+        <div class="leadership-card reveal">
+            <div class="leadership-card-top">
+                <span class="leadership-tag">2014–2019</span>
+                <h3 class="leadership-title">Kaltura <span class="leadership-acq">· FP&amp;A Award 2017</span></h3>
+                <p class="leadership-role">FP&amp;A Specialist &amp; Revenue Analyst · Video Platform</p>
+            </div>
+            <div class="leadership-card-body">
+                <ul class="leadership-highlights">
+                    <li><span class="lh-dot"></span>Board statements · P&amp;L, BS, CF + multiyear plan</li>
+                    <li><span class="lh-dot"></span>BvA process across all budget owners</li>
+                    <li><span class="lh-dot"></span>Sales pipeline reviews &amp; currency hedge</li>
+                    <li><span class="lh-dot"></span>Sage Intacct admin · revenue recognition</li>
+                </ul>
+            </div>
+        </div>
+        <div class="leadership-card reveal">
+            <div class="leadership-card-top">
+                <span class="leadership-tag">2011–2013</span>
+                <h3 class="leadership-title">Edom UK</h3>
+                <p class="leadership-role">Financial Manager · Agronomic Export</p>
+            </div>
+            <div class="leadership-card-body">
+                <ul class="leadership-highlights">
+                    <li><span class="lh-dot"></span>Cross-company currency exposure management</li>
+                    <li><span class="lh-dot"></span>ERP Priority rollout &amp; user interfaces</li>
+                    <li><span class="lh-dot"></span>Designed &amp; deployed Qlik BI system</li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
@@ -917,12 +962,20 @@ const I18N = {
     '.stat-item:nth-of-type(3) .stat-label': 'Full Lifecycle',
     '.track-text': 'Meital led FP&A at companies from early-stage through acquisition, including the Workday acquisition of HiredScore. Built finance functions from scratch, implemented ERP systems, and partnered with executives to drive growth at every stage.',
     '.leadership-bg .section-label': 'Leadership Background',
-    '.leadership-bg .section-title': 'Where Meital Led FP&A Before BoWave',
-    '.leadership-tag': '2022–2025 · FP&A Leadership',
-    '.leadership-title': 'HiredScore <span class="leadership-acq">(Acquired by Workday)</span>',
-    '.leadership-role': 'Director of FP&A',
-    '.leadership-desc p': 'Director of FP&A at a high-growth HR-tech SaaS company through its acquisition by Workday. Built the finance function from the ground up, managed the FP&A workstream during due diligence, and partnered with the CEO and leadership team on board reporting, budget cycles, and GTM strategy.',
-    '.leadership-highlights li': ['<span class="lh-dot"></span>Built FP&A function from scratch', '<span class="lh-dot"></span>Led sell-side financial workstream through Workday acquisition', '<span class="lh-dot"></span>Implemented Workday Adaptive + NetSuite', '<span class="lh-dot"></span>Restructured sales commissions and incentive design', '<span class="lh-dot"></span>Led cost optimization across departments'],
+    '.leadership-bg .section-title': '15 Years of FP&A Leadership',
+    '.leadership-sub': 'From early-career finance through Workday acquisition.',
+    '.leadership-card:nth-of-type(1) .leadership-tag': '2022–2025',
+    '.leadership-card:nth-of-type(1) .leadership-title': 'HiredScore <span class="leadership-acq">· Acquired by Workday</span>',
+    '.leadership-card:nth-of-type(1) .leadership-role': 'Director of FP&A · HR-Tech SaaS',
+    '.leadership-card:nth-of-type(2) .leadership-tag': '2020–2022',
+    '.leadership-card:nth-of-type(2) .leadership-title': 'LOGZ.io',
+    '.leadership-card:nth-of-type(2) .leadership-role': 'FP&A Manager · Cloud Observability SaaS',
+    '.leadership-card:nth-of-type(3) .leadership-tag': '2014–2019',
+    '.leadership-card:nth-of-type(3) .leadership-title': 'Kaltura <span class="leadership-acq">· FP&A Award 2017</span>',
+    '.leadership-card:nth-of-type(3) .leadership-role': 'FP&A Specialist & Revenue Analyst · Video Platform',
+    '.leadership-card:nth-of-type(4) .leadership-tag': '2011–2013',
+    '.leadership-card:nth-of-type(4) .leadership-title': 'Edom UK',
+    '.leadership-card:nth-of-type(4) .leadership-role': 'Financial Manager · Agronomic Export',
     '.selected-work .section-label': 'Selected Work',
     '.selected-work .section-title': 'Real Projects. Real Results.',
     '.work-card:nth-of-type(1) .work-tag': 'B2B SaaS · FP&A Buildout',
@@ -1021,12 +1074,20 @@ const I18N = {
     '.stat-item:nth-of-type(3) .stat-label': 'מחזור חיים מלא',
     '.track-text': 'מיטל הובילה FP&A בחברות מגיוס ראשוני ועד רכישה, כולל רכישת HiredScore על ידי Workday. בנתה פונקציות פיננסים מאפס, יישמה מערכות ERP ושיתפה פעולה עם מנהלים בכירים כדי להניע צמיחה בכל שלב.',
     '.leadership-bg .section-label': 'רקע ניהולי',
-    '.leadership-bg .section-title': 'איפה מיטל הובילה FP&A לפני BoWave',
-    '.leadership-tag': '2022–2025 · ניהול FP&A',
-    '.leadership-title': 'HiredScore <span class="leadership-acq">(נרכשה על ידי Workday)</span>',
-    '.leadership-role': 'מנהלת FP&A',
-    '.leadership-desc p': 'מנהלת FP&A בחברת SaaS לתחום HR-Tech בצמיחה מהירה, דרך הרכישה שלה על ידי Workday. בנתה את פונקציית הפיננסים מאפס, ניהלה את ה-Workstream של ה-FP&A במהלך בדיקת הנאותות, ושיתפה פעולה עם המנכ"ל וצוות ההנהלה על דיווח לדירקטוריון, מחזורי תקציב ואסטרטגיית GTM.',
-    '.leadership-highlights li': ['<span class="lh-dot"></span>בנתה פונקציית FP&A מאפס', '<span class="lh-dot"></span>הובילה את ה-Workstream הפיננסי בצד המוכר ברכישת Workday', '<span class="lh-dot"></span>יישמה Workday Adaptive + NetSuite', '<span class="lh-dot"></span>ארגנה מחדש מבני עמלות ותמריצים למכירות', '<span class="lh-dot"></span>הובילה אופטימיזציית עלויות בכל המחלקות'],
+    '.leadership-bg .section-title': '15 שנות הובלת FP&A',
+    '.leadership-sub': 'מתחילת הקריירה ועד רכישת Workday.',
+    '.leadership-card:nth-of-type(1) .leadership-tag': '2022–2025',
+    '.leadership-card:nth-of-type(1) .leadership-title': 'HiredScore <span class="leadership-acq">· נרכשה על ידי Workday</span>',
+    '.leadership-card:nth-of-type(1) .leadership-role': 'מנהלת FP&A · SaaS לתחום HR-Tech',
+    '.leadership-card:nth-of-type(2) .leadership-tag': '2020–2022',
+    '.leadership-card:nth-of-type(2) .leadership-title': 'LOGZ.io',
+    '.leadership-card:nth-of-type(2) .leadership-role': 'מנהלת FP&A · SaaS לתחום Cloud Observability',
+    '.leadership-card:nth-of-type(3) .leadership-tag': '2014–2019',
+    '.leadership-card:nth-of-type(3) .leadership-title': 'Kaltura <span class="leadership-acq">· זוכת פרס FP&A 2017</span>',
+    '.leadership-card:nth-of-type(3) .leadership-role': 'מומחית FP&A ואנליסטית הכנסות · פלטפורמת וידאו',
+    '.leadership-card:nth-of-type(4) .leadership-tag': '2011–2013',
+    '.leadership-card:nth-of-type(4) .leadership-title': 'Edom UK',
+    '.leadership-card:nth-of-type(4) .leadership-role': 'מנהלת כספים · יצוא חקלאי',
     '.selected-work .section-label': 'עבודות נבחרות',
     '.selected-work .section-title': 'פרויקטים אמיתיים. תוצאות אמיתיות.',
     '.work-card:nth-of-type(1) .work-tag': 'B2B SaaS · בניית FP&A',
