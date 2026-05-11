@@ -140,12 +140,119 @@
         /* SELECTED WORK */
         .selected-work{background:var(--off-white)}
         .work-header{text-align:center;margin-bottom:4rem}
-        .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.5rem;max-width:1100px;margin:0 auto}
+        .work-grid{display:flex;flex-direction:column;gap:3rem;max-width:1000px;margin:0 auto}
         .work-card{border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:all .5s cubic-bezier(.16,1,.3,1);background:#fff}
         .work-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(30,42,58,.07)}
         .work-card-top{background:linear-gradient(135deg,var(--dark) 0%,var(--dark-mid) 100%);padding:2rem 2.5rem 1.5rem}
         .work-tag{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--green-hover);border:1px solid rgba(34,160,107,.4);padding:.3rem .8rem;border-radius:3px;margin-bottom:.75rem}
         .work-card h3{font-family:'Libre Baskerville',serif;font-size:1.3rem;color:#fff}
+
+        /* DECK-STYLE MOCKUPS (V-Me/Playra inspired) */
+        .deck-slide{border-top:1px solid var(--border);background:#fff}
+        .deck-slide-header{padding:.85rem 1.75rem;color:#fff;font-weight:700;font-size:.95rem;letter-spacing:.01em;position:relative;font-family:'Outfit',sans-serif}
+        .deck-slide-header::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.25)}
+        .deck-slide-header.gh-green{background:linear-gradient(135deg,#1A7F5A 0%,#22A06B 100%)}
+        .deck-slide-header.gh-coral{background:linear-gradient(135deg,#E8913A 0%,#D94052 100%)}
+        .deck-slide-header.gh-navy{background:linear-gradient(135deg,#1E2A3A 0%,#3B4A5F 100%)}
+        .deck-slide-body{padding:1.5rem 1.75rem;background:#fff;display:flex;flex-direction:column;gap:1rem}
+        .deck-panel{background:#F5F6F8;border:1px solid #E8EAF0;border-radius:8px;padding:1rem 1.1rem}
+        .deck-panel-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:.7rem;display:block}
+        .deck-panel-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #E8EAF0;padding-bottom:.5rem;margin-bottom:0}
+        .deck-panel-total{font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700}
+        .deck-panel-total.green{color:#1A7F5A}
+        .deck-panel-total.purple{color:#5B5FC7}
+        .deck-panel-total.orange{color:#D97706}
+        .deck-panel-total.navy{color:#1E2A3A}
+
+        /* KPI row of 4 */
+        .deck-kpi-row-4{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+        .deck-kpi-tile{background:#fff;border:1px solid #E8EAF0;border-radius:8px;padding:.9rem .6rem;text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:78px;gap:.35rem}
+        .deck-kpi-tile .k-lbl{font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;color:#6B7280;font-weight:600}
+        .deck-kpi-tile .k-val{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:700;color:var(--text-dark)}
+        .deck-kpi-tile.hl-coral{background:linear-gradient(135deg,#E8913A 0%,#D94052 100%);border:none}
+        .deck-kpi-tile.hl-coral .k-lbl{color:rgba(255,255,255,.9)}
+        .deck-kpi-tile.hl-coral .k-val{color:#fff}
+        .deck-kpi-tile.hl-green{background:linear-gradient(135deg,#1A7F5A 0%,#22A06B 100%);border:none}
+        .deck-kpi-tile.hl-green .k-lbl{color:rgba(255,255,255,.9)}
+        .deck-kpi-tile.hl-green .k-val{color:#fff}
+        .deck-kpi-tile.hl-navy{background:linear-gradient(135deg,#1E2A3A 0%,#3B4A5F 100%);border:none}
+        .deck-kpi-tile.hl-navy .k-lbl{color:rgba(255,255,255,.75)}
+        .deck-kpi-tile.hl-navy .k-val{color:#22A06B}
+
+        /* P&L mini-table */
+        .deck-pl-table{width:100%;border-collapse:collapse;font-family:'Outfit',sans-serif}
+        .deck-pl-table th{padding:.5rem .35rem;text-align:right;color:#6B7280;font-weight:600;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;background:#F5F6F8;border-bottom:1px solid #E8EAF0}
+        .deck-pl-table th:first-child{text-align:left;padding-left:.65rem}
+        .deck-pl-table td{padding:.5rem .35rem;text-align:right;border-bottom:1px solid #F0F2F5;font-family:'JetBrains Mono',monospace;font-size:.72rem}
+        .deck-pl-table td.cat{text-align:left;padding-left:.65rem;font-family:'Outfit',sans-serif;color:#374151;font-weight:500;font-size:.78rem}
+        .deck-pl-table td.cat.sub{padding-left:1.5rem;color:#9CA3AF;font-style:italic;font-size:.7rem;font-weight:400}
+        .deck-pl-table td.cat.strong{font-weight:700;color:var(--text-dark)}
+        .deck-pl-table td.pos{color:#1A7F5A;font-weight:600}
+        .deck-pl-table td.neg{color:#D94052}
+        .deck-pl-table td.meta{color:#9CA3AF;font-style:italic;font-family:'Outfit',sans-serif}
+        .deck-pl-table tr.gross td{background:#F0F8F4}
+        .deck-pl-table tr.gross td.pos{font-weight:700}
+        .deck-pl-table tr.total td{border-top:2px solid var(--text-dark);font-weight:700}
+
+        /* Equation row */
+        .deck-equation{background:#F5F6F8;border:1px solid #E8EAF0;border-radius:8px;padding:1rem 1rem .9rem}
+        .deck-eq-label{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:#6B7280;font-weight:600;text-align:center;margin-bottom:.85rem}
+        .deck-eq-row{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap}
+        .deck-eq-box{background:#fff;border:1px solid #E8EAF0;border-radius:6px;padding:.6rem .65rem;text-align:center;flex:0 1 auto;min-width:88px;display:flex;flex-direction:column;gap:.3rem}
+        .deck-eq-box .k-lbl{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:#6B7280;font-weight:600}
+        .deck-eq-box .k-val{font-family:'JetBrains Mono',monospace;font-size:.85rem;font-weight:700;color:var(--text-dark)}
+        .deck-eq-box.hl-coral{background:linear-gradient(135deg,#E8913A 0%,#D94052 100%);border:none}
+        .deck-eq-box.hl-coral .k-lbl{color:rgba(255,255,255,.9)}
+        .deck-eq-box.hl-coral .k-val{color:#fff}
+        .deck-eq-box.hl-green{background:linear-gradient(135deg,#1A7F5A 0%,#22A06B 100%);border:none}
+        .deck-eq-box.hl-green .k-lbl{color:rgba(255,255,255,.9)}
+        .deck-eq-box.hl-green .k-val{color:#fff}
+        .deck-eq-box.hl-navy{background:linear-gradient(135deg,#1E2A3A 0%,#3B4A5F 100%);border:none}
+        .deck-eq-box.hl-navy .k-lbl{color:rgba(255,255,255,.75)}
+        .deck-eq-box.hl-navy .k-val{color:#22A06B}
+        .deck-eq-op{color:#9CA3AF;font-weight:300;font-size:1rem;padding:0 .15rem}
+
+        /* User growth bars */
+        .deck-bars{display:flex;align-items:flex-end;justify-content:space-between;gap:.5rem;height:90px;padding-top:1.6rem;position:relative}
+        .deck-bar-col{display:flex;flex-direction:column;align-items:center;flex:1;gap:.35rem;height:100%;justify-content:flex-end}
+        .deck-bar-val{font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;color:var(--text-dark)}
+        .deck-bar{width:70%;background:linear-gradient(180deg,#22A06B 0%,#1A7F5A 100%);border-radius:3px 3px 0 0;min-height:6px}
+        .deck-bar-lbl{font-size:.55rem;color:#6B7280;letter-spacing:.04em}
+
+        /* Totals strip */
+        .deck-totals-strip{display:flex;justify-content:space-between;align-items:center;color:#fff;border-radius:8px;padding:.85rem 1.25rem;gap:1.25rem;flex-wrap:wrap;background:linear-gradient(135deg,#1A7F5A 0%,#22A06B 100%)}
+        .deck-totals-strip.ts-coral{background:linear-gradient(135deg,#E8913A 0%,#D94052 100%)}
+        .deck-totals-strip .ts-lbl{font-size:.6rem;letter-spacing:.18em;font-weight:600;color:rgba(255,255,255,.85);text-transform:uppercase}
+        .deck-totals-strip .ts-val{font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin-right:auto}
+        .deck-totals-strip .ts-sub{font-size:.72rem;font-weight:500;color:rgba(255,255,255,.85)}
+        .deck-totals-strip .ts-sub strong{color:#fff;font-weight:700}
+
+        /* Funds grid (4 panels) */
+        .deck-funds-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
+        .deck-funds-grid .deck-panel{padding:.75rem .85rem;display:flex;flex-direction:column;gap:.45rem}
+        .deck-funds-line{display:flex;justify-content:space-between;font-size:.65rem;color:#4B5563}
+        .deck-funds-line .ln-lbl{color:#6B7280}
+        .deck-funds-line .ln-val{font-family:'JetBrains Mono',monospace;font-weight:600;color:var(--text-dark)}
+        .deck-funds-sub{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:#9CA3AF;font-weight:600;margin-top:.25rem;border-top:1px solid #E8EAF0;padding-top:.35rem}
+
+        /* Two-up split */
+        .deck-row-split{display:grid;grid-template-columns:1.3fr 1fr;gap:.6rem}
+        .deck-tiles-3{display:grid;grid-template-columns:repeat(3,1fr);gap:.45rem;margin-top:.25rem}
+        .deck-tiles-2{display:grid;grid-template-columns:repeat(2,1fr);gap:.45rem;margin-top:.25rem}
+        .deck-mini-tile{background:#fff;border:1px solid #E8EAF0;border-radius:6px;padding:.6rem .35rem;text-align:center}
+        .deck-mini-tile .m-lbl{font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:.25rem}
+        .deck-mini-tile .m-val{font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700;color:var(--text-dark)}
+        .deck-mini-tile .m-sub{font-size:.5rem;color:#9CA3AF;margin-top:.15rem;font-family:'Outfit',sans-serif}
+
+        /* QoE adjustments table */
+        .deck-mini-table{width:100%;border-collapse:collapse;font-size:.75rem;margin-top:.5rem}
+        .deck-mini-table td{padding:.5rem .35rem;border-bottom:1px solid #F0F2F5}
+        .deck-mini-table td:first-child{color:#374151}
+        .deck-mini-table td:last-child{text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;color:#1A7F5A}
+        .deck-mini-table tr.tt td{border-top:2px solid var(--text-dark);border-bottom:none;padding-top:.6rem;font-weight:700;color:var(--text-dark)}
+
+        /* Footnote */
+        .deck-footnote{font-size:.65rem;color:#9CA3AF;font-style:italic;text-align:center;margin-top:.25rem}
 
         /* Light mockup */
         .work-mockup-light{background:#fff;padding:1.5rem;border-bottom:1px solid var(--border)}
@@ -325,6 +432,14 @@
             .stats-row{gap:2.5rem;flex-wrap:wrap}
             .leadership-card-body{grid-template-columns:1fr;gap:1.5rem;padding:1.75rem 1.75rem}
             .leadership-card-top{padding:1.75rem 1.75rem 1.25rem}
+            .deck-funds-grid{grid-template-columns:repeat(2,1fr)}
+            .deck-kpi-row-4{grid-template-columns:repeat(2,1fr)}
+            .deck-row-split{grid-template-columns:1fr}
+            .deck-slide-body{padding:1.25rem 1rem}
+            .deck-totals-strip{justify-content:flex-start}
+            .deck-totals-strip .ts-val{font-size:1.25rem;margin-right:0}
+            .deck-pl-table th,.deck-pl-table td{padding:.4rem .25rem;font-size:.65rem}
+            .deck-pl-table td.cat{font-size:.7rem}
             .form-row{grid-template-columns:1fr}
             .flow-steps{flex-direction:column;gap:0}.flow-arrow{transform:rotate(90deg);padding:.5rem 0}
             .mock-kpi-row{grid-template-columns:repeat(2,1fr)}
@@ -494,113 +609,169 @@
     <div class="work-header reveal"><p class="section-label">Selected Work</p><h2 class="section-title">Real Projects. Real Results.</h2></div>
     <div class="work-grid">
         <div class="work-card reveal">
-            <div class="work-card-top"><span class="work-tag">B2B · ConstructionTech</span><h3>Tech B2B Startup</h3></div>
-            <div class="work-mockup-light">
-                <div class="mock-title-bar"><h4>Cash Flow & Profitability</h4><span class="mock-title-sub">Operating P/L (Bars) + Cash Balance (Line)</span></div>
-                <div style="position:relative;height:140px;padding:0 .25rem">
-                    <!-- Cash balance curve -->
-                    <svg viewBox="0 0 320 140" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none">
-                        <polyline fill="none" stroke="#D4A843" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="6,3" points="20,18 60,35 100,50 140,62 180,70 220,65 260,52 300,36"/>
-                        <circle cx="20" cy="18" r="3" fill="#D4A843"/><circle cx="60" cy="35" r="3" fill="#D4A843"/><circle cx="100" cy="50" r="3" fill="#D4A843"/><circle cx="140" cy="62" r="3" fill="#D4A843"/><circle cx="180" cy="70" r="3" fill="#D4A843"/><circle cx="220" cy="65" r="3" fill="#D4A843"/><circle cx="260" cy="52" r="3" fill="#D4A843"/><circle cx="300" cy="36" r="3" fill="#D4A843"/>
-                        <!-- Cash balance labels -->
-                        <text x="20" y="13" font-size="6" fill="#D4A843" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="600">$680K</text>
-                        <text x="100" y="45" font-size="6" fill="#D4A843" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="600">$412K</text>
-                        <text x="180" y="65" font-size="6" fill="#D4A843" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="600">$195K</text>
-                        <text x="260" y="47" font-size="6" fill="#D4A843" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="600">$310K</text>
-                        <text x="300" y="31" font-size="6" fill="#D4A843" text-anchor="middle" font-family="JetBrains Mono,monospace" font-weight="600">$445K</text>
-                    </svg>
-                    <!-- Bars -->
-                    <div style="display:flex;align-items:center;height:100%;position:relative;z-index:1">
-                        <div style="position:absolute;top:50%;left:0;right:0;border-top:1.5px solid #ddd"></div>
-                        <div style="display:flex;justify-content:space-around;width:100%;height:100%;align-items:center">
-                            <div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="font-size:.4rem;color:#D94052;font-family:JetBrains Mono,monospace;font-weight:600">-$195K</div><div style="width:22px;height:38px;background:#D94052;border-radius:0 0 3px 3px;opacity:.85"></div></div>
-                            <div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="font-size:.4rem;color:#D94052;font-family:JetBrains Mono,monospace;font-weight:600">-$230K</div><div style="width:22px;height:44px;background:#D94052;border-radius:0 0 3px 3px;opacity:.85"></div></div>
-                            <div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="font-size:.4rem;color:#D94052;font-family:JetBrains Mono,monospace;font-weight:600">-$148K</div><div style="width:22px;height:30px;background:#D94052;border-radius:0 0 3px 3px;opacity:.85"></div></div>
-                            <div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="font-size:.4rem;color:#D94052;font-family:JetBrains Mono,monospace;font-weight:600">-$72K</div><div style="width:22px;height:18px;background:#D94052;border-radius:0 0 3px 3px;opacity:.85"></div></div>
-                            <div style="display:flex;flex-direction:column;align-items:center;gap:2px"><div style="font-size:.4rem;color:#D94052;font-family:JetBrains Mono,monospace;font-weight:600">-$31K</div><div style="width:22px;height:10px;background:#D94052;border-radius:0 0 3px 3px;opacity:.85"></div></div>
-                            <div style="display:flex;flex-direction:column-reverse;align-items:center;gap:2px"><div style="font-size:.4rem;color:#2E7D32;font-family:JetBrains Mono,monospace;font-weight:600">$18K</div><div style="width:22px;height:8px;background:#43A047;border-radius:3px 3px 0 0;opacity:.85"></div></div>
-                            <div style="display:flex;flex-direction:column-reverse;align-items:center;gap:2px"><div style="font-size:.4rem;color:#2E7D32;font-family:JetBrains Mono,monospace;font-weight:600">$75K</div><div style="width:22px;height:20px;background:#43A047;border-radius:3px 3px 0 0;opacity:.85"></div></div>
-                            <div style="display:flex;flex-direction:column-reverse;align-items:center;gap:2px"><div style="font-size:.4rem;color:#2E7D32;font-family:JetBrains Mono,monospace;font-weight:600">$158K</div><div style="width:22px;height:32px;background:#43A047;border-radius:3px 3px 0 0;opacity:.85"></div></div>
+            <div class="work-card-top"><span class="work-tag">B2B SaaS · FP&amp;A Buildout</span><h3>Series A · Finance Stack</h3></div>
+            <div class="deck-slide">
+                <div class="deck-slide-header gh-green">P&amp;L Summary</div>
+                <div class="deck-slide-body">
+                    <table class="deck-pl-table">
+                        <thead><tr><th>Category</th><th>Q1 '26</th><th>Q2 '26</th><th>Q3 '26</th><th>Q4 '26</th><th>Total</th></tr></thead>
+                        <tbody>
+                            <tr><td class="cat">Revenue</td><td class="pos">$48K</td><td class="pos">$112K</td><td class="pos">$186K</td><td class="pos">$267K</td><td class="pos">$613K</td></tr>
+                            <tr><td class="cat">COGS</td><td class="neg">($8K)</td><td class="neg">($19K)</td><td class="neg">($31K)</td><td class="neg">($45K)</td><td class="neg">($103K)</td></tr>
+                            <tr class="gross"><td class="cat strong">Gross Profit</td><td class="pos">$40K</td><td class="pos">$93K</td><td class="pos">$155K</td><td class="pos">$222K</td><td class="pos">$510K</td></tr>
+                            <tr><td class="cat sub">↳ GM %</td><td class="meta">83%</td><td class="meta">83%</td><td class="meta">83%</td><td class="meta">83%</td><td class="meta">83%</td></tr>
+                            <tr><td class="cat">Operating Costs</td><td class="neg">($95K)</td><td class="neg">($120K)</td><td class="neg">($145K)</td><td class="neg">($170K)</td><td class="neg">($530K)</td></tr>
+                            <tr class="total"><td class="cat strong">Net Income</td><td class="neg">($55K)</td><td class="neg">($27K)</td><td class="pos">$10K</td><td class="pos">$52K</td><td class="neg">($20K)</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="deck-footnote">Quarterly · 12-month plan · costs in parentheses</p>
+                </div>
+            </div>
+            <div class="deck-slide">
+                <div class="deck-slide-header gh-green">Use of Funds</div>
+                <div class="deck-slide-body">
+                    <div class="deck-funds-grid">
+                        <div class="deck-panel">
+                            <div class="deck-panel-head"><span class="deck-panel-label" style="margin:0">COGS</span><span class="deck-panel-total orange">$103K</span></div>
+                            <div class="deck-funds-sub">3rd Party</div>
+                            <div class="deck-funds-line"><span class="ln-lbl">Hosting + AWS</span><span class="ln-val">$61K</span></div>
+                            <div class="deck-funds-line"><span class="ln-lbl">3rd-party APIs</span><span class="ln-val">$42K</span></div>
+                        </div>
+                        <div class="deck-panel">
+                            <div class="deck-panel-head"><span class="deck-panel-label" style="margin:0">R&amp;D</span><span class="deck-panel-total purple">$240K</span></div>
+                            <div class="deck-funds-sub">Workforce</div>
+                            <div class="deck-funds-line"><span class="ln-lbl">Senior Eng × 2</span><span class="ln-val">$190K</span></div>
+                            <div class="deck-funds-line"><span class="ln-lbl">Contractors</span><span class="ln-val">$50K</span></div>
+                        </div>
+                        <div class="deck-panel">
+                            <div class="deck-panel-head"><span class="deck-panel-label" style="margin:0">S&amp;M</span><span class="deck-panel-total orange">$185K</span></div>
+                            <div class="deck-funds-sub">Workforce + Variable</div>
+                            <div class="deck-funds-line"><span class="ln-lbl">Sales Lead</span><span class="ln-val">$95K</span></div>
+                            <div class="deck-funds-line"><span class="ln-lbl">Acquisition</span><span class="ln-val">$90K</span></div>
+                        </div>
+                        <div class="deck-panel">
+                            <div class="deck-panel-head"><span class="deck-panel-label" style="margin:0">G&amp;A</span><span class="deck-panel-total green">$105K</span></div>
+                            <div class="deck-funds-sub">3rd Party</div>
+                            <div class="deck-funds-line"><span class="ln-lbl">Legal + Finance</span><span class="ln-val">$48K</span></div>
+                            <div class="deck-funds-line"><span class="ln-lbl">Office + Ops</span><span class="ln-val">$57K</span></div>
+                        </div>
+                    </div>
+                    <div class="deck-totals-strip">
+                        <span class="ts-lbl">Plan Burn</span>
+                        <span class="ts-val">$633K</span>
+                        <span class="ts-sub">Workforce <strong>$430K</strong> · 3rd Party <strong>$203K</strong></span>
+                    </div>
+                </div>
+            </div>
+            <div class="work-card-body"><p>Built FP&amp;A from zero. Rolling forecasts, board-ready KPIs, ERP rollout.</p></div>
+        </div>
+
+        <div class="work-card reveal">
+            <div class="work-card-top"><span class="work-tag">B2C · Consumer App</span><h3>Pre-Seed · $500K Raise</h3></div>
+            <div class="deck-slide">
+                <div class="deck-slide-header gh-coral">Users &amp; Revenue</div>
+                <div class="deck-slide-body">
+                    <div class="deck-panel">
+                        <span class="deck-panel-label">User Growth Journey (Quarterly)</span>
+                        <div class="deck-bars">
+                            <div class="deck-bar-col"><span class="deck-bar-val">500</span><div class="deck-bar" style="height:4%"></div><span class="deck-bar-lbl">Q3 '26</span></div>
+                            <div class="deck-bar-col"><span class="deck-bar-val">1,500</span><div class="deck-bar" style="height:12%"></div><span class="deck-bar-lbl">Q4 '26</span></div>
+                            <div class="deck-bar-col"><span class="deck-bar-val">3,500</span><div class="deck-bar" style="height:28%"></div><span class="deck-bar-lbl">Q1 '27</span></div>
+                            <div class="deck-bar-col"><span class="deck-bar-val">7,500</span><div class="deck-bar" style="height:60%"></div><span class="deck-bar-lbl">Q2 '27</span></div>
+                            <div class="deck-bar-col"><span class="deck-bar-val">12,500</span><div class="deck-bar" style="height:100%"></div><span class="deck-bar-lbl">Q3 '27</span></div>
+                        </div>
+                    </div>
+                    <div class="deck-row-split">
+                        <div class="deck-panel">
+                            <span class="deck-panel-label">Unit Economics</span>
+                            <div class="deck-tiles-3">
+                                <div class="deck-mini-tile"><div class="m-lbl">Churn</div><div class="m-val">8%</div><div class="m-sub">monthly</div></div>
+                                <div class="deck-mini-tile"><div class="m-lbl">LTV</div><div class="m-val">$215</div><div class="m-sub">ARPU / churn</div></div>
+                                <div class="deck-mini-tile"><div class="m-lbl">ARPU</div><div class="m-val">$32</div><div class="m-sub">monthly</div></div>
+                            </div>
+                        </div>
+                        <div class="deck-panel">
+                            <span class="deck-panel-label">Pricing Tiers</span>
+                            <div class="deck-tiles-2">
+                                <div class="deck-mini-tile"><div class="m-lbl">Basic</div><div class="m-val">$19/mo</div><div class="m-sub">70% of users</div></div>
+                                <div class="deck-mini-tile"><div class="m-lbl">Premium</div><div class="m-val">$39/mo</div><div class="m-sub">30% of users</div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deck-totals-strip ts-coral">
+                        <span class="ts-lbl">Year 1 Revenue</span>
+                        <span class="ts-val">$580K</span>
+                        <span class="ts-sub">Subscription <strong>$548K</strong> · Add-ons <strong>$32K</strong></span>
+                    </div>
+                </div>
+            </div>
+            <div class="deck-slide">
+                <div class="deck-slide-header gh-coral">The Deal</div>
+                <div class="deck-slide-body">
+                    <div class="deck-kpi-row-4">
+                        <div class="deck-kpi-tile hl-coral"><span class="k-lbl">Investment</span><span class="k-val">$500K</span></div>
+                        <div class="deck-kpi-tile"><span class="k-lbl">Valuation Cap</span><span class="k-val">$8M</span></div>
+                        <div class="deck-kpi-tile"><span class="k-lbl">Ownership</span><span class="k-val">6.25%</span></div>
+                        <div class="deck-kpi-tile"><span class="k-lbl">Break-Even</span><span class="k-val">Q3 '27</span></div>
+                    </div>
+                    <div class="deck-equation">
+                        <div class="deck-eq-label">Investment Calculation</div>
+                        <div class="deck-eq-row">
+                            <div class="deck-eq-box"><span class="k-lbl">Max Cash Burn</span><span class="k-val">$385K</span></div>
+                            <span class="deck-eq-op">+</span>
+                            <div class="deck-eq-box"><span class="k-lbl">Safety (20%)</span><span class="k-val">$77K</span></div>
+                            <span class="deck-eq-op">=</span>
+                            <div class="deck-eq-box"><span class="k-lbl">Cash Need</span><span class="k-val">$462K</span></div>
+                            <span class="deck-eq-op">→</span>
+                            <div class="deck-eq-box hl-coral"><span class="k-lbl">Investment</span><span class="k-val">$500K</span></div>
                         </div>
                     </div>
                 </div>
-                <div class="mock-chart-labels"><span>Q1 '26</span><span>Q2 '26</span><span>Q3 '26</span><span>Q4 '26</span><span>Q1 '27</span><span>Q2 '27</span><span>Q3 '27</span><span>Q4 '27</span></div>
-                <div class="mock-legend">
-                    <div class="mock-legend-item"><span class="mock-dot" style="background:#D94052"></span> Operating Loss</div>
-                    <div class="mock-legend-item"><span class="mock-dot" style="background:#43A047"></span> Operating Profit</div>
-                    <div class="mock-legend-item"><span class="mock-dot" style="background:#D4A843"></span> Cash Balance</div>
-                </div>
             </div>
-            <!-- Business Model -->
-            <div class="work-mockup-light mock-section-divider">
-                <div class="mock-title-bar"><h4>Business Model</h4><span class="mock-title-sub">Phase 1 (Q1 2026 - Q4 2027)</span></div>
-                <div class="mock-bm-row">
-                    <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">$2,800</div><div class="mock-bm-lbl grey">Avg Order Value</div></div>
-                    <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">18%</div><div class="mock-bm-lbl grey">Take Rate</div></div>
-                    <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">$504</div><div class="mock-bm-lbl grey">Take Rate Revenue</div></div>
-                    <div class="mock-bm-card bm-white"><div class="mock-bm-val gold">$12</div><div class="mock-bm-lbl grey">SaaS Per User</div></div>
-                </div>
-                <div class="mock-bm-row">
-                    <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$11.4M</div><div class="mock-bm-lbl light">Total GMV</div><div class="mock-bm-sub">Gross Merchandise Value</div></div>
-                    <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$2.1M</div><div class="mock-bm-lbl light">Take Rate Revenue</div><div class="mock-bm-sub">On delivery value</div></div>
-                    <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$6K</div><div class="mock-bm-lbl light">Logistics Revenue</div><div class="mock-bm-sub">5% of logistics costs</div></div>
-                    <div class="mock-bm-card bm-dark"><div class="mock-bm-val white">$245K</div><div class="mock-bm-lbl light">SaaS Revenue</div><div class="mock-bm-sub">Recurring subscriptions</div></div>
-                </div>
-                <div class="mock-bm-row" style="grid-template-columns:repeat(4,1fr)">
-                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">$2.4M</div><div class="mock-bm-lbl dark">Total Revenue</div></div>
-                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">$11.4M</div><div class="mock-bm-lbl dark">Total GMV</div></div>
-                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">3,860</div><div class="mock-bm-lbl dark">Total Orders</div></div>
-                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">65</div><div class="mock-bm-lbl dark">Total Customers</div></div>
-                </div>
-            </div>
-            <div class="work-card-body"><p>We built a full business plan and financial model for a ConstructionTech B2B platform preparing for a $3M early-stage round. Delivered an AI-powered planning tool with formula-based Excel exports, Google Sheets integration, and a fully dynamic pitch deck generated via Apps Script, updated automatically from a single data source.</p></div>
+            <div class="work-card-body"><p>Investor-ready model + pitch deck. $500K SAFE closed.</p></div>
         </div>
+
         <div class="work-card reveal">
-            <div class="work-card-top"><span class="work-tag">B2C · Consumer App</span><h3>B2C App Startup</h3></div>
-            <!-- Users & Revenue -->
-            <div class="work-mockup-light">
-                <div class="mock-title-bar"><h4>Users &amp; Revenue</h4><span class="mock-title-sub">12-Month Growth Plan</span></div>
-                <div class="mock-users-row">
-                    <div class="mock-users-card users-dark"><div class="mock-users-val" style="color:#fff">5,000</div><div class="mock-users-lbl" style="color:rgba(255,255,255,.7)">Pilot Users (Free)</div></div>
-                    <div class="mock-users-card users-dark"><div class="mock-users-val" style="color:#fff">12,500</div><div class="mock-users-lbl" style="color:rgba(255,255,255,.7)">End of Year 1 (Paying)</div></div>
-                </div>
-                <div class="mock-pricing-row">
-                    <div class="mock-pricing-card"><div class="mock-pricing-val">$29/mo</div><div class="mock-pricing-lbl">Basic · 70%</div></div>
-                    <div class="mock-pricing-card"><div class="mock-pricing-val">$49/mo</div><div class="mock-pricing-lbl">Premium · 30%</div></div>
-                    <div class="mock-pricing-card"><div class="mock-pricing-val">$185</div><div class="mock-pricing-lbl">LTV · 6mo</div></div>
-                </div>
-                <div class="mock-bm-row" style="grid-template-columns:repeat(3,1fr);margin-top:.6rem">
-                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">$580K</div><div class="mock-bm-lbl dark">Year 1 Revenue</div></div>
-                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">$35</div><div class="mock-bm-lbl dark">ARPU / Month</div></div>
-                    <div class="mock-bm-card bm-green"><div class="mock-bm-val green">15%</div><div class="mock-bm-lbl dark">Monthly Churn</div></div>
-                </div>
-            </div>
-            <!-- The Deal -->
-            <div class="work-mockup-light mock-section-divider">
-                <div class="mock-title-bar"><h4>The Deal</h4><span class="mock-title-sub">Early-Round SAFE Terms</span></div>
-                <div class="mock-deal-grid">
-                    <div class="mock-deal-card deal-primary"><div class="mock-deal-val" style="color:var(--green-hover)">$500K</div><div class="mock-deal-lbl" style="color:rgba(255,255,255,.6)">Investment</div></div>
-                    <div class="mock-deal-card deal-primary"><div class="mock-deal-val" style="color:#fff">$8M</div><div class="mock-deal-lbl" style="color:rgba(255,255,255,.6)">Valuation Cap</div></div>
-                    <div class="mock-deal-card deal-accent"><div class="mock-deal-val" style="color:var(--green-dark)">6.25%</div><div class="mock-deal-lbl" style="color:#555">Ownership at Cap</div></div>
-                </div>
-                <div class="mock-deal-metrics">
-                    <div class="mock-deal-metric"><div class="mock-deal-metric-val">Month 14</div><div class="mock-deal-metric-lbl">Breakeven</div></div>
-                    <div class="mock-deal-metric"><div class="mock-deal-metric-val">$580K</div><div class="mock-deal-metric-lbl">Year 1 Revenue</div></div>
-                    <div class="mock-deal-metric"><div class="mock-deal-metric-val">($410K)</div><div class="mock-deal-metric-lbl">Net Result</div></div>
+            <div class="work-card-top"><span class="work-tag">M&amp;A · Acquisition Readiness</span><h3>Sell-Side · Strategic Buyer</h3></div>
+            <div class="deck-slide">
+                <div class="deck-slide-header gh-navy">EBITDA Bridge</div>
+                <div class="deck-slide-body">
+                    <div class="deck-equation">
+                        <div class="deck-eq-label">Reported → Adjusted EBITDA</div>
+                        <div class="deck-eq-row">
+                            <div class="deck-eq-box"><span class="k-lbl">Reported</span><span class="k-val">$1.80M</span></div>
+                            <span class="deck-eq-op">+</span>
+                            <div class="deck-eq-box"><span class="k-lbl">Owner Comp</span><span class="k-val">$340K</span></div>
+                            <span class="deck-eq-op">+</span>
+                            <div class="deck-eq-box"><span class="k-lbl">Non-recurring</span><span class="k-val">$185K</span></div>
+                            <span class="deck-eq-op">=</span>
+                            <div class="deck-eq-box hl-navy"><span class="k-lbl">Adjusted</span><span class="k-val">$2.32M</span></div>
+                        </div>
+                    </div>
+                    <p class="deck-footnote">Add-backs documented · QoE-ready</p>
                 </div>
             </div>
-            <!-- Use of Funds -->
-            <div class="work-mockup-light mock-section-divider">
-                <div class="mock-title-bar"><h4>Use of Funds</h4><span class="mock-title-sub">Year 1 Allocation</span></div>
-                <div class="mock-funds-row">
-                    <div class="mock-fund-card fund-cogs"><div class="mock-fund-val">$125K</div><div class="mock-fund-lbl">COGS</div><div class="mock-fund-pct">16%</div></div>
-                    <div class="mock-fund-card fund-rd"><div class="mock-fund-val">$285K</div><div class="mock-fund-lbl">R&amp;D</div><div class="mock-fund-pct">36%</div></div>
-                    <div class="mock-fund-card fund-sm"><div class="mock-fund-val">$195K</div><div class="mock-fund-lbl">S&amp;M</div><div class="mock-fund-pct">25%</div></div>
-                    <div class="mock-fund-card fund-ga"><div class="mock-fund-val">$185K</div><div class="mock-fund-lbl">G&amp;A</div><div class="mock-fund-pct">23%</div></div>
+            <div class="deck-slide">
+                <div class="deck-slide-header gh-navy">Acquisition Snapshot</div>
+                <div class="deck-slide-body">
+                    <div class="deck-kpi-row-4">
+                        <div class="deck-kpi-tile"><span class="k-lbl">Adj. EBITDA</span><span class="k-val">$2.32M</span></div>
+                        <div class="deck-kpi-tile"><span class="k-lbl">EBITDA Multiple</span><span class="k-val">6.5×</span></div>
+                        <div class="deck-kpi-tile"><span class="k-lbl">Enterprise Value</span><span class="k-val">$15.1M</span></div>
+                        <div class="deck-kpi-tile hl-navy"><span class="k-lbl">Net to Seller</span><span class="k-val">$13.4M</span></div>
+                    </div>
+                    <div class="deck-panel">
+                        <span class="deck-panel-label">QoE Adjustments</span>
+                        <table class="deck-mini-table">
+                            <tr><td>Owner compensation normalization</td><td>+$340K</td></tr>
+                            <tr><td>Non-recurring legal &amp; transaction fees</td><td>+$125K</td></tr>
+                            <tr><td>Personal expenses reclassified</td><td>+$60K</td></tr>
+                            <tr class="tt"><td>Total add-backs</td><td>+$525K</td></tr>
+                        </table>
+                    </div>
                 </div>
-                <div class="mock-fund-total"><div class="mock-fund-total-val">$790K</div><div class="mock-fund-total-lbl">Total Year 1 Costs</div></div>
             </div>
-            <div class="work-card-body"><p>Developed a comprehensive financial model and fundraising strategy for a consumer app entering its first institutional round. Covered user growth projections, monetization modeling, unit economics, SAFE investment terms, and investor-ready materials including a dynamic pitch deck.</p></div>
+            <div class="work-card-body"><p>Multi-year financials assembled. EBITDA reconciled. QoE-ready package.</p></div>
         </div>
     </div>
 </section>
@@ -754,12 +925,15 @@ const I18N = {
     '.leadership-highlights li': ['<span class="lh-dot"></span>Built FP&A function from scratch', '<span class="lh-dot"></span>Led sell-side financial workstream through Workday acquisition', '<span class="lh-dot"></span>Implemented Workday Adaptive + NetSuite', '<span class="lh-dot"></span>Restructured sales commissions and incentive design', '<span class="lh-dot"></span>Led cost optimization across departments'],
     '.selected-work .section-label': 'Selected Work',
     '.selected-work .section-title': 'Real Projects. Real Results.',
-    '.work-card:nth-of-type(1) .work-tag': 'B2B · ConstructionTech',
-    '.work-card:nth-of-type(1) .work-card-top h3': 'Tech B2B Startup',
-    '.work-card:nth-of-type(1) .work-card-body p': 'We built a full business plan and financial model for a ConstructionTech B2B platform preparing for a $3M early-stage round. Delivered an AI-powered planning tool with formula-based Excel exports, Google Sheets integration, and a fully dynamic pitch deck generated via Apps Script, updated automatically from a single data source.',
+    '.work-card:nth-of-type(1) .work-tag': 'B2B SaaS · FP&A Buildout',
+    '.work-card:nth-of-type(1) .work-card-top h3': 'Series A · Finance Stack',
+    '.work-card:nth-of-type(1) .work-card-body p': 'Built FP&A from zero. Rolling forecasts, board-ready KPIs, ERP rollout.',
     '.work-card:nth-of-type(2) .work-tag': 'B2C · Consumer App',
-    '.work-card:nth-of-type(2) .work-card-top h3': 'B2C App Startup',
-    '.work-card:nth-of-type(2) .work-card-body p': 'We developed a comprehensive financial model and fundraising strategy for a consumer app entering its first institutional round. Covered user growth projections, monetization modeling, unit economics, SAFE investment terms, and investor-ready materials including a dynamic pitch deck.',
+    '.work-card:nth-of-type(2) .work-card-top h3': 'Pre-Seed · $500K Raise',
+    '.work-card:nth-of-type(2) .work-card-body p': 'Investor-ready model + pitch deck. $500K SAFE closed.',
+    '.work-card:nth-of-type(3) .work-tag': 'M&A · Acquisition Readiness',
+    '.work-card:nth-of-type(3) .work-card-top h3': 'Sell-Side · Strategic Buyer',
+    '.work-card:nth-of-type(3) .work-card-body p': 'Multi-year financials assembled. EBITDA reconciled. QoE-ready package.',
     '.ai-powered .section-label': 'How We Build',
     '.ai-powered .section-title': 'AI-Powered Financial Planning',
     '.ai-subtitle': 'Modern tools. Faster delivery. Better results.',
@@ -855,12 +1029,15 @@ const I18N = {
     '.leadership-highlights li': ['<span class="lh-dot"></span>בנתה פונקציית FP&A מאפס', '<span class="lh-dot"></span>הובילה את ה-Workstream הפיננסי בצד המוכר ברכישת Workday', '<span class="lh-dot"></span>יישמה Workday Adaptive + NetSuite', '<span class="lh-dot"></span>ארגנה מחדש מבני עמלות ותמריצים למכירות', '<span class="lh-dot"></span>הובילה אופטימיזציית עלויות בכל המחלקות'],
     '.selected-work .section-label': 'עבודות נבחרות',
     '.selected-work .section-title': 'פרויקטים אמיתיים. תוצאות אמיתיות.',
-    '.work-card:nth-of-type(1) .work-tag': 'B2B · ConstructionTech',
-    '.work-card:nth-of-type(1) .work-card-top h3': 'סטארטאפ B2B טכנולוגי',
-    '.work-card:nth-of-type(1) .work-card-body p': 'בנינו תוכנית עסקית מלאה ומודל פיננסי לפלטפורמת B2B בתחום ה-ConstructionTech שמתכוננת לסבב גיוס ראשוני של 3 מיליון דולר. סיפקנו כלי תכנון מבוסס AI עם ייצוא Excel מבוסס נוסחאות, אינטגרציה עם Google Sheets, ומצגת משקיעים דינמית מלאה שנוצרת באמצעות Apps Script ומתעדכנת אוטומטית ממקור נתונים יחיד.',
+    '.work-card:nth-of-type(1) .work-tag': 'B2B SaaS · בניית FP&A',
+    '.work-card:nth-of-type(1) .work-card-top h3': 'Series A · תשתית פיננסית',
+    '.work-card:nth-of-type(1) .work-card-body p': 'בניית FP&A מאפס. תחזיות מתגלגלות, KPIs לדירקטוריון, הטמעת ERP.',
     '.work-card:nth-of-type(2) .work-tag': 'B2C · אפליקציית צרכן',
-    '.work-card:nth-of-type(2) .work-card-top h3': 'סטארטאפ אפליקציית B2C',
-    '.work-card:nth-of-type(2) .work-card-body p': 'פיתחנו מודל פיננסי מקיף ואסטרטגיית גיוס לאפליקציית צרכן הנכנסת לסבב המוסדי הראשון שלה. כיסוי תחזיות צמיחת משתמשים, מודלינג מונטיזציה, Unit Economics, תנאי השקעת SAFE וחומרים מוכנים למשקיעים כולל מצגת משקיעים דינמית.',
+    '.work-card:nth-of-type(2) .work-card-top h3': 'Pre-Seed · גיוס $500K',
+    '.work-card:nth-of-type(2) .work-card-body p': 'מודל ומצגת מוכנים למשקיעים. $500K SAFE נסגרו.',
+    '.work-card:nth-of-type(3) .work-tag': 'M&A · מוכנות לרכישה',
+    '.work-card:nth-of-type(3) .work-card-top h3': 'צד מוכר · רוכש אסטרטגי',
+    '.work-card:nth-of-type(3) .work-card-body p': 'בניית דוחות פיננסיים רב-שנתיים. התאמת EBITDA. חבילה מוכנה ל-QoE.',
     '.ai-powered .section-label': 'איך אנחנו בונים',
     '.ai-powered .section-title': 'תכנון פיננסי מבוסס AI',
     '.ai-subtitle': 'כלים מודרניים. תוצרים מהירים יותר. תוצאות טובות יותר.',
