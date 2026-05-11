@@ -72,7 +72,7 @@
         /* SERVICES – 3 cards */
         .services{background:var(--white)}
         .services-header{text-align:center;margin-bottom:4rem}
-        .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;max-width:1200px;margin:0 auto}
+        .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;max-width:1280px;margin:0 auto}
         .service-card{background:var(--off-white);padding:2.5rem;border:1px solid var(--border);border-radius:8px;position:relative;overflow:hidden;transition:all .5s cubic-bezier(.16,1,.3,1)}
         .service-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:var(--green);border-radius:0 0 4px 0;transition:height .5s cubic-bezier(.16,1,.3,1)}
         .service-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(30,42,58,.06)}
@@ -117,6 +117,25 @@
         .track-text{max-width:700px;margin:0 auto 3rem;text-align:center;font-size:1.02rem;line-height:1.85;color:var(--text-body);font-weight:300}
         .tools-strip{display:flex;justify-content:center;flex-wrap:wrap;gap:1rem;padding:1.75rem 2rem;background:var(--off-white);border:1px solid var(--border);border-radius:8px;max-width:750px;margin:0 auto}
         .tool-tag{font-size:.78rem;font-weight:500;color:var(--purple);letter-spacing:.04em;padding:.4rem 1rem;border:1px solid rgba(91,95,199,.15);border-radius:20px;background:var(--purple-pale)}
+
+        /* LEADERSHIP BACKGROUND */
+        .leadership-bg{background:var(--off-white);position:relative;overflow:hidden}
+        .leadership-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 40% at 80% 20%,rgba(91,95,199,.05) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 10% 80%,rgba(26,127,90,.04) 0%,transparent 60%)}
+        .leadership-header{text-align:center;margin-bottom:3.5rem;position:relative}
+        .leadership-header .section-subtitle{font-size:1rem;color:var(--grey);font-weight:300;margin-top:.5rem;font-style:italic}
+        .leadership-card{max-width:1000px;margin:0 auto;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:#fff;transition:all .5s cubic-bezier(.16,1,.3,1);position:relative}
+        .leadership-card:hover{transform:translateY(-4px);box-shadow:0 20px 60px rgba(30,42,58,.07)}
+        .leadership-card-top{background:linear-gradient(135deg,var(--dark) 0%,var(--dark-mid) 100%);padding:2.25rem 2.75rem 1.75rem}
+        .leadership-tag{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--green-hover);border:1px solid rgba(34,160,107,.4);padding:.3rem .8rem;border-radius:3px;margin-bottom:1rem}
+        .leadership-title{font-family:'Libre Baskerville',serif;font-size:1.55rem;color:#fff;margin-bottom:.4rem;line-height:1.3}
+        .leadership-acq{font-size:1rem;color:rgba(255,255,255,.55);font-style:italic;font-weight:400}
+        .leadership-role{font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green-hover);margin:0}
+        .leadership-card-body{display:grid;grid-template-columns:1.05fr 1fr;gap:2.5rem;padding:2.25rem 2.75rem}
+        .leadership-desc p{font-size:.92rem;line-height:1.9;color:var(--text-body);font-weight:300}
+        .leadership-highlights{list-style:none;padding:0;margin:0}
+        .leadership-highlights li{position:relative;padding:.7rem 0 .7rem 1.5rem;font-size:.88rem;line-height:1.55;color:var(--text-dark);font-weight:400;border-bottom:1px solid var(--border)}
+        .leadership-highlights li:last-child{border-bottom:none}
+        .lh-dot{position:absolute;left:0;top:1.1rem;width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block}
 
         /* SELECTED WORK */
         .selected-work{background:var(--off-white)}
@@ -284,31 +303,35 @@
         /* RTL: keep nav (logo+toggle) in LTR positions, reverse only nav-links and grids */
         html[dir="rtl"] nav{direction:ltr}
         html[dir="rtl"] .nav-links{direction:rtl}
-        html[dir="rtl"] .services-grid,html[dir="rtl"] .principles-grid,html[dir="rtl"] .how-grid,html[dir="rtl"] .work-grid,html[dir="rtl"] .ai-tools-grid,html[dir="rtl"] .flow-steps,html[dir="rtl"] .stats-row,html[dir="rtl"] .team-grid,html[dir="rtl"] .contact-layout,html[dir="rtl"] .tools-strip{direction:rtl}
+        html[dir="rtl"] .services-grid,html[dir="rtl"] .principles-grid,html[dir="rtl"] .how-grid,html[dir="rtl"] .work-grid,html[dir="rtl"] .ai-tools-grid,html[dir="rtl"] .flow-steps,html[dir="rtl"] .stats-row,html[dir="rtl"] .team-grid,html[dir="rtl"] .contact-layout,html[dir="rtl"] .tools-strip,html[dir="rtl"] .leadership-card-body{direction:rtl}
         html[dir="rtl"] .flow-arrow{transform:scaleX(-1);display:inline-block}
         html[dir="rtl"] .principle-card{border-left:none;border-right:4px solid var(--green)}
         html[dir="rtl"] .service-card::before{left:auto;right:0;border-radius:0 0 0 4px}
         html[dir="rtl"] .form-submit{align-self:flex-end}
+        html[dir="rtl"] .leadership-highlights li{padding:.7rem 1.5rem .7rem 0}
+        html[dir="rtl"] .lh-dot{left:auto;right:0}
 
         @media(max-width:968px){
             section{padding:5rem 2rem}nav{padding:1rem 1.5rem}nav.scrolled{padding:.75rem 1.5rem}
             .lang-toggle{margin-left:.75rem;margin-right:0}html[dir="rtl"] .lang-toggle{margin-left:0;margin-right:.75rem}
             .nav-links{display:none;position:fixed;inset:0;background:rgba(30,42,58,.98);flex-direction:column;align-items:center;justify-content:center;gap:2rem}
             .nav-links.open{display:flex}.nav-links a{font-size:1.2rem;color:rgba(255,255,255,.8)}.nav-mobile-toggle{display:flex}
-            .services-grid{grid-template-columns:1fr}
+            .services-grid{grid-template-columns:repeat(2,1fr)}
             .work-grid{grid-template-columns:1fr}
             .how-grid,.ai-tools-grid{grid-template-columns:repeat(2,1fr)}
             .contact-layout{grid-template-columns:1fr;gap:3rem}
             .principles-grid{grid-template-columns:1fr}
             .team-grid{grid-template-columns:1fr;gap:3rem}
             .stats-row{gap:2.5rem;flex-wrap:wrap}
+            .leadership-card-body{grid-template-columns:1fr;gap:1.5rem;padding:1.75rem 1.75rem}
+            .leadership-card-top{padding:1.75rem 1.75rem 1.25rem}
             .form-row{grid-template-columns:1fr}
             .flow-steps{flex-direction:column;gap:0}.flow-arrow{transform:rotate(90deg);padding:.5rem 0}
             .mock-kpi-row{grid-template-columns:repeat(2,1fr)}
             footer{padding:2rem 1.5rem}
         }
         @media(max-width:580px){
-            .how-grid,.ai-tools-grid{grid-template-columns:1fr}
+            .how-grid,.ai-tools-grid,.services-grid{grid-template-columns:1fr}
             .hero-topline{font-size:.75rem;gap:1rem;flex-wrap:wrap}section{padding:4rem 1.25rem}
             .stats-row{flex-direction:column;gap:2rem}
         }
@@ -368,7 +391,12 @@
         <div class="service-card reveal">
             <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div>
             <h3>Accounts Payable Management</h3>
-            <p>AP master, financial systems expert, +15 years experienced AP manager in high-tech SaaS companies, dynamic fast growing.</p>
+            <p>Full AP cycle management for high-growth tech companies. Vendor onboarding, invoice processing, payment runs, reconciliations, and system integrations (NetSuite, Tipalti, Sage Intacct). Reliable, audit-ready financial operations that scale with the business.</p>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></div>
+            <h3>M&amp;A &amp; Acquisition Readiness</h3>
+            <p>Preparing your company for acquisition or due diligence. Multi-year financial assembly (P&amp;L, BS, CF), EBITDA reconciliation schedules, add-back documentation, owner compensation normalization, and buyer-ready packages that hold up under QoE scrutiny.</p>
         </div>
     </div>
 </section>
@@ -424,13 +452,40 @@
 <section class="track-record" id="track">
     <div class="track-header reveal"><p class="section-label">Track Record</p><h2 class="section-title">Proven at Every Stage</h2></div>
     <div class="stats-row reveal">
-        <div class="stat-item"><div class="stat-number" data-target="19">0</div><div class="stat-label">Years in Finance</div></div>
-        <div class="stat-item"><div class="stat-number" data-target="6">0</div><div class="stat-label">Tech Companies</div></div>
+        <div class="stat-item"><div class="stat-number">19</div><div class="stat-label">Years in Finance</div></div>
+        <div class="stat-item"><div class="stat-number">8+</div><div class="stat-label">Tech Companies</div></div>
         <div class="stat-item"><div class="stat-number special">Early Round → Acquisition</div><div class="stat-label">Full Lifecycle</div></div>
     </div>
     <p class="track-text reveal">Meital led FP&amp;A at companies from early-stage through acquisition, including the Workday acquisition of HiredScore. Built finance functions from scratch, implemented ERP systems, and partnered with executives to drive growth at every stage.</p>
     <div class="tools-strip reveal">
         <span class="tool-tag">NetSuite</span><span class="tool-tag">Workday Adaptive</span><span class="tool-tag">Looker</span><span class="tool-tag">Tableau</span><span class="tool-tag">Salesforce</span><span class="tool-tag">Google Sheets</span>
+    </div>
+</section>
+
+<!-- 5.5 LEADERSHIP BACKGROUND -->
+<section class="leadership-bg" id="leadership">
+    <div class="leadership-header reveal">
+        <p class="section-label">Leadership Background</p>
+        <h2 class="section-title">Where Meital Led FP&amp;A Before BoWave</h2>
+    </div>
+    <div class="leadership-card reveal">
+        <div class="leadership-card-top">
+            <span class="leadership-tag">2022–2025 · FP&amp;A Leadership</span>
+            <h3 class="leadership-title">HiredScore <span class="leadership-acq">(Acquired by Workday)</span></h3>
+            <p class="leadership-role">Director of FP&amp;A</p>
+        </div>
+        <div class="leadership-card-body">
+            <div class="leadership-desc">
+                <p>Director of FP&amp;A at a high-growth HR-tech SaaS company through its acquisition by Workday. Built the finance function from the ground up, managed the FP&amp;A workstream during due diligence, and partnered with the CEO and leadership team on board reporting, budget cycles, and GTM strategy.</p>
+            </div>
+            <ul class="leadership-highlights">
+                <li><span class="lh-dot"></span>Built FP&amp;A function from scratch</li>
+                <li><span class="lh-dot"></span>Led sell-side financial workstream through Workday acquisition</li>
+                <li><span class="lh-dot"></span>Implemented Workday Adaptive + NetSuite</li>
+                <li><span class="lh-dot"></span>Restructured sales commissions and incentive design</li>
+                <li><span class="lh-dot"></span>Led cost optimization across departments</li>
+            </ul>
+        </div>
     </div>
 </section>
 
@@ -651,7 +706,9 @@ const I18N = {
     '.service-card:nth-of-type(2) h3': 'Business Plans & Pitch Decks',
     '.service-card:nth-of-type(2) p': 'Raising your first or second round? We build your financial story from scratch: a solid business plan, a defensible financial model, and a pitch deck that speaks the language investors expect. From assumptions to projections, we make sure your numbers tell a compelling and credible story.',
     '.service-card:nth-of-type(3) h3': 'Accounts Payable Management',
-    '.service-card:nth-of-type(3) p': 'End-to-end accounts payable management: setting up and maintaining AP processes, ERP integration, controls, and on-time payments. Combining deep financial systems expertise with 15+ years of experience in dynamic, fast-growing high-tech SaaS companies.',
+    '.service-card:nth-of-type(3) p': 'Full AP cycle management for high-growth tech companies. Vendor onboarding, invoice processing, payment runs, reconciliations, and system integrations (NetSuite, Tipalti, Sage Intacct). Reliable, audit-ready financial operations that scale with the business.',
+    '.service-card:nth-of-type(4) h3': 'M&A & Acquisition Readiness',
+    '.service-card:nth-of-type(4) p': 'Preparing your company for acquisition or due diligence. Multi-year financial assembly (P&L, BS, CF), EBITDA reconciliation schedules, add-back documentation, owner compensation normalization, and buyer-ready packages that hold up under QoE scrutiny.',
     '.team .section-label': 'The Team',
     '.team .section-title': 'Who We Are',
     '.team-card:nth-of-type(1) .team-name': 'Meital Levi',
@@ -688,6 +745,13 @@ const I18N = {
     '.stat-item:nth-of-type(3) .stat-number.special': 'Early Round → Acquisition',
     '.stat-item:nth-of-type(3) .stat-label': 'Full Lifecycle',
     '.track-text': 'Meital led FP&A at companies from early-stage through acquisition, including the Workday acquisition of HiredScore. Built finance functions from scratch, implemented ERP systems, and partnered with executives to drive growth at every stage.',
+    '.leadership-bg .section-label': 'Leadership Background',
+    '.leadership-bg .section-title': 'Where Meital Led FP&A Before BoWave',
+    '.leadership-tag': '2022–2025 · FP&A Leadership',
+    '.leadership-title': 'HiredScore <span class="leadership-acq">(Acquired by Workday)</span>',
+    '.leadership-role': 'Director of FP&A',
+    '.leadership-desc p': 'Director of FP&A at a high-growth HR-tech SaaS company through its acquisition by Workday. Built the finance function from the ground up, managed the FP&A workstream during due diligence, and partnered with the CEO and leadership team on board reporting, budget cycles, and GTM strategy.',
+    '.leadership-highlights li': ['<span class="lh-dot"></span>Built FP&A function from scratch', '<span class="lh-dot"></span>Led sell-side financial workstream through Workday acquisition', '<span class="lh-dot"></span>Implemented Workday Adaptive + NetSuite', '<span class="lh-dot"></span>Restructured sales commissions and incentive design', '<span class="lh-dot"></span>Led cost optimization across departments'],
     '.selected-work .section-label': 'Selected Work',
     '.selected-work .section-title': 'Real Projects. Real Results.',
     '.work-card:nth-of-type(1) .work-tag': 'B2B · ConstructionTech',
@@ -743,7 +807,9 @@ const I18N = {
     '.service-card:nth-of-type(2) h3': 'תוכניות עסקיות ומצגות משקיעים',
     '.service-card:nth-of-type(2) p': 'מגייסים סבב ראשון או שני? אנחנו בונים את הסיפור הפיננסי שלכם מאפס: תוכנית עסקית מוצקה, מודל פיננסי מבוסס, ומצגת משקיעים בשפה שהמשקיעים מצפים לה. מהנחות יסוד ועד תחזיות — אנחנו דואגים שהמספרים שלכם יספרו סיפור משכנע ואמין.',
     '.service-card:nth-of-type(3) h3': 'ניהול ספקים (AP)',
-    '.service-card:nth-of-type(3) p': 'ניהול חשבונות ספקים מקצה לקצה: הקמה ותחזוקה של תהליכי AP, אינטגרציה עם מערכות ERP, בקרה ותשלומים בזמן. שילוב של מומחיות עמוקה במערכות פיננסיות עם ניסיון של מעל 15 שנה בחברות SaaS היי-טק צומחות במהירות.',
+    '.service-card:nth-of-type(3) p': 'ניהול מחזור AP מלא לחברות טכנולוגיה בצמיחה מהירה. הקמת ספקים, עיבוד חשבוניות, סבבי תשלום, התאמות ואינטגרציות מערכת (NetSuite, Tipalti, Sage Intacct). תפעול פיננסי אמין, מוכן לביקורת, שצומח יחד עם העסק.',
+    '.service-card:nth-of-type(4) h3': 'M&A ומוכנות לרכישה',
+    '.service-card:nth-of-type(4) p': 'הכנת החברה לרכישה או לבדיקת נאותות. הרכבת דוחות פיננסיים רב-שנתיים (P&L, מאזן, תזרים מזומנים), טבלאות התאמת EBITDA, תיעוד Add-backs, נורמליזציה של תגמול בעלים, וחבילות מוכנות לרוכש שעומדות בבדיקת QoE.',
     '.team .section-label': 'הצוות',
     '.team .section-title': 'מי אנחנו',
     '.team-card:nth-of-type(1) .team-name': 'מיטל לוי',
@@ -780,6 +846,13 @@ const I18N = {
     '.stat-item:nth-of-type(3) .stat-number.special': 'סבב ראשון → רכישה',
     '.stat-item:nth-of-type(3) .stat-label': 'מחזור חיים מלא',
     '.track-text': 'מיטל הובילה FP&A בחברות מגיוס ראשוני ועד רכישה, כולל רכישת HiredScore על ידי Workday. בנתה פונקציות פיננסים מאפס, יישמה מערכות ERP ושיתפה פעולה עם מנהלים בכירים כדי להניע צמיחה בכל שלב.',
+    '.leadership-bg .section-label': 'רקע ניהולי',
+    '.leadership-bg .section-title': 'איפה מיטל הובילה FP&A לפני BoWave',
+    '.leadership-tag': '2022–2025 · ניהול FP&A',
+    '.leadership-title': 'HiredScore <span class="leadership-acq">(נרכשה על ידי Workday)</span>',
+    '.leadership-role': 'מנהלת FP&A',
+    '.leadership-desc p': 'מנהלת FP&A בחברת SaaS לתחום HR-Tech בצמיחה מהירה, דרך הרכישה שלה על ידי Workday. בנתה את פונקציית הפיננסים מאפס, ניהלה את ה-Workstream של ה-FP&A במהלך בדיקת הנאותות, ושיתפה פעולה עם המנכ"ל וצוות ההנהלה על דיווח לדירקטוריון, מחזורי תקציב ואסטרטגיית GTM.',
+    '.leadership-highlights li': ['<span class="lh-dot"></span>בנתה פונקציית FP&A מאפס', '<span class="lh-dot"></span>הובילה את ה-Workstream הפיננסי בצד המוכר ברכישת Workday', '<span class="lh-dot"></span>יישמה Workday Adaptive + NetSuite', '<span class="lh-dot"></span>ארגנה מחדש מבני עמלות ותמריצים למכירות', '<span class="lh-dot"></span>הובילה אופטימיזציית עלויות בכל המחלקות'],
     '.selected-work .section-label': 'עבודות נבחרות',
     '.selected-work .section-title': 'פרויקטים אמיתיים. תוצאות אמיתיות.',
     '.work-card:nth-of-type(1) .work-tag': 'B2B · ConstructionTech',
