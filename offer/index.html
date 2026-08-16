@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BoWave · בנייה וניהול תקציב ותחזית פיננסית</title>
+<meta name="description" content="בונים ומתחזקים תקציב, תחזית ובקרה: התשתית הפיננסית שכל עסק צריך כדי לצמוח. FP&amp;A במיקור חוץ, מעל המערכות שכבר יש לכם ובעזרת AI. שיחת אסטרטגיה ראשונה ללא עלות.">
+<link rel="canonical" href="https://bowave.finance/offer/">
+<meta name="theme-color" content="#0A2540">
+
+<!-- Third-party tracking removed: Google Tag Manager (GTM-K27H7QQZ), Smartlook session
+     recording, and the consent-mode block that granted all tracking by default.
+     Those containers belong to the previous agency, so the data went to them.
+     To add analytics later, use a container created under BoWave's own Google account. -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700;800&family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@400;500;700;800&display=swap">
+
+<style>
+:root{
+  --navy:#0A2540; --navy-deep:#06182B; --ink:#0E2033;
+  --teal:#12889B; --teal-br:#17C0CE; --aqua:#8FE3E8;
+  --gold:#C6A15B; --gold-lt:#E4C983;
+  --sand:#F6F2EA; --sand2:#EFE9DD; --paper:#FBFAF7;
+  --wa:#25D366; --wa-d:#1EB456;
+  --red:#E5484D; --red-d:#C4383C;
+  --muted:#54636F; --line:#E7E1D4;
+  --shadow:0 24px 60px rgba(8,24,48,.14);
+  --dspf:'Spectral',Georgia,'Times New Roman',serif;
+  --bodyf:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+}
+html[lang="he"]{ --dspf:'Frank Ruhl Libre','Spectral',serif; --bodyf:'Heebo','Hanken Grotesk',Arial,sans-serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--bodyf);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--dspf);line-height:1.08;letter-spacing:-.015em;font-weight:800}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.hl{color:var(--gold)}
+.tl{color:var(--teal)}
+.grad{background:linear-gradient(100deg,var(--teal-br) 0%,#3f8fd8 55%,#5b7cf0 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--teal)}
+section{position:relative}
+.eyebrow{font-family:var(--bodyf);font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--teal)}
+html[lang="he"] .eyebrow{letter-spacing:.08em}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+
+/* language visibility */
+html[lang="en"] .l-he{display:none!important}
+html[lang="he"] .l-en{display:none!important}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--bodyf);font-weight:800;font-size:17px;border-radius:14px;padding:15px 26px;cursor:pointer;border:0;transition:transform .16s ease,box-shadow .16s ease;text-align:center;line-height:1.15}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-primary{background:linear-gradient(135deg,var(--teal-br),var(--teal) 55%,var(--navy));color:#fff;box-shadow:0 14px 30px rgba(18,136,155,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(18,136,155,.4)}
+.btn-call{background:linear-gradient(135deg,#ef5a5f,var(--red) 60%,var(--red-d));color:#fff;box-shadow:0 14px 30px rgba(229,72,77,.3)}
+.btn-call:hover{transform:translateY(-2px)}
+.btn-wa{background:linear-gradient(135deg,#2ee06f,var(--wa) 60%,var(--wa-d));color:#fff;box-shadow:0 14px 30px rgba(37,211,102,.32)}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-wa svg{width:22px;height:22px;fill:#fff}
+.btn-gold{background:linear-gradient(135deg,var(--gold-lt),var(--gold));color:#1c1408;box-shadow:0 14px 30px rgba(198,161,91,.36)}
+.btn-gold:hover{transform:translateY(-2px)}
+.btn-outline{background:#fff;border:1.5px solid var(--line);color:var(--navy)}
+.btn-outline:hover{border-color:var(--teal);color:var(--teal)}
+@keyframes glow{0%,100%{box-shadow:0 10px 26px rgba(198,161,91,.32)}50%{box-shadow:0 10px 34px rgba(198,161,91,.6)}}
+.pulse-glow{animation:glow 2.4s ease-in-out infinite}
+
+/* ---------- HEADER (light) ---------- */
+header{position:sticky;top:0;z-index:60;background:rgba(251,250,247,.86);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line)}
+.hdr{display:flex;align-items:center;justify-content:space-between;gap:16px;height:74px}
+.hdr .logo{height:48px;width:auto}
+.hdr-right{display:flex;align-items:center;gap:16px}
+.hdr-phone{display:flex;align-items:center;gap:8px;color:var(--navy);font-weight:800;font-size:18px;white-space:nowrap}
+.hdr-phone svg{width:18px;height:18px;fill:var(--teal)}
+.hdr-phone small{display:block;font-weight:700;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);opacity:.9}
+.langtog{display:flex;align-items:center;border:1px solid var(--line);border-radius:30px;overflow:hidden;font-weight:800;font-size:13px;background:#fff}
+.langtog button{background:transparent;color:#6b7986;border:0;padding:7px 13px;cursor:pointer;font-family:var(--bodyf);font-weight:800;letter-spacing:.03em}
+.langtog button.on{background:var(--gold);color:#1c1408}
+.hdr-cta{padding:11px 20px;font-size:15px;border-radius:12px}
+@media(max-width:900px){.hdr-phone small{display:none}.hdr-cta{display:none}.hdr .logo{height:40px}}
+
+/* ---------- HERO (light, no form) ---------- */
+.hero{position:relative;overflow:hidden;color:var(--ink);
+  background:linear-gradient(165deg,#FBFAF7 0%,#EEF7F6 46%,#E1F0F0 100%)}
+.hero .waves{position:absolute;left:0;right:0;bottom:-2px;width:100%;height:auto;z-index:0;opacity:.9;pointer-events:none}
+.hero .orb{position:absolute;z-index:0;border-radius:50%;filter:blur(10px);opacity:.5}
+.hero .orb.a{width:340px;height:340px;top:-90px;inset-inline-end:-60px;background:radial-gradient(circle,rgba(143,227,232,.55),transparent 70%)}
+.hero .orb.b{width:260px;height:260px;bottom:40px;inset-inline-start:-80px;background:radial-gradient(circle,rgba(198,161,91,.28),transparent 70%)}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;padding:56px 0 80px}
+.hero h1{font-size:clamp(31px,4.4vw,50px);color:var(--navy);margin:14px 0 22px;letter-spacing:-.02em}
+.hbul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.hbul li{position:relative;padding-inline-start:30px;font-size:clamp(17px,1.7vw,19.5px);font-weight:700;color:#22384a;font-style:italic;font-family:var(--dspf)}
+.hbul li::before{content:"";position:absolute;inset-inline-start:2px;top:.62em;width:11px;height:11px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(18,136,155,.15)}
+.hclose{font-size:16.5px;color:#42525f;max-width:560px;margin-bottom:26px}
+.hclose b{color:var(--navy)}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-art{position:relative;display:flex;align-items:center;justify-content:center}
+.hero-art svg{width:100%;max-width:420px;height:auto;filter:drop-shadow(0 24px 40px rgba(10,37,64,.16))}
+@media(max-width:940px){.hero-inner{grid-template-columns:1fr;gap:20px;text-align:center;padding:40px 0 56px}
+  .hbul{max-width:420px;margin-inline:auto;text-align:start}.hclose{margin-inline:auto}.hero-cta{justify-content:center}
+  .hero-art{order:-1}.hero-art svg{max-width:300px}}
+
+/* ---------- generic section head ---------- */
+.sec{padding:70px 0}
+.sec-head{text-align:center;max-width:760px;margin:0 auto 42px}
+.sec-head h2{font-size:clamp(28px,3.6vw,42px);color:var(--navy);margin:12px 0 12px}
+.sec-head p{color:var(--muted);font-size:18px}
+.kicker-line{width:54px;height:3px;background:linear-gradient(90deg,var(--gold),var(--teal));margin:0 auto 4px;border-radius:2px}
+
+/* ---------- STATS ---------- */
+.stats{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats .wrap{display:flex;justify-content:center;flex-wrap:wrap;gap:24px 80px;padding:38px 22px;text-align:center}
+.stat .num{font-family:var(--dspf);font-weight:800;font-size:clamp(32px,4.4vw,46px);color:var(--navy);line-height:1}
+.stat .num i{font-style:normal;color:var(--gold)}
+.stat .cap{font-size:14.5px;color:var(--muted);font-weight:600;margin-top:8px}
+@media(max-width:600px){.stats .wrap{gap:20px 48px}.stat .cap{font-size:13px}}
+
+/* ---------- ICON CARDS (pillars + services) ---------- */
+.picon{width:60px;height:60px;border-radius:16px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(150deg,#EAF7F7,#FBF4E6);border:1px solid var(--line);box-shadow:0 8px 20px rgba(10,37,64,.06)}
+.picon svg{width:30px;height:30px;color:var(--teal)}
+.picon.gold svg{color:var(--gold)}
+
+.pillars{background:var(--paper)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.pcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:30px 28px 32px;box-shadow:0 12px 34px rgba(10,37,64,.07);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+.pcard:hover{transform:translateY(-6px);box-shadow:0 26px 54px rgba(10,37,64,.13)}
+.pcard .pnum{font-family:var(--dspf);font-weight:800;color:var(--gold);font-size:14px;letter-spacing:.1em;margin:18px 0 2px}
+.pcard h3{font-size:22px;color:var(--navy);margin:2px 0 10px}
+.pcard p{color:var(--muted);font-size:15.5px;flex:1}
+@media(max-width:940px){.pgrid{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+
+.services{background:linear-gradient(180deg,#fff,var(--sand))}
+.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.scard{position:relative;background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 26px;box-shadow:0 10px 28px rgba(10,37,64,.06);transition:transform .2s,box-shadow .2s}
+.scard:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(10,37,64,.13)}
+.scard h3{font-size:19px;color:var(--navy);margin:16px 0 7px}
+.scard p{color:var(--muted);font-size:14.5px}
+@media(max-width:820px){.sgrid{grid-template-columns:1fr;max-width:460px;margin:0 auto}}
+
+/* ---------- COMPARISON (light, trimmed) ---------- */
+.compare{background:linear-gradient(180deg,#fff,var(--sand))}
+.ctwo{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:920px;margin:0 auto;align-items:stretch}
+.col{border-radius:20px;padding:30px 28px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 32px rgba(10,37,64,.08)}
+.col.bad{border-top:4px solid #e5686c}
+.col.good{border:1.5px solid var(--gold);border-top:4px solid var(--gold);box-shadow:0 22px 54px rgba(198,161,91,.2);position:relative}
+.col.good .ribbon{position:absolute;top:-13px;inset-inline-start:28px;background:linear-gradient(135deg,var(--gold-lt),var(--gold));color:#1c1408;font-weight:800;font-size:12px;letter-spacing:.08em;padding:6px 14px;border-radius:20px}
+.col h3{font-size:22px;margin-bottom:16px}
+.col.bad h3{color:var(--red-d)}.col.good h3{color:#a97f2e;margin-top:4px}
+.col ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.col li{display:flex;gap:11px;align-items:flex-start;font-size:16px;color:#33465a;font-weight:600}
+.col li svg{width:20px;height:20px;flex:none;margin-top:1px}
+.col.bad li svg{fill:#e5686c}.col.good li svg{fill:var(--teal)}
+.compare .cta-mid{text-align:center;margin-top:32px}
+@media(max-width:820px){.ctwo{grid-template-columns:1fr}}
+
+/* ---------- EXPERT / ABOUT ME (last section) ---------- */
+.expert{background:linear-gradient(180deg,var(--sand),var(--paper))}
+.egrid{display:grid;grid-template-columns:.82fr 1.18fr;gap:46px;align-items:center}
+.eportrait{position:relative;border-radius:22px;overflow:hidden;box-shadow:var(--shadow);border:6px solid #fff}
+.eportrait img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.eportrait .flag{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(6,24,43,.92),transparent);color:#fff;padding:24px 20px 16px}
+.eportrait .flag .nm{font-family:var(--dspf);font-weight:800;font-size:23px}
+.eportrait .flag .rl{color:var(--aqua);font-weight:700;font-size:13px;letter-spacing:.04em}
+.expert h2{font-size:clamp(26px,3.4vw,40px);color:var(--navy);margin:12px 0 16px}
+.expert .lead{font-size:18px;color:#38475a;margin-bottom:18px}
+.echecks{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:22px}
+.echecks li{display:flex;gap:11px;font-size:16px;color:#33465a}
+.echecks li svg{width:22px;height:22px;fill:var(--teal);flex:none;margin-top:1px}
+@media(max-width:860px){.egrid{grid-template-columns:1fr;gap:28px}.eportrait{max-width:340px;margin:0 auto}}
+
+/* ---------- FOOTER ---------- */
+footer{background:#04121f;color:#9fb0bc;padding:52px 0 30px}
+.fgrid{display:grid;grid-template-columns:1fr;gap:26px;padding-bottom:26px;border-bottom:1px solid rgba(255,255,255,.09)}
+footer ul.fserv{flex-direction:row;flex-wrap:nowrap;gap:0 26px;white-space:nowrap;overflow-x:auto}
+footer ul.fserv li{position:relative;font-size:14px}
+footer ul.fserv li+li::before{content:"·";position:absolute;inset-inline-start:-15px;color:rgba(255,255,255,.28)}
+footer .flegal{font-size:13.5px;white-space:nowrap}
+footer .flegal a{color:#cdd9e2}
+@media(max-width:760px){footer ul.fserv{flex-wrap:wrap;gap:9px 22px;white-space:normal}}
+footer .logo{height:52px;margin-bottom:14px}
+footer p.desc{font-size:14.5px;line-height:1.65;max-width:340px}
+footer h4{color:#fff;font-size:14px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:14.5px}
+footer a:hover{color:var(--aqua)}
+footer .nap{display:flex;flex-direction:column;gap:8px;font-size:14.5px}
+footer .nap a{color:#cdd9e2;font-weight:700}
+.copy{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 20px;padding-top:22px;font-size:14px}
+@media(max-width:760px){.copy{justify-content:center;text-align:center}}
+.copy b{font-family:var(--dspf);color:#cdd9e2;font-weight:700}
+.copy a{color:var(--gold-lt);font-weight:700}
+@media(max-width:820px){.fgrid{grid-template-columns:1fr;text-align:center}footer p.desc{margin:0 auto}footer .nap,footer ul{align-items:center}}
+
+/* ---------- FLOATING WHATSAPP + STICKY MOBILE CALL ---------- */
+.wafab{position:fixed;z-index:70;bottom:22px;inset-inline-end:20px;width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,#2ee06f,var(--wa) 60%,var(--wa-d));display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 30px rgba(37,211,102,.5);animation:wapulse 2.6s ease-in-out infinite}
+.wafab svg{width:30px;height:30px;fill:#fff}
+@keyframes wapulse{0%,100%{box-shadow:0 12px 30px rgba(37,211,102,.5)}50%{box-shadow:0 12px 40px rgba(37,211,102,.85)}}
+.mobcall{display:none}
+@media(max-width:768px){
+  .mobcall{display:flex;position:fixed;left:14px;right:14px;bottom:14px;z-index:71;align-items:center;justify-content:center;gap:10px;
+    background:linear-gradient(135deg,#ef5a5f,var(--red) 60%,var(--red-d));color:#fff;font-weight:800;font-size:18px;padding:15px;border-radius:15px;
+    box-shadow:0 14px 34px rgba(229,72,77,.5);animation:mpulse 2.2s ease-in-out infinite}
+  .mobcall svg{width:21px;height:21px;fill:#fff}
+  .wafab{bottom:82px;width:52px;height:52px}
+  .wafab svg{width:27px;height:27px}
+  body{padding-bottom:80px}
+}
+@keyframes mpulse{0%,100%{box-shadow:0 14px 34px rgba(229,72,77,.5)}50%{box-shadow:0 14px 44px rgba(229,72,77,.85)}}
+
+/* ---------- MODALS / POP-UPS ---------- */
+.modal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(6,18,33,.72);backdrop-filter:blur(4px)}
+.modal.show{display:flex;animation:mfade .25s ease}
+@keyframes mfade{from{opacity:0}to{opacity:1}}
+.modal .box{position:relative;max-width:430px;width:100%;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.5);text-align:center;max-height:94vh;overflow-y:auto}
+.modal .box.lead{max-width:460px;text-align:start}
+.modal .mhead{padding:30px 26px 0;position:relative}
+.modal .mbadge{display:inline-block;background:linear-gradient(135deg,var(--gold-lt),var(--gold));color:#1c1408;font-weight:800;padding:7px 16px;border-radius:24px;font-size:13px;margin-bottom:6px}
+.modal .mbody{padding:16px 26px 26px}
+.modal h3{font-size:25px;color:var(--navy);margin-bottom:10px}
+.modal p{color:var(--muted);font-size:15.5px;margin-bottom:18px}
+.modal .mclose{position:absolute;top:12px;inset-inline-end:14px;z-index:5;width:34px;height:34px;border-radius:50%;background:var(--sand2);border:0;cursor:pointer;font-size:20px;color:#33465a;display:flex;align-items:center;justify-content:center}
+.modal.exit .box{background:linear-gradient(160deg,var(--navy),var(--navy-deep))}
+.modal.exit h3{color:#fff}.modal.exit p{color:#c6d4de}
+.modal.exit .mclose{background:rgba(255,255,255,.16);color:#fff}
+.modal .btn{width:100%}
+.modal .mor{font-size:12.5px;color:#9aa7b3;margin:12px 0 4px;text-align:center}
+/* lead form */
+.lc-top{background:linear-gradient(135deg,var(--navy),var(--navy-deep));color:#fff;padding:18px 24px;text-align:center;position:relative}
+.lc-top::before{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--teal-br))}
+.lc-top h3{color:#fff;font-size:22px;margin-bottom:3px}
+.lc-top p{font-size:13px;color:var(--aqua);font-weight:600;margin:0}
+form.leadForm{padding:20px 22px 22px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.leadForm .fld{margin-bottom:12px}
+.leadForm label{display:block;font-size:12.5px;font-weight:700;color:#3a4a5a;margin-bottom:5px}
+.leadForm input,.leadForm select,.leadForm textarea{width:100%;font-family:var(--bodyf);font-size:15px;padding:12px 13px;border:1.5px solid #d9e0e7;border-radius:11px;background:#fbfdff;transition:border-color .15s,box-shadow .15s}
+.leadForm textarea{resize:vertical;min-height:66px;line-height:1.5}
+.leadForm input:focus,.leadForm select:focus,.leadForm textarea:focus{outline:0;border-color:var(--teal);box-shadow:0 0 0 3px rgba(18,136,155,.14)}
+.leadForm .hp{position:absolute;left:-9999px;opacity:0}
+.leadForm .sbtn{width:100%;margin-top:4px}
+.leadForm .warow{display:flex;align-items:center;gap:8px;margin-top:10px}
+.leadForm .warow a{flex:1;font-size:14.5px;padding:11px}
+.leadForm .fineprint{font-size:11.5px;color:#8a95a1;text-align:center;margin-top:10px;line-height:1.4}
+.leadForm .warow button{flex:1}
+.leadForm .orsep{display:flex;align-items:center;gap:10px;margin:14px 0 10px;font-size:12px;font-weight:600;color:#98a3ae}
+.leadForm .orsep::before,.leadForm .orsep::after{content:"";flex:1;height:1px;background:var(--line)}
+.leadForm .form-err{margin:10px 0 0;font-size:13px;color:#b3261e;text-align:center;line-height:1.5}
+.leadForm .form-err a{color:#b3261e;font-weight:700;text-decoration:underline}
+.lead-ok{padding:30px 24px 34px;text-align:center}
+.lead-ok h3{font-family:var(--dspf);font-size:21px;color:var(--navy);margin:0 0 8px}
+.lead-ok p{font-size:14.5px;color:#5a6b7a;margin:0}
+</style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ============ HEADER ============ -->
+<header>
+  <div class="wrap hdr">
+    <a href="#top" aria-label="BoWave Finance Consulting"><img class="logo" src="assets/logo.png" alt="BoWave Finance Consulting"></a>
+    <div class="hdr-right">
+      <a class="hdr-phone" href="tel:+972523399338" data-cta="hdr_call">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.58 3.6a1 1 0 0 1-.24 1z"/></svg>
+        <span><small class="l-en">Call</small><small class="l-he">התקשרו</small><span class="ltr">+972 52-339-9338</span></span>
+      </a>
+      <div class="langtog" role="group" aria-label="Language">
+        <button type="button" data-lang="en" class="">EN</button>
+        <button type="button" data-lang="he" class="on">עב</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <span class="orb a"></span><span class="orb b"></span>
+  <svg class="waves" viewBox="0 0 1440 200" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,120 C240,180 480,60 720,100 C960,140 1200,200 1440,120 L1440,200 L0,200 Z" fill="#ffffff" opacity=".55"/>
+    <path d="M0,150 C300,110 560,190 820,150 C1080,110 1260,170 1440,140" fill="none" stroke="#17C0CE" stroke-width="2" opacity=".5"/>
+    <path d="M0,170 C280,140 600,205 900,165 C1150,132 1300,180 1440,158" fill="none" stroke="#C6A15B" stroke-width="1.6" opacity=".45"/>
+  </svg>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <div class="eyebrow">
+        <span class="l-en">Fractional FP&amp;A · Strategic Finance · AI-Powered</span>
+        <span class="l-he">FP&amp;A במיקור חוץ · פיננסים אסטרטגיים · מבוסס AI</span>
+      </div>
+      <h1>
+        <span class="l-en"><span class="grad">A business partner</span> who builds, maintains and guides the financial backbone every business needs to grow.</span>
+        <span class="l-he">‏<span class="grad">שותפה עסקית</span> שבונה, מתחזקת ומלווה את התשתית הפיננסית שכל עסק צריך כדי לצמוח.</span>
+      </h1>
+      <ul class="hbul">
+        <li><span class="l-en">FP&amp;A shaped to your needs.</span><span class="l-he">FP&amp;A מותאם לצרכים שלכם.</span></li>
+        <li><span class="l-en">Not just built. Managed with you, month after month.</span><span class="l-he">לא רק בונים, גם מלווים חודש בחודשו.</span></li>
+        <li><span class="l-en">A partner to think and learn with.</span><span class="l-he">שותפה לחשוב וללמוד יחד.</span></li>
+        <li><span class="l-en">Insights that drive real action.</span><span class="l-he">תובנות שמניעות פעולה אמיתית.</span></li>
+      </ul>
+      <p class="hclose"><span class="l-en">All delivered <b>as a service</b>. Fast, efficient, minimal lift on your side.</span><span class="l-he">הכול <b>כשירות</b>. מהיר, יעיל, עם מינימום מאמץ מצידכם.</span></p>
+      <div class="hero-cta">
+        <button class="btn btn-primary" data-open="popLead" data-cta="hero_contact"><span class="l-en">Contact Us</span><span class="l-he">צור קשר</span></button>
+      </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 460 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A sailboat navigating calm waters">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#EAF7F7"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+          <linearGradient id="sailA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0A2540"/><stop offset="1" stop-color="#123a55"/></linearGradient>
+          <linearGradient id="sailB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#17C0CE"/><stop offset="1" stop-color="#12889B"/></linearGradient>
+          <linearGradient id="wave" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#17C0CE"/><stop offset="1" stop-color="#8FE3E8"/></linearGradient>
+        </defs>
+        <circle cx="230" cy="205" r="188" fill="url(#sky)"/>
+        <circle cx="338" cy="108" r="40" fill="#E4C983" opacity=".85"/>
+        <g>
+          <path d="M228 70 L228 262 L142 262 Z" fill="url(#sailA)"/>
+          <path d="M240 96 L240 262 L318 262 Z" fill="url(#sailB)"/>
+          <rect x="226" y="60" width="5" height="210" rx="2.5" fill="#0E2033"/>
+          <path d="M120 266 L346 266 L318 306 Q233 330 150 306 Z" fill="#0A2540"/>
+          <path d="M120 266 L346 266 L338 278 L128 278 Z" fill="#C6A15B"/>
+        </g>
+        <path d="M20 330 Q120 306 220 330 T430 330" fill="none" stroke="url(#wave)" stroke-width="6" stroke-linecap="round" opacity=".9"/>
+        <path d="M10 360 Q130 334 250 360 T440 356" fill="none" stroke="#12889B" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+        <path d="M30 388 Q150 366 270 388 T450 384" fill="none" stroke="#C6A15B" stroke-width="4" stroke-linecap="round" opacity=".5"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="sec services" id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker-line"></div>
+      <div class="eyebrow"><span class="l-en">What we do</span><span class="l-he">מה אנחנו עושים</span></div>
+      <h2><span class="l-en">A finance partner who <span class="hl">speaks business</span></span><span class="l-he">שותפה פיננסית ש<span class="hl">מדברת עסקים</span></span></h2>
+      <p><span class="l-en">Advisory hours, project-based, or a monthly retainer, scoped to exactly what your stage needs.</span><span class="l-he">שעות ייעוץ, פרויקטים, או ריטיינר חודשי, בהיקף שמתאים בדיוק לשלב שאתם בו.</span></p>
+    </div>
+    <div class="sgrid">
+      <div class="scard">
+        <div class="picon gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 13h3M8 17h3M15 13v4M13 15h4"/></svg></div>
+        <h3><span class="l-en">Budget &amp; Forecast, Built and Managed</span><span class="l-he">בנייה וניהול תקציב ותחזית</span></h3>
+        <p><span class="l-en">We build your budget and financial forecast around how your organisation actually works, on top of the systems you already use and with AI, then keep managing them against actual performance.</span><span class="l-he">בונים תקציב ותחזית פיננסית בהתאמה לצרכי הארגון, מעל המערכות שכבר קיימות אצלכם ובעזרת AI, וממשיכים לנהל ולתחזק אותם מול הביצוע בפועל.</span></p>
+      </div>
+      <div class="scard">
+        <div class="picon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11M9 20V5M14 20v-8M19 20V8"/><path d="M3 20h18"/></svg></div>
+        <h3><span class="l-en">FP&amp;A &amp; Strategic Finance</span><span class="l-he">FP&amp;A ופיננסים אסטרטגיים</span></h3>
+        <p><span class="l-en">Board decks, KPI frameworks, revenue analysis, cost efficiency, and sales and revenue optimization.</span><span class="l-he">מצגות דירקטוריון, מסגרות KPI, ניתוח הכנסות, התייעלות עלויות ואופטימיזציה של מכירות והכנסות.</span></p>
+      </div>
+      <div class="scard">
+        <div class="picon gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8M8 11l2.5-2.5L13 11l3-3.5"/></svg></div>
+        <h3><span class="l-en">Business Plans &amp; Pitch Decks</span><span class="l-he">תוכניות עסקיות ומצגות משקיעים</span></h3>
+        <p><span class="l-en">Investor-ready financial models, business plans and pitch decks that stand up to due diligence.</span><span class="l-he">מודלים פיננסיים, תוכניות עסקיות ומצגות שמוכנות למשקיעים ועומדות בבדיקת נאותות.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARISON (light, trimmed) ============ -->
+<section class="sec compare">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker-line"></div>
+      <div class="eyebrow"><span class="l-en">The smarter alternative</span><span class="l-he">האלטרנטיבה החכמה</span></div>
+      <h2><span class="l-en">Hiring a full-time FP&amp;A? Look at the <span class="hl">real cost</span>.</span><span class="l-he">שוקלים לגייס עובד FP&amp;A? הסתכלו על <span class="hl">העלות האמיתית</span>.</span></h2>
+    </div>
+    <div class="ctwo">
+      <div class="col bad">
+        <h3><span class="l-en">A full-time hire</span><span class="l-he">גיוס במשרה מלאה</span></h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="#e5686c" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg><span class="l-en">Payroll &amp; commitment</span><span class="l-he">שכר והתחייבות</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="#e5686c" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg><span class="l-en">Time to ramp and deliver</span><span class="l-he">זמן חפיפה עד תוצאות</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="#e5686c" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg><span class="l-en">Fixed cost, one person's dependency</span><span class="l-he">עלות קבועה, תלות באדם אחד</span></li>
+        </ul>
+      </div>
+      <div class="col good">
+        <div class="ribbon">BoWave</div>
+        <h3><span class="l-en">Fractional with BoWave</span><span class="l-he">מיקור חוץ עם BoWave</span></h3>
+        <ul>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12.5l5 5L20 6.5" stroke="#12889B" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="l-en">An expert finance business partner doing the real work</span><span class="l-he">שותפה עסקית-פיננסית מומחית שעושה את העבודה בעצמה</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12.5l5 5L20 6.5" stroke="#12889B" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="l-en">Live in days, not months</span><span class="l-he">עולים לאוויר תוך ימים, לא חודשים</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M5 12.5l5 5L20 6.5" stroke="#12889B" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="l-en">Flexible: scale up or down anytime</span><span class="l-he">גמיש: מגדילים או מקטינים בכל עת</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ME (final section) ============ -->
+<section class="sec expert">
+  <div class="wrap egrid">
+    <div class="eportrait">
+      <img src="assets/expert.webp" alt="Meital Levi, Founder and Senior FP&amp;A Expert" loading="lazy" width="640" height="800">
+      <div class="flag"><div class="nm"><span class="l-en">Meital Levi</span><span class="l-he">מיטל לוי</span></div><div class="rl"><span class="l-en">Founder · Senior FP&amp;A Expert</span><span class="l-he">מייסדת · מומחית FP&amp;A בכירה</span></div></div>
+    </div>
+    <div>
+      <div class="eyebrow"><span class="l-en">About me</span><span class="l-he">קצת עליי</span></div>
+      <h2><span class="l-en">The person you meet is the person who <span class="hl">does the work</span>.</span><span class="l-he">מי שאתם פוגשים היא מי ש<span class="hl">עושה את העבודה</span>.</span></h2>
+      <p class="lead"><span class="l-en">An expert finance business partner with nearly two decades in startup finance sits beside your leadership and builds it herself, from live reporting to the models that raise your next round.</span><span class="l-he">שותפה עסקית-פיננסית מומחית עם כמעט שני עשורים בפיננסים של סטארטאפים יושבת לצד ההנהלה ובונה הכול בעצמה, מדיווח חי ועד המודלים שמגייסים את הסבב הבא.</span></p>
+      <ul class="echecks">
+        <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.4z"/></svg><span class="l-en"><b>19 years</b> in high-tech startup finance</span><span class="l-he"><b>19 שנות</b> ניסיון בפיננסים של הייטק</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.4z"/></svg><span class="l-en">Former <b>Director of FP&amp;A</b>, through a full acquisition</span><span class="l-he">לשעבר <b>Director of FP&amp;A</b>, לאורך אקזיט מלא</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.4z"/></svg><span class="l-en">Full lifecycle experience, from <b>early round to exit</b></span><span class="l-he">ניסיון לאורך כל מחזור החיים, מ<b>סבב מוקדם ועד אקזיט</b></span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.4z"/></svg><span class="l-en">Hands-on with <b>AI tooling</b>, so foundations come together in days</span><span class="l-he">עבודה מעשית עם <b>כלי AI</b>, כך שתשתיות מתגבשות תוך ימים</span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19.2 20 8.2l-1.5-1.4z"/></svg><span class="l-en">Fluent across the <b>full range of finance systems</b></span><span class="l-he">שליטה מלאה ב<b>כל מגוון המערכות הפיננסיות</b></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <img class="logo" src="assets/logo-white.png" alt="BoWave Finance Consulting">
+        <p class="desc"><span class="l-en">Fractional FP&amp;A and strategic finance for growing businesses, delivered as a service, fast with AI.</span><span class="l-he">FP&amp;A במיקור חוץ ופיננסים אסטרטגיים לעסקים שצומחים, כשירות, מהר, בעזרת AI.</span></p>
+      </div>
+      <div>
+        <h4><span class="l-en">Services</span><span class="l-he">שירותים</span></h4>
+        <ul class="fserv">
+          <li><a href="#services"><span class="l-en">Budget &amp; Forecast, Built and Managed</span><span class="l-he">בנייה וניהול תקציב ותחזית פיננסית</span></a></li>
+          <li><a href="#services"><span class="l-en">FP&amp;A &amp; Strategic Finance</span><span class="l-he">FP&amp;A ואסטרטגיה</span></a></li>
+          <li><a href="#services"><span class="l-en">Business Plans &amp; Pitch Decks</span><span class="l-he">תוכניות עסקיות ומצגות</span></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span class="cline">
+        <span class="l-en">© 2026 <b>BoWave Finance Consulting</b> · All rights reserved · <a href="https://bowave.finance">bowave.finance</a> · <a href="mailto:info@bowave.finance">info@bowave.finance</a></span>
+        <span class="l-he">© 2026 <b>BoWave Finance Consulting</b> · כל הזכויות שמורות · <a href="https://bowave.finance">bowave.finance</a> · <a href="mailto:info@bowave.finance">info@bowave.finance</a></span>
+      </span>
+      <span class="flegal"><a href="privacy.html"><span class="l-en">Privacy Policy</span><span class="l-he">מדיניות פרטיות</span></a> · <a href="terms.html"><span class="l-en">Terms</span><span class="l-he">תקנון</span></a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a class="wafab" href="https://wa.me/972523399338?text=Hi%20BoWave%2C%20I%27d%20like%20to%20book%20a%20free%20finance%20strategy%20call." target="_blank" rel="noopener" aria-label="WhatsApp" data-cta="fab_wa">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.6 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4C5.5 18 5 16.5 5 15 5 9 9.9 4 16 4s11 5 11 11-4.9 10.8-11 10.8zm6-8.1c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2.5 1 3 .8 3.6.8.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<!-- ============ STICKY MOBILE CALL ============ -->
+<a class="mobcall" href="tel:+972523399338" data-cta="mob_call">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.58 3.6a1 1 0 0 1-.24 1z"/></svg>
+  <span><span class="l-en">Call Now · <span class="ltr">+972 52-339-9338</span></span><span class="l-he">התקשרו עכשיו · <span class="ltr">+972 52-339-9338</span></span></span>
+</a>
+
+<!-- ============ POP-UP: LEAD FORM (opened by every CTA) ============ -->
+<div class="modal" id="popLead">
+  <div class="box lead">
+    <button class="mclose" data-close aria-label="Close">&times;</button>
+    <div class="lc-top">
+      <h3><span class="l-en">Free Finance Strategy Call</span><span class="l-he">שיחת אסטרטגיה · חינם</span></h3>
+      <p><span class="l-en">30 minutes with a senior FP&amp;A expert · No obligation</span><span class="l-he">30 דקות עם מומחית FP&amp;A בכירה · ללא התחייבות</span></p>
+    </div>
+    <form class="leadForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <input type="text" class="hp" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input type="hidden" name="lang" value="he">
+      <input type="hidden" name="source" value="bowave.finance/offer/">
+      <div class="frow">
+        <div class="fld"><label class="l-en">Full name</label><label class="l-he">שם מלא</label><input type="text" name="name" required data-ph-en="Jane Cohen" data-ph-he="ישראל ישראלי" placeholder="Jane Cohen"></div>
+        <div class="fld"><label class="l-en">Work email</label><label class="l-he">אימייל</label><input type="email" name="email" required data-ph-en="jane@startup.com" data-ph-he="name@startup.com" placeholder="jane@startup.com"></div>
+      </div>
+      <div class="frow">
+        <div class="fld"><label class="l-en">Phone</label><label class="l-he">טלפון</label><input type="tel" name="phone" required data-ph-en="+972 50 000 0000" data-ph-he="050-000-0000" placeholder="+972 50 000 0000"></div>
+        <div class="fld"><label class="l-en">Company</label><label class="l-he">חברה</label><input type="text" name="company" data-ph-en="Your startup" data-ph-he="שם החברה" placeholder="Your startup"></div>
+      </div>
+      <div class="fld">
+        <label class="l-en">What do you need?</label><label class="l-he">מה אתם צריכים?</label>
+        <select name="service">
+          <option value="FP&A & Strategic Finance" data-en="FP&amp;A &amp; Strategic Finance" data-he="FP&amp;A ופיננסים אסטרטגיים">FP&amp;A &amp; Strategic Finance</option>
+          <option value="Business Plans & Pitch Decks" data-en="Business Plans &amp; Pitch Decks" data-he="תוכניות עסקיות ומצגות משקיעים">Business Plans &amp; Pitch Decks</option>
+          <option value="Not sure yet" data-en="Not sure yet, let's talk" data-he="עדיין לא בטוחים, בואו נדבר">Not sure yet, let's talk</option>
+        </select>
+      </div>
+      <div class="fld">
+        <label class="l-en">How can we help? (optional)</label><label class="l-he">איך נוכל לעזור? (רשות)</label>
+        <textarea name="message" rows="3" data-ph-en="A sentence or two about your company and what you need…" data-ph-he="משפט או שניים על החברה ומה אתם צריכים…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary sbtn" data-cta="form_submit"><span class="l-en">Send</span><span class="l-he">שליחה</span></button>
+      <p class="orsep"><span class="l-en">or reach us straight away</span><span class="l-he">או ישירות אלינו</span></p>
+      <div class="warow">
+        <button type="button" class="btn btn-wa" data-send="wa" data-cta="form_wa"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.1 1.6 5.9L4 29l8.3-1.6c1.7.9 3.6 1.4 5.7 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.2-.4C5.5 18 5 16.5 5 15 5 9 9.9 4 16 4s11 5 11 11-4.9 10.8-11 10.8zm6-8.1c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2s-.8 1-1 1.2c-.2.2-.4.2-.7.1-1.8-.9-3-1.6-4.2-3.6-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 2.5 1 3 .8 3.6.8.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.2-.6-.4z"/></svg><span class="l-en">WhatsApp</span><span class="l-he">וואטסאפ</span></button>
+      </div>
+      <p class="fineprint"><span class="l-en">We will get back to you shortly. Your details stay private.</span><span class="l-he">נחזור אליכם בהקדם. הפרטים שלכם נשמרים בדיסקרטיות.</span></p>
+    </form>
+  </div>
+</div>
+
+<!-- auto-opening pop-ups (timed + exit-intent) removed at client request -->
+
+<!-- reCAPTCHA removed: its site key is registered to the old host and would block every submit here.
+     Spam protection is the honeypot field below plus the form service's own filtering. -->
+
+<script>
+/* ---------- language toggle ---------- */
+(function(){
+  var html=document.documentElement;
+  function applyPlaceholders(lang){
+    document.querySelectorAll('[data-ph-'+lang+']').forEach(function(el){ el.setAttribute('placeholder', el.getAttribute('data-ph-'+lang)); });
+  }
+  function applyOptions(lang){
+    document.querySelectorAll('option[data-'+lang+']').forEach(function(o){ o.textContent=o.getAttribute('data-'+lang); });
+  }
+  function setLang(lang){
+    html.setAttribute('lang',lang);
+    html.setAttribute('dir', lang==='he'?'rtl':'ltr');
+    applyPlaceholders(lang);
+    applyOptions(lang);
+    document.querySelectorAll('.langtog button').forEach(function(b){ b.classList.toggle('on', b.getAttribute('data-lang')===lang); });
+    try{ localStorage.setItem('bw_lang',lang); }catch(e){}
+    if(window.dataLayer) dataLayer.push({event:'lang_switch',lang:lang});
+  }
+  document.querySelectorAll('.langtog button').forEach(function(b){
+    b.addEventListener('click',function(){ setLang(b.getAttribute('data-lang')); });
+  });
+  var saved; try{ saved=localStorage.getItem('bw_lang'); }catch(e){}
+  var urlLang=new URLSearchParams(location.search).get('lang');
+  var initial = (urlLang==='he'||urlLang==='en') ? urlLang : (saved || html.getAttribute('lang') || 'he');
+  setLang(initial);
+})();
+
+/* ---------- modals: manual openers + auto nudges with FORM GUARD ---------- */
+(function(){
+  var formEngaged=false;
+  document.querySelectorAll('.leadForm').forEach(function(f){ f.addEventListener('focusin',function(){formEngaged=true;}); });
+  function inForm(){ var a=document.activeElement; return a && a.closest && a.closest('.leadForm'); }
+  function showModal(id){
+    var m=document.getElementById(id); if(!m)return;
+    document.querySelectorAll('.modal.show').forEach(function(x){ if(x!==m) x.classList.remove('show'); });
+    m.classList.add('show');
+    if(window.dataLayer)dataLayer.push({event:'popup_view',popup:id});
+    var fi=m.querySelector('input[name="name"]'); if(fi){ setTimeout(function(){ try{fi.focus();}catch(e){} },80); }
+  }
+  function closeModal(m){ m.classList.remove('show'); }
+  // manual openers (all CTA buttons)
+  document.querySelectorAll('[data-open]').forEach(function(b){
+    b.addEventListener('click',function(e){ e.preventDefault(); showModal(b.getAttribute('data-open')); });
+  });
+  // close handlers
+  document.querySelectorAll('.modal').forEach(function(m){
+    m.addEventListener('click',function(e){ if(e.target===m||e.target.hasAttribute('data-close')||(e.target.closest&&e.target.closest('[data-close]'))) closeModal(m); });
+  });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'){var o=document.querySelector('.modal.show'); if(o)closeModal(o);} });
+  // auto nudges removed: no pop-up opens by itself, only on a button click
+})();
+
+/* ---------- lead form ----------
+   "Send" posts straight to the BoWave Apps Script, which emails info@bowave.finance
+   from Meital's own Google account. Nothing opens on the visitor's machine.
+   The WhatsApp button stays as an instant-chat alternative. */
+(function(){
+  var SCRIPT_URL='https://script.google.com/macros/s/AKfycbyIKDwEGadBerRaCgqyWYwYfV9TfX6v1LaOtuT6J8lcnNNAA-bkRNsa0BXJx9gzMP0bWA/exec';   // the /exec URL from Deploy > Web app
+  var WA_NUMBER='972523399338';
+  var MAIL_TO='info@bowave.finance';
+  var L={
+    title:{en:'New enquiry from the website',he:'פנייה חדשה מהאתר'},
+    name:{en:'Name',he:'שם'},
+    email:{en:'Email',he:'אימייל'},
+    phone:{en:'Phone',he:'טלפון'},
+    company:{en:'Company',he:'חברה'},
+    service:{en:'Needs',he:'מה צריך'},
+    message:{en:'Message',he:'הודעה'},
+    sending:{en:'Sending…',he:'שולח…'},
+    okTitle:{en:'Thank you, your details are on their way.',he:'תודה, הפרטים נשלחו.'},
+    okBody:{en:'We will get back to you shortly.',he:'נחזור אליכם בהקדם.'},
+    err:{en:'Sending failed. Please try WhatsApp, or write to',he:'השליחה נכשלה. אפשר לנסות בוואטסאפ, או לכתוב לנו ל'},
+    sig:{en:'Sent from bowave.finance',he:'נשלח מהאתר bowave.finance'}
+  };
+  function t(k,lang){ return L[k][lang]||L[k].en; }
+  function bi(k){ return '<span class="l-en">'+L[k].en+'</span><span class="l-he">'+L[k].he+'</span>'; }
+  var KEYS=['name','phone','email','company','service','message'];
+
+  function read(f,n){
+    var el=f.querySelector('[name="'+n+'"]');
+    if(!el)return '';
+    if(el.tagName==='SELECT')return el.options[el.selectedIndex].textContent.trim();  // label in the visitor's language
+    return el.value.trim();
+  }
+
+  // WhatsApp renders *text* as bold, so the message arrives looking structured.
+  function waMessage(f,lang){
+    var rule='━━━━━━━━━━━━━━━';
+    var lines=['*'+t('title',lang)+'*',rule];
+    KEYS.forEach(function(k){ var v=read(f,k); if(v) lines.push('*'+t(k,lang)+':* '+v); });
+    lines.push(rule,'_'+t('sig',lang)+'_');
+    return lines.join('\n');
+  }
+
+  function fail(f,btn,prev,lang){
+    btn.disabled=false; btn.innerHTML=prev;
+    var old=f.querySelector('.form-err'); if(old)old.remove();
+    var p=document.createElement('p'); p.className='form-err';
+    p.innerHTML=bi('err')+' <a href="mailto:'+MAIL_TO+'">'+MAIL_TO+'</a>';
+    btn.parentNode.insertBefore(p,btn.nextSibling);
+  }
+
+  document.querySelectorAll('form.leadForm').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var hp=f.querySelector('[name="company_website"]');
+      if(hp&&hp.value)return;                       // honeypot: ignore bots
+      if(!f.reportValidity())return;
+      if(SCRIPT_URL.indexOf('PASTE_')===0){ console.error('Apps Script URL not set yet.'); return; }
+
+      var lang=document.documentElement.getAttribute('lang')||'en';
+      var btn=f.querySelector('button[type="submit"]'), prev=btn.innerHTML;
+      btn.disabled=true; btn.innerHTML=bi('sending');
+      var old=f.querySelector('.form-err'); if(old)old.remove();
+
+      var payload={lang:lang, source:location.host+location.pathname, company_website:''};
+      KEYS.forEach(function(k){ payload[k]=read(f,k); });
+
+      // No custom headers: keeps it a simple request, so no CORS preflight.
+      fetch(SCRIPT_URL,{method:'POST',body:JSON.stringify(payload)})
+        .then(function(r){ if(!r.ok)throw new Error('http '+r.status); return r.json(); })
+        .then(function(res){
+          if(!res||!res.ok)throw new Error(res&&res.error||'rejected');
+          f.innerHTML='<div class="lead-ok"><h3>'+bi('okTitle')+'</h3><p>'+bi('okBody')+'</p></div>';
+        })
+        .catch(function(){ fail(f,btn,prev,lang); });
+    });
+
+    var wa=f.querySelector('[data-send="wa"]');
+    if(wa) wa.addEventListener('click',function(){
+      var lang=document.documentElement.getAttribute('lang')||'en';
+      var anyDetail=KEYS.some(function(k){ return k!=='service' && read(f,k); });
+      var url='https://wa.me/'+WA_NUMBER+(anyDetail?'?text='+encodeURIComponent(waMessage(f,lang)):'');
+      window.open(url,'_blank','noopener');
+    });
+  });
+})();
+</script>
+</body>
+</html>
