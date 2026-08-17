@@ -543,12 +543,11 @@ form.leadForm{padding:20px 22px 22px}
     sending:{en:'Sending…',he:'שולח…'},
     okTitle:{en:'Thank you, your details are on their way.',he:'תודה, הפרטים נשלחו.'},
     okBody:{en:'We will get back to you shortly.',he:'נחזור אליכם בהקדם.'},
-    err:{en:'Sending failed. Please try WhatsApp, or write to',he:'השליחה נכשלה. אפשר לנסות בוואטסאפ, או לכתוב לנו ל'},
-    sig:{en:'Sent from bowave.finance',he:'נשלח מהאתר bowave.finance'}
+    err:{en:'Sending failed. Please try WhatsApp, or write to',he:'השליחה נכשלה. אפשר לנסות בוואטסאפ, או לכתוב לנו ל'}
   };
   function t(k,lang){ return L[k][lang]||L[k].en; }
   function bi(k){ return '<span class="l-en">'+L[k].en+'</span><span class="l-he">'+L[k].he+'</span>'; }
-  var KEYS=['name','phone','email','company','service','message'];
+  var KEYS=['name','phone','email','company','message'];
 
   function read(f,n){
     var el=f.querySelector('[name="'+n+'"]');
@@ -562,7 +561,7 @@ form.leadForm{padding:20px 22px 22px}
     var rule='━━━━━━━━━━━━━━━';
     var lines=['*'+t('title',lang)+'*',rule];
     KEYS.forEach(function(k){ var v=read(f,k); if(v) lines.push('*'+t(k,lang)+':* '+v); });
-    lines.push(rule,'_'+t('sig',lang)+'_');
+    lines.push(rule);
     return lines.join('\n');
   }
 
