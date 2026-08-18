@@ -7,16 +7,23 @@
     <meta name="description" content="Fractional FP&A leadership, business planning, and AP management for startups and growing tech companies.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Spectral:wght@500;600;700;800&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --green:#1A7F5A;--green-hover:#22A06B;--green-pale:#E6F4ED;--green-dark:#146245;
-            --purple:#5B5FC7;--purple-light:#7B7FD4;--purple-pale:#EDEDFA;
-            --dark:#1E2A3A;--dark-mid:#263545;--dark-light:#2F3F52;
+            --green:#12889B;--green-hover:#17C0CE;--green-pale:#EAF7F7;--green-dark:#0A2540;
+            --purple:#C6A15B;--purple-light:#E4C983;--purple-pale:#F6F2EA;
+            --dark:#0A2540;--dark-mid:#0E2033;--dark-light:#16324a;
             --red:#D94052;--red-light:#E8606F;--orange:#E8913A;--blue:#3B82F6;
             --white:#FAFBFC;--off-white:#F0F3F7;--grey:#8993A4;--grey-light:#C8CED8;
-            --text-dark:#1E2A3A;--text-body:#4A5567;--border:rgba(30,42,58,0.08);
+            --text-dark:#0A2540;--text-body:#54636F;--border:rgba(30,42,58,0.08);
         }
+
+        /* Hebrew headings: Libre Baskerville carries no Hebrew glyphs, so Hebrew fell
+           back to a sans face. Frank Ruhl Libre matches the landing page. */
+        html[lang="he"] h1, html[lang="he"] h2, html[lang="he"] h3, html[lang="he"] h4,
+        html[lang="he"] .hero-tagline, html[lang="he"] .section-title,
+        html[lang="he"] .hero-subtitle, html[lang="he"] .hero-punch,
+        html[lang="he"] .stat-number { font-family: 'Frank Ruhl Libre', 'Spectral', serif; }
         *{margin:0;padding:0;box-sizing:border-box}
         html{scroll-behavior:smooth;font-size:16px}
         body{font-family:'Outfit','Heebo',sans-serif;color:var(--text-body);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
@@ -69,7 +76,7 @@
         .reveal.active{opacity:1;transform:translateY(0)}
         .reveal.no-anim{opacity:1;transform:translateY(0);transition:none}
 
-        /* SERVICES – 3 cards */
+        /* SERVICES, 3 cards */
         .services{background:var(--white)}
         .services-header{text-align:center;margin-bottom:4rem}
         .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;max-width:1280px;margin:0 auto}
@@ -81,7 +88,7 @@
         .service-card h3{font-family:'Libre Baskerville',serif;font-size:1.2rem;color:var(--text-dark);margin-bottom:1rem}
         .service-card p{font-size:.9rem;line-height:1.85;color:var(--text-body);font-weight:300}
 
-        /* ABOUT / OUR APPROACH – no photo, 2x2 grid */
+        /* ABOUT / OUR APPROACH, no photo, 2x2 grid */
         .about{background:var(--white)}
         .about-inner{max-width:1100px;margin:0 auto}
         .about-header{text-align:center;margin-bottom:1.5rem}
@@ -150,7 +157,7 @@
         .deck-slide{border-top:1px solid var(--border);background:#fff}
         .deck-slide-header{padding:.85rem 1.75rem;color:#fff;font-weight:700;font-size:.95rem;letter-spacing:.01em;position:relative;font-family:'Outfit',sans-serif}
         .deck-slide-header::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(255,255,255,.25)}
-        .deck-slide-header.gh-green{background:linear-gradient(135deg,#1A7F5A 0%,#22A06B 100%)}
+        .deck-slide-header.gh-green{background:linear-gradient(135deg,#12889B 0%,#17C0CE 100%)}
         .deck-slide-header.gh-coral{background:linear-gradient(135deg,#E8913A 0%,#D94052 100%)}
         .deck-slide-header.gh-navy{background:linear-gradient(135deg,#475569 0%,#64748B 100%)}
         .deck-slide-body{padding:1.5rem 1.75rem;background:#fff;display:flex;flex-direction:column;gap:1rem}
@@ -158,10 +165,10 @@
         .deck-panel-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:#6B7280;font-weight:600;margin-bottom:.7rem;display:block}
         .deck-panel-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #E8EAF0;padding-bottom:.5rem;margin-bottom:0}
         .deck-panel-total{font-family:'JetBrains Mono',monospace;font-size:.9rem;font-weight:700}
-        .deck-panel-total.green{color:#1A7F5A}
-        .deck-panel-total.purple{color:#5B5FC7}
+        .deck-panel-total.green{color:#12889B}
+        .deck-panel-total.purple{color:#C6A15B}
         .deck-panel-total.orange{color:#D97706}
-        .deck-panel-total.navy{color:#1E2A3A}
+        .deck-panel-total.navy{color:#0A2540}
 
         /* KPI row of 4 */
         .deck-kpi-row-4{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem}
@@ -171,7 +178,7 @@
         .deck-kpi-tile.hl-coral{background:linear-gradient(135deg,#E8913A 0%,#D94052 100%);border:none}
         .deck-kpi-tile.hl-coral .k-lbl{color:rgba(255,255,255,.9)}
         .deck-kpi-tile.hl-coral .k-val{color:#fff}
-        .deck-kpi-tile.hl-green{background:linear-gradient(135deg,#1A7F5A 0%,#22A06B 100%);border:none}
+        .deck-kpi-tile.hl-green{background:linear-gradient(135deg,#12889B 0%,#17C0CE 100%);border:none}
         .deck-kpi-tile.hl-green .k-lbl{color:rgba(255,255,255,.9)}
         .deck-kpi-tile.hl-green .k-val{color:#fff}
         .deck-kpi-tile.hl-navy{background:linear-gradient(135deg,#475569 0%,#64748B 100%);border:none}
@@ -186,7 +193,7 @@
         .deck-pl-table td.cat{text-align:left;padding-left:.65rem;font-family:'Outfit',sans-serif;color:#374151;font-weight:500;font-size:.78rem}
         .deck-pl-table td.cat.sub{padding-left:1.5rem;color:#9CA3AF;font-style:italic;font-size:.7rem;font-weight:400}
         .deck-pl-table td.cat.strong{font-weight:700;color:var(--text-dark)}
-        .deck-pl-table td.pos{color:#1A7F5A;font-weight:600}
+        .deck-pl-table td.pos{color:#12889B;font-weight:600}
         .deck-pl-table td.neg{color:#D94052}
         .deck-pl-table td.meta{color:#9CA3AF;font-style:italic;font-family:'Outfit',sans-serif}
         .deck-pl-table tr.gross td{background:#F0F8F4}
@@ -203,7 +210,7 @@
         .deck-eq-box.hl-coral{background:linear-gradient(135deg,#E8913A 0%,#D94052 100%);border:none}
         .deck-eq-box.hl-coral .k-lbl{color:rgba(255,255,255,.9)}
         .deck-eq-box.hl-coral .k-val{color:#fff}
-        .deck-eq-box.hl-green{background:linear-gradient(135deg,#1A7F5A 0%,#22A06B 100%);border:none}
+        .deck-eq-box.hl-green{background:linear-gradient(135deg,#12889B 0%,#17C0CE 100%);border:none}
         .deck-eq-box.hl-green .k-lbl{color:rgba(255,255,255,.9)}
         .deck-eq-box.hl-green .k-val{color:#fff}
         .deck-eq-box.hl-navy{background:linear-gradient(135deg,#475569 0%,#64748B 100%);border:none}
@@ -215,11 +222,11 @@
         .deck-bars{display:flex;align-items:flex-end;justify-content:space-between;gap:.5rem;height:90px;padding-top:1.6rem;position:relative}
         .deck-bar-col{display:flex;flex-direction:column;align-items:center;flex:1;gap:.35rem;height:100%;justify-content:flex-end}
         .deck-bar-val{font-family:'JetBrains Mono',monospace;font-size:.65rem;font-weight:700;color:var(--text-dark)}
-        .deck-bar{width:70%;background:linear-gradient(180deg,#22A06B 0%,#1A7F5A 100%);border-radius:3px 3px 0 0;min-height:6px}
+        .deck-bar{width:70%;background:linear-gradient(180deg,#17C0CE 0%,#12889B 100%);border-radius:3px 3px 0 0;min-height:6px}
         .deck-bar-lbl{font-size:.55rem;color:#6B7280;letter-spacing:.04em}
 
         /* Totals strip */
-        .deck-totals-strip{display:flex;justify-content:space-between;align-items:center;color:#fff;border-radius:8px;padding:.85rem 1.25rem;gap:1.25rem;flex-wrap:wrap;background:linear-gradient(135deg,#1A7F5A 0%,#22A06B 100%)}
+        .deck-totals-strip{display:flex;justify-content:space-between;align-items:center;color:#fff;border-radius:8px;padding:.85rem 1.25rem;gap:1.25rem;flex-wrap:wrap;background:linear-gradient(135deg,#12889B 0%,#17C0CE 100%)}
         .deck-totals-strip.ts-coral{background:linear-gradient(135deg,#E8913A 0%,#D94052 100%)}
         .deck-totals-strip .ts-lbl{font-size:.6rem;letter-spacing:.18em;font-weight:600;color:rgba(255,255,255,.85);text-transform:uppercase}
         .deck-totals-strip .ts-val{font-family:'Outfit',sans-serif;font-size:1.5rem;font-weight:700;color:#fff;margin-right:auto}
@@ -247,7 +254,7 @@
         .deck-mini-table{width:100%;border-collapse:collapse;font-size:.75rem;margin-top:.5rem}
         .deck-mini-table td{padding:.5rem .35rem;border-bottom:1px solid #F0F2F5}
         .deck-mini-table td:first-child{color:#374151}
-        .deck-mini-table td:last-child{text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;color:#1A7F5A}
+        .deck-mini-table td:last-child{text-align:right;font-family:'JetBrains Mono',monospace;font-weight:600;color:#12889B}
         .deck-mini-table tr.tt td{border-top:2px solid var(--text-dark);border-bottom:none;padding-top:.6rem;font-weight:700;color:var(--text-dark)}
 
         /* Footnote */
@@ -268,7 +275,7 @@
         .mock-kpi-card.kpi-green .mock-kpi-val{color:#2E7D32}
         .mock-kpi-card.kpi-yellow .mock-kpi-val{color:#E65100}
         .mock-kpi-card.kpi-blue .mock-kpi-val{color:#1565C0}
-        .mock-kpi-card.kpi-purple .mock-kpi-val{color:#5B5FC7}
+        .mock-kpi-card.kpi-purple .mock-kpi-val{color:#C6A15B}
         .mock-kpi-lbl{font-size:.55rem;color:#666;letter-spacing:.06em;text-transform:uppercase;font-weight:400}
         .mock-chart-area{position:relative;height:100px;padding:0 .25rem}
         .mock-chart-area svg{width:100%;height:100%}
@@ -288,7 +295,7 @@
         .mock-bm-row{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;margin-bottom:.6rem}
         .mock-bm-card{border-radius:8px;padding:.6rem .5rem;text-align:center}
         .mock-bm-card.bm-white{background:#fff;border:1px solid #e5e7eb}
-        .mock-bm-card.bm-dark{background:linear-gradient(135deg,#1e2a3a 0%,#2d3a4a 100%)}
+        .mock-bm-card.bm-dark{background:linear-gradient(135deg,#0A2540 0%,#2d3a4a 100%)}
         .mock-bm-card.bm-green{background:linear-gradient(135deg,#E8F5E9 0%,#C8E6C9 100%);border:1px solid #A5D6A7}
         .mock-bm-val{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:700;margin-bottom:.1rem}
         .mock-bm-val.gold{color:#D4A843}
@@ -476,8 +483,8 @@
     <div class="hero-bg"></div><div class="hero-grid"></div><div class="hero-glow"></div><div class="hero-glow-2"></div>
     <div class="hero-chart">
         <svg viewBox="0 0 1920 220" preserveAspectRatio="none">
-            <polyline fill="none" stroke="#1A7F5A" stroke-width="2.5" points="0,200 80,185 160,190 240,170 320,175 400,150 480,160 560,130 640,140 720,110 800,120 880,95 960,105 1040,80 1120,90 1200,60 1280,70 1360,45 1440,55 1520,30 1600,35 1680,15 1760,20 1840,5 1920,10"/>
-            <linearGradient id="cF" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#1A7F5A" stop-opacity="0.3"/><stop offset="100%" stop-color="#1A7F5A" stop-opacity="0"/></linearGradient>
+            <polyline fill="none" stroke="#12889B" stroke-width="2.5" points="0,200 80,185 160,190 240,170 320,175 400,150 480,160 560,130 640,140 720,110 800,120 880,95 960,105 1040,80 1120,90 1200,60 1280,70 1360,45 1440,55 1520,30 1600,35 1680,15 1760,20 1840,5 1920,10"/>
+            <linearGradient id="cF" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#12889B" stop-opacity="0.3"/><stop offset="100%" stop-color="#12889B" stop-opacity="0"/></linearGradient>
             <polygon fill="url(#cF)" points="0,200 80,185 160,190 240,170 320,175 400,150 480,160 560,130 640,140 720,110 800,120 880,95 960,105 1040,80 1120,90 1200,60 1280,70 1360,45 1440,55 1520,30 1600,35 1680,15 1760,20 1840,5 1920,10 1920,220 0,220"/>
         </svg>
     </div>
@@ -492,7 +499,7 @@
     <div class="hero-scroll"><div class="scroll-line"></div></div>
 </section>
 
-<!-- 2. SERVICES – 3 cards -->
+<!-- 2. SERVICES, 3 cards -->
 <section class="services" id="services">
     <div class="services-header reveal"><h2 class="section-title">Your Strategic Finance Partner</h2></div>
     <div class="services-grid">
@@ -590,7 +597,7 @@
     <div class="leadership-cards">
         <div class="leadership-card reveal">
             <div class="leadership-card-top">
-                <span class="leadership-tag">2022–2025</span>
+                <span class="leadership-tag">2022-2025</span>
                 <h3 class="leadership-title">HiredScore <span class="leadership-acq">· Acquired by Workday</span></h3>
                 <p class="leadership-role">Director of FP&amp;A · HR-Tech SaaS</p>
             </div>
@@ -605,7 +612,7 @@
         </div>
         <div class="leadership-card reveal">
             <div class="leadership-card-top">
-                <span class="leadership-tag">2020–2022</span>
+                <span class="leadership-tag">2020-2022</span>
                 <h3 class="leadership-title">LOGZ.io</h3>
                 <p class="leadership-role">FP&amp;A Manager · Cloud Observability SaaS</p>
             </div>
@@ -620,7 +627,7 @@
         </div>
         <div class="leadership-card reveal">
             <div class="leadership-card-top">
-                <span class="leadership-tag">2014–2019</span>
+                <span class="leadership-tag">2014-2019</span>
                 <h3 class="leadership-title">Kaltura <span class="leadership-acq">· FP&amp;A Award 2017</span></h3>
                 <p class="leadership-role">FP&amp;A Specialist &amp; Revenue Analyst · Video Platform</p>
             </div>
@@ -770,8 +777,8 @@
 <section class="ai-powered" id="ai">
     <div class="ai-header reveal"><p class="section-label">How We Build</p><h2 class="section-title">AI-Powered Financial Planning</h2><p class="ai-subtitle">Modern tools. Faster delivery. Better results.</p></div>
     <div class="ai-tools-grid">
-        <div class="ai-tool-card reveal"><div class="ai-tool-icon ai"><svg width="24" height="24" fill="none" stroke="#5B5FC7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2l1.09 3.26L16.36 6.5l-3.27 1.09L12 10.85l-1.09-3.26L7.64 6.5l3.27-1.09L12 2z"/><path d="M5 15l.66 1.97L7.63 17.63l-1.97.66L5 20.26l-.66-1.97L2.37 17.63l1.97-.66L5 15z"/><path d="M19 12l.66 1.97 1.97.66-1.97.66L19 17.26l-.66-1.97-1.97-.66 1.97-.66L19 12z"/></svg></div><h4>AI App Builders</h4><p>Custom interactive financial tools</p></div>
-        <div class="ai-tool-card reveal"><div class="ai-tool-icon code"><svg width="24" height="24" fill="none" stroke="#1A7F5A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div><h4>AI Coding Tools</h4><p>Automation &amp; rapid prototyping</p></div>
+        <div class="ai-tool-card reveal"><div class="ai-tool-icon ai"><svg width="24" height="24" fill="none" stroke="#C6A15B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 2l1.09 3.26L16.36 6.5l-3.27 1.09L12 10.85l-1.09-3.26L7.64 6.5l3.27-1.09L12 2z"/><path d="M5 15l.66 1.97L7.63 17.63l-1.97.66L5 20.26l-.66-1.97L2.37 17.63l1.97-.66L5 15z"/><path d="M19 12l.66 1.97 1.97.66-1.97.66L19 17.26l-.66-1.97-1.97-.66 1.97-.66L19 12z"/></svg></div><h4>AI App Builders</h4><p>Custom interactive financial tools</p></div>
+        <div class="ai-tool-card reveal"><div class="ai-tool-icon code"><svg width="24" height="24" fill="none" stroke="#12889B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div><h4>AI Coding Tools</h4><p>Automation &amp; rapid prototyping</p></div>
         <div class="ai-tool-card reveal"><div class="ai-tool-icon sheets"><svg width="24" height="24" fill="none" stroke="#34A853" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg></div><h4>Live Dashboards</h4><p>Auto-updated reports &amp; decks</p></div>
         <div class="ai-tool-card reveal"><div class="ai-tool-icon excel"><svg width="24" height="24" fill="none" stroke="#3B82F6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M3 3h18v18H3z" rx="2"/><path d="M8 7v10M12 7v10M16 7v10"/><path d="M3 12h18"/></svg></div><h4>Financial Modeling</h4><p>Formula-based &amp; fully integrated</p></div>
     </div>
@@ -835,7 +842,7 @@ if('IntersectionObserver' in window){
     /* Safety fallback: if after 2 seconds any reveal is still hidden, force show */
     setTimeout(()=>{reveals.forEach(el=>{if(!el.classList.contains('active'))el.classList.add('active')})},2000);
 } else {
-    /* No IntersectionObserver support – show everything immediately */
+    /* No IntersectionObserver support, show everything immediately */
     reveals.forEach(el=>el.classList.add('no-anim'));
 }
 
@@ -909,13 +916,13 @@ const I18N = {
     '.leadership-bg .section-label': 'Leadership Background',
     '.leadership-bg .section-title': '15 Years of FP&A Leadership',
     '.leadership-sub': 'From early-career finance through Workday acquisition.',
-    '.leadership-card:nth-of-type(1) .leadership-tag': '2022–2025',
+    '.leadership-card:nth-of-type(1) .leadership-tag': '2022-2025',
     '.leadership-card:nth-of-type(1) .leadership-title': 'HiredScore <span class="leadership-acq">· Acquired by Workday</span>',
     '.leadership-card:nth-of-type(1) .leadership-role': 'Director of FP&A · HR-Tech SaaS',
-    '.leadership-card:nth-of-type(2) .leadership-tag': '2020–2022',
+    '.leadership-card:nth-of-type(2) .leadership-tag': '2020-2022',
     '.leadership-card:nth-of-type(2) .leadership-title': 'LOGZ.io',
     '.leadership-card:nth-of-type(2) .leadership-role': 'FP&A Manager · Cloud Observability SaaS',
-    '.leadership-card:nth-of-type(3) .leadership-tag': '2014–2019',
+    '.leadership-card:nth-of-type(3) .leadership-tag': '2014-2019',
     '.leadership-card:nth-of-type(3) .leadership-title': 'Kaltura <span class="leadership-acq">· FP&A Award 2017</span>',
     '.leadership-card:nth-of-type(3) .leadership-role': 'FP&A Specialist & Revenue Analyst · Video Platform',
     '.selected-work .section-label': 'Selected Work',
@@ -969,9 +976,9 @@ const I18N = {
     '.hero-cta': 'בואו נדבר',
     '.services .section-title': 'השותף הפיננסי האסטרטגי שלכם',
     '.service-card:nth-of-type(1) h3': 'FP&A ופיננסים אסטרטגיים',
-    '.service-card:nth-of-type(1) p': 'צמיחה מהירה מרגשת — עד שהמספרים מפסיקים להיות הגיוניים. אנחנו משתלבים כשותפי FP&A במשרה חלקית כדי להביא מבנה, שקיפות ושליטה לפיננסים שלכם. תקצוב, Rolling Forecasts, מצגות לדירקטוריון, מדדי KPI, ניתוח הכנסות, אופטימיזציית מכירות, ניתוח Pipeline ואופטימיזציית עלויות — כל מה שצוות ההנהלה שלכם צריך כדי לקבל החלטות חכמות, מהר.',
+    '.service-card:nth-of-type(1) p': 'צמיחה מהירה מרגשת, עד שהמספרים מפסיקים להיות הגיוניים. אנחנו משתלבים כשותפי FP&A במשרה חלקית כדי להביא מבנה, שקיפות ושליטה לפיננסים שלכם. תקצוב, Rolling Forecasts, מצגות לדירקטוריון, מדדי KPI, ניתוח הכנסות, אופטימיזציית מכירות, ניתוח Pipeline ואופטימיזציית עלויות, כל מה שצוות ההנהלה שלכם צריך כדי לקבל החלטות חכמות, מהר.',
     '.service-card:nth-of-type(2) h3': 'תוכניות עסקיות ומצגות משקיעים',
-    '.service-card:nth-of-type(2) p': 'מגייסים סבב ראשון או שני? אנחנו בונים את הסיפור הפיננסי שלכם מאפס: תוכנית עסקית מוצקה, מודל פיננסי מבוסס, ומצגת משקיעים בשפה שהמשקיעים מצפים לה. מהנחות יסוד ועד תחזיות — אנחנו דואגים שהמספרים שלכם יספרו סיפור משכנע ואמין.',
+    '.service-card:nth-of-type(2) p': 'מגייסים סבב ראשון או שני? אנחנו בונים את הסיפור הפיננסי שלכם מאפס: תוכנית עסקית מוצקה, מודל פיננסי מבוסס, ומצגת משקיעים בשפה שהמשקיעים מצפים לה. מהנחות יסוד ועד תחזיות, אנחנו דואגים שהמספרים שלכם יספרו סיפור משכנע ואמין.',
     '.service-card:nth-of-type(3) h3': 'ניהול ספקים (AP)',
     '.service-card:nth-of-type(3) p': 'ניהול מחזור AP מלא לחברות טכנולוגיה בצמיחה מהירה. הקמת ספקים, עיבוד חשבוניות, סבבי תשלום, התאמות ואינטגרציות מערכת (NetSuite, Tipalti, Sage Intacct). תפעול פיננסי אמין, מוכן לביקורת, שצומח יחד עם העסק.',
     '.service-card:nth-of-type(4) h3': 'M&A ומוכנות לרכישה',
@@ -988,13 +995,13 @@ const I18N = {
     '.about .section-title': 'פיננסים בקצב שלכם',
     '.about-intro': 'ב-BoWave אנחנו מאמינים שפיננסים צריכים להניע צמיחה, לא להאט אותה. אנחנו משלבים מומחיות עמוקה ב-FP&A עם כלים מודרניים ושותפות מעשית כדי להעניק לסטארטאפים ולחברות צומחות את הבהירות הפיננסית שהם צריכים כדי לזוז מהר ולקבל החלטות חכמות.',
     '.principle-card:nth-of-type(1) h4': 'יותר עם פחות',
-    '.principle-card:nth-of-type(1) p': 'אנחנו לא מאמינים בלבזבז שעות אינסופיות על בעיה. אנחנו מאמינים בעבודה חכמה — שימוש בכלי AI, אוטומציה ותהליכי עבודה מודרניים כדי לספק תוצאות טובות יותר בפחות זמן.',
+    '.principle-card:nth-of-type(1) p': 'אנחנו לא מאמינים בלבזבז שעות אינסופיות על בעיה. אנחנו מאמינים בעבודה חכמה, שימוש בכלי AI, אוטומציה ותהליכי עבודה מודרניים כדי לספק תוצאות טובות יותר בפחות זמן.',
     '.principle-card:nth-of-type(2) h4': 'לעולם לא על טייס אוטומטי',
-    '.principle-card:nth-of-type(2) p': 'לא עושים העתק-הדבק חודש אחר חודש. לא "אותו דוח, תאריך אחר". כל מחזור הוא הזדמנות לחשוב מחדש, לבנות מחדש ולשפר. אם משהו יכול להיעשות טוב יותר — אנחנו מוצאים את הדרך.',
+    '.principle-card:nth-of-type(2) p': 'לא עושים העתק-הדבק חודש אחר חודש. לא "אותו דוח, תאריך אחר". כל מחזור הוא הזדמנות לחשוב מחדש, לבנות מחדש ולשפר. אם משהו יכול להיעשות טוב יותר, אנחנו מוצאים את הדרך.',
     '.principle-card:nth-of-type(3) h4': 'צד בצד עם ההנהלה',
     '.principle-card:nth-of-type(3) p': 'אנחנו עובדים צד בצד עם מנכ"לים, סמנכ"לים ובעלי תקציב, מתרגמים מספרים להחלטות, מחברים בין הפיננסים לעסק, ודואגים שכל בעל עניין יראה את התמונה המלאה.',
     '.principle-card:nth-of-type(4) h4': 'תמיד מתפתחים',
-    '.principle-card:nth-of-type(4) p': 'כלים חדשים, שיטות חדשות, חשיבה חדשה. אנחנו תמיד מחפשים את הדבר הבא — בין אם זה כלי AI שחותך זמן מודלינג בחצי, או דרך חדשה להציג נתונים לדירקטוריון.',
+    '.principle-card:nth-of-type(4) p': 'כלים חדשים, שיטות חדשות, חשיבה חדשה. אנחנו תמיד מחפשים את הדבר הבא, בין אם זה כלי AI שחותך זמן מודלינג בחצי, או דרך חדשה להציג נתונים לדירקטוריון.',
     '.how-we-work .section-label': 'איך אנחנו עובדים',
     '.how-we-work .section-title': 'גמישות מובנית',
     '.how-card:nth-of-type(1) h3': 'שעות ייעוץ',
@@ -1015,13 +1022,13 @@ const I18N = {
     '.leadership-bg .section-label': 'רקע ניהולי',
     '.leadership-bg .section-title': '15 שנות הובלת FP&A',
     '.leadership-sub': 'מתחילת הקריירה ועד רכישת Workday.',
-    '.leadership-card:nth-of-type(1) .leadership-tag': '2022–2025',
+    '.leadership-card:nth-of-type(1) .leadership-tag': '2022-2025',
     '.leadership-card:nth-of-type(1) .leadership-title': 'HiredScore <span class="leadership-acq">· נרכשה על ידי Workday</span>',
     '.leadership-card:nth-of-type(1) .leadership-role': 'מנהלת FP&A · SaaS לתחום HR-Tech',
-    '.leadership-card:nth-of-type(2) .leadership-tag': '2020–2022',
+    '.leadership-card:nth-of-type(2) .leadership-tag': '2020-2022',
     '.leadership-card:nth-of-type(2) .leadership-title': 'LOGZ.io',
     '.leadership-card:nth-of-type(2) .leadership-role': 'מנהלת FP&A · SaaS לתחום Cloud Observability',
-    '.leadership-card:nth-of-type(3) .leadership-tag': '2014–2019',
+    '.leadership-card:nth-of-type(3) .leadership-tag': '2014-2019',
     '.leadership-card:nth-of-type(3) .leadership-title': 'Kaltura <span class="leadership-acq">· זוכת פרס FP&A 2017</span>',
     '.leadership-card:nth-of-type(3) .leadership-role': 'מומחית FP&A ואנליסטית הכנסות · פלטפורמת וידאו',
     '.selected-work .section-label': 'עבודות נבחרות',
@@ -1103,7 +1110,18 @@ function toggleLang() {
   applyLang(cur === 'he' ? 'en' : 'he');
 }
 (function() {
+  // ?lang= wins, so a visitor arriving from the Hebrew landing page lands in Hebrew.
+  // Otherwise fall back to their saved choice. A first, direct visit stays English.
   const saved = localStorage.getItem('bowave_lang');
+  const fromUrl = new URLSearchParams(location.search).get('lang');
+  if (fromUrl === 'he' || fromUrl === 'en') {
+    applyLang(fromUrl);
+    // Inherited from the link, not chosen here, so it is not remembered.
+    // A later direct visit still opens in English.
+    if (saved === null) localStorage.removeItem('bowave_lang');
+    else localStorage.setItem('bowave_lang', saved);
+    return;
+  }
   if (saved === 'he') applyLang('he');
 })();
 </script>
